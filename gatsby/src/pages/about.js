@@ -14,10 +14,6 @@ const AboutPage = () => {
   );
 };
 
-const AboutContainer = styled(Page)`
-  display: flex;
-  justify-content: center;
-  width: 100%;
-`;
+const AboutContainer = styled(Page)``;
 
 export default AboutPage;

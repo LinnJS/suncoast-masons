@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import { Helmet } from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
 
@@ -37,7 +37,7 @@ const Layout = ({ children }) => {
           <ThemeProvider theme={isLightTheme ? theme.light : theme.dark}>
             <GlobalStyle />
             <Nav />
-            <>{children}</>
+            <ContentContainer>{children}</ContentContainer>
           </ThemeProvider>
         </div>
       )}
@@ -48,5 +48,10 @@ const Layout = ({ children }) => {
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
 };
+
+const ContentContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
 export default Layout;

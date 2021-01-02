@@ -1,4 +1,4 @@
 import GatsbyIcon from './icon.png';
-import GatsbyTech from './gatsby-tech.png';
+import checkerBackground from './checker-bg.jpeg';
 
-export { GatsbyIcon, GatsbyTech };
+export { GatsbyIcon, checkerBackground };
