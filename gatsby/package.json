@@ -1,20 +1,20 @@
 {
-  "name": "gatsby-scalable-starter",
-  "description": "Gatsby Scalable Starter, the starter with all the extras to quick start a scalable GatsbyJS application",
+  "name": "suncoast-masons-gatsby",
+  "description": "Gatsby Frontend for https://suncoastmasons.wordpress.com/",
   "version": "0.1.0",
-  "author": "Justin Linn <linnjsconsulting@gmail.com>",
+  "author": "TypeWork <hellotypeworks@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/LinnJS/gatsby-scalable-starter"
+    "url": "https://suncoastmasons.com"
   },
   "keywords": [
-    "gatsby",
-    "storybook",
-    "styled-components",
-    "reset-css",
-    "eslint",
-    "netlify",
+    "mason",
+    "suncoast",
+    "freemasons",
+    "suncoastmasons",
+    "florida",
+    "",
     "scalable",
     "absolute imports"
   ],
