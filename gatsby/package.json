@@ -13,10 +13,7 @@
     "suncoast",
     "freemasons",
     "suncoastmasons",
-    "florida",
-    "",
-    "scalable",
-    "absolute imports"
+    "florida"
   ],
   "scripts": {
     "start": "gatsby develop -H 0.0.0.0",
@@ -36,6 +33,7 @@
     }
   },
   "dependencies": {
+    "@sanity/block-content-to-react": "^2.0.7",
     "gatsby": "^2.29.3",
     "gatsby-image": "^2.8.0",
     "gatsby-plugin-manifest": "^2.9.1",
@@ -45,13 +43,14 @@
     "gatsby-plugin-sharp": "^2.11.2",
     "gatsby-plugin-styled-components": "^3.7.0",
     "gatsby-source-filesystem": "^2.8.1",
+    "gatsby-source-sanity": "^6.0.4",
     "gatsby-transformer-sharp": "^2.9.0",
+    "normalize.css": "^8.0.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
-    "styled-components": "^5.2.1",
-    "styled-reset-advanced": "^1.0.1"
+    "styled-components": "^5.2.1"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^6.1.11",

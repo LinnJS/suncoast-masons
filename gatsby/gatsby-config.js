@@ -1,18 +1,34 @@
+/* eslint-disable node/no-path-concat */
+
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Scalable Starter',
+    title: 'Suncoast Masons',
   },
   plugins: [
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'Gatsby Scalable Starter',
-        short_name: 'Gatsby Scalable',
+        name: 'Suncoast Masons',
+        short_name: 'Suncoast Masons',
         start_url: '/',
-        background_color: '#ffffff',
-        theme_color: '#744C9E',
+        background_color: '#fff9a0',
+        theme_color: '#131b71',
         display: 'standalone',
         icon: 'src/assets/images/icon.png',
+      },
+    },
+    {
+      resolve: `gatsby-source-sanity`,
+      options: {
+        projectId: `aljo8d2t`,
+        dataset: `production`,
+        // a token with read permissions is required
+        // if you have a private dataset
+        token: process.env.SANITY_TOKEN,
+
+        // these must be set to true for sanity preview
+        watchMode: process.env.NODE_ENV === 'development',
+        overlayDrafts: process.env.NODE_ENV === 'development',
       },
     },
     {
