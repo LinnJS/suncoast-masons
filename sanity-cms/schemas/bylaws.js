@@ -18,5 +18,10 @@ export default {
       title: "Body",
       type: "blockContent",
     },
+    {
+      name: "file",
+      title: "By Laws PDF",
+      type: "file",
+    },
   ],
 };
