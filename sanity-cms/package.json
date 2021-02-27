@@ -10,7 +10,9 @@
     "start": "sanity start",
     "build": "sanity build",
     "lint:fix": "yarn prettier --write .",
-    "postinstall": "husky install"
+    "deploy": "sanity deploy",
+    "deploy:graphql": "sanity graphql deploy",
+    "deploy:all": "yarn deploy && yarn deploy:graphql"
   },
   "keywords": [
     "sanity"
