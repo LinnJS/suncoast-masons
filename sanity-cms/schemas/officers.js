@@ -1,5 +1,3 @@
-// import emailPattern from "../utils/emailPattern";
-
 export default {
   name: 'officers',
   title: 'Officers',

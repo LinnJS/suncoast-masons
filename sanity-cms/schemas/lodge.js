@@ -33,10 +33,14 @@ export default {
       type: 'urlField',
     },
     {
+      name: 'email',
+      title: 'Email',
+      type: 'emailField',
+    },
+    {
       name: 'statedCommunication',
       title: 'Stated communication',
       type: 'string',
-      validation: (Rule) => Rule.required(),
     },
   ],
   preview: {

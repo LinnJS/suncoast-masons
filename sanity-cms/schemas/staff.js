@@ -21,6 +21,7 @@ export default {
       name: 'email',
       title: 'Email',
       type: 'emailField',
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'phone',
