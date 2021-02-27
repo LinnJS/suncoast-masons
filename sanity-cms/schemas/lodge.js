@@ -1,47 +1,47 @@
 // import emailPattern from "../utils/emailPattern";
 
 export default {
-  name: "lodge",
-  title: "Lodges",
-  type: "document",
+  name: 'lodge',
+  title: 'Lodges',
+  type: 'document',
   fields: [
     {
-      name: "name",
-      title: "Lodge name",
-      type: "string",
+      name: 'name',
+      title: 'Lodge name',
+      type: 'string',
       validation: (Rule) => Rule.required(),
     },
     {
-      name: "address",
-      title: "Lodge address",
-      type: "addressField",
+      name: 'address',
+      title: 'Lodge address',
+      type: 'addressField',
       validation: (Rule) => Rule.required(),
     },
     {
-      name: "postalAddress",
-      title: "Postal address",
-      type: "addressField",
+      name: 'postalAddress',
+      title: 'Postal address',
+      type: 'addressField',
     },
     {
-      name: "phone",
-      title: "Phone number",
-      type: "phoneField",
+      name: 'phone',
+      title: 'Phone number',
+      type: 'phoneField',
     },
     {
-      name: "website",
-      title: "Website URL",
-      type: "urlField",
+      name: 'website',
+      title: 'Website URL',
+      type: 'urlField',
     },
     {
-      name: "statedCommunication",
-      title: "Stated communication",
-      type: "string",
+      name: 'statedCommunication',
+      title: 'Stated communication',
+      type: 'string',
       validation: (Rule) => Rule.required(),
     },
   ],
   preview: {
     select: {
-      title: "name",
+      title: 'name',
     },
   },
 };

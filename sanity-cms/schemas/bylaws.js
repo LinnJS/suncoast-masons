@@ -1,27 +1,27 @@
 export default {
-  name: "bylaws",
-  title: "By Laws",
-  type: "document",
+  name: 'bylaws',
+  title: 'By Laws',
+  type: 'document',
   fields: [
     {
-      name: "title",
-      title: "Title",
-      type: "string",
+      name: 'title',
+      title: 'Title',
+      type: 'string',
     },
     {
-      name: "publishedAt",
-      title: "Published at",
-      type: "date",
+      name: 'publishedAt',
+      title: 'Published at',
+      type: 'date',
     },
     {
-      name: "body",
-      title: "Body",
-      type: "blockContent",
+      name: 'body',
+      title: 'Body',
+      type: 'blockContent',
     },
     {
-      name: "file",
-      title: "By Laws PDF",
-      type: "file",
+      name: 'file',
+      title: 'By Laws PDF',
+      type: 'file',
     },
   ],
 };

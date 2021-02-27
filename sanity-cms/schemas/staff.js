@@ -1,43 +1,43 @@
 // import emailPattern from "../utils/emailPattern";
 
 export default {
-  name: "staff",
-  title: "Staff",
-  type: "document",
+  name: 'staff',
+  title: 'Staff',
+  type: 'document',
   fields: [
     {
-      name: "name",
-      title: "Full name",
-      type: "string",
+      name: 'name',
+      title: 'Full name',
+      type: 'string',
       validation: (Rule) => Rule.required(),
     },
     {
-      name: "title",
-      title: "Title",
-      description: "Title or job of committee member",
-      type: "string",
+      name: 'title',
+      title: 'Title',
+      description: 'Title or job of committee member',
+      type: 'string',
     },
     {
-      name: "email",
-      title: "Email",
-      type: "emailField",
+      name: 'email',
+      title: 'Email',
+      type: 'emailField',
     },
     {
-      name: "phone",
-      title: "Phone",
-      description: "Phone number with area code",
-      type: "phoneField",
+      name: 'phone',
+      title: 'Phone',
+      description: 'Phone number with area code',
+      type: 'phoneField',
     },
     {
-      name: "lectures",
-      title: "Lectures",
-      description: "Comma separated list of qualified lectures ",
-      type: "string",
+      name: 'lectures',
+      title: 'Lectures',
+      description: 'Comma separated list of qualified lectures ',
+      type: 'string',
     },
     {
-      name: "headshot",
-      title: "Head shot ",
-      type: "image",
+      name: 'headshot',
+      title: 'Head shot ',
+      type: 'image',
       options: {
         hotspot: true,
       },
@@ -45,8 +45,8 @@ export default {
   ],
   preview: {
     select: {
-      title: "name",
-      image: "headshot",
+      title: 'name',
+      image: 'headshot',
     },
   },
 };
