@@ -16,6 +16,13 @@ export default createGlobalStyle`
     font-weight: 500;
     overflow-x: hidden;
     background-image: url(${checkerBackground});
+  }
 
+  a {
+    color: blue;
+
+    &:visited {
+      color: blue;
+    }
   }
 `;

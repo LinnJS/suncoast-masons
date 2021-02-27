@@ -19,10 +19,13 @@ const Nav = () => {
 };
 
 const NavContainer = styled.nav`
+  position: fixed;
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100%;
-  background-color: cornflowerblue;
+  background-color: white;
+  height: 75px;
 
   ul {
     display: flex;
@@ -33,6 +36,15 @@ const NavContainer = styled.nav`
     li {
       list-style: none;
       margin-right: 10px;
+    }
+  }
+
+  a {
+    color: blue;
+    text-decoration: none;
+
+    &:visited {
+      color: blue;
     }
   }
 `;
