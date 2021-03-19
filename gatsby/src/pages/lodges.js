@@ -109,7 +109,9 @@ const LodgesPage = ({ data }) => {
 
 LodgesPage.propTypes = {
   data: PropTypes.shape({
-    lodges: PropTypes.array,
+    lodges: PropTypes.shape({
+      nodes: PropTypes.array,
+    }),
   }),
 };
 

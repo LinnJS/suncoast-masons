@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import normalize from 'normalize.css';
+import { normalize } from 'styled-normalize';
 
 import checkerBackground from '../assets/images/checker-bg.jpeg';
 
@@ -9,6 +9,11 @@ export default createGlobalStyle`
   html {
     overflow-x: hidden;
     background: ${({ theme }) => theme.background};
+    box-sizing: border-box;
+  }
+
+  *, *:before, *:after {
+    box-sizing: inherit;
   }
 
   body {
