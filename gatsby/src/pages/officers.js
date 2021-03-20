@@ -23,7 +23,7 @@ export const query = graphql`
 
 const OfficersPage = ({ data }) => {
   const officers = data.officers.nodes[0].officers;
-  console.log('officers: ', officers);
+
   return (
     <Layout>
       <OfficersContainer>
