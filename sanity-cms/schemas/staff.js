@@ -12,10 +12,10 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
-      name: 'categories',
-      title: 'Categories',
+      name: 'lodge',
+      title: 'Lodge',
       type: 'array',
-      of: [{ type: 'reference', to: { type: 'category' } }],
+      of: [{ type: 'reference', to: { type: 'lodge' } }],
     },
     {
       name: 'title',
@@ -34,6 +34,12 @@ export default {
       title: 'Phone',
       description: 'Phone number with area code',
       type: 'phoneField',
+    },
+    {
+      name: 'categories',
+      title: 'Categories',
+      type: 'array',
+      of: [{ type: 'reference', to: { type: 'category' } }],
     },
     {
       name: 'lectures',
