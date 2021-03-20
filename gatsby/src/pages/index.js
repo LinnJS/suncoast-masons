@@ -31,7 +31,7 @@ export const query = graphql`
 
 const LandingPage = ({ data: { articlesSortedByPublishedDate } }) => {
   const articles = articlesSortedByPublishedDate.nodes;
-  console.log('articles: ', articles);
+
   return (
     <Layout>
       <HomeContainer>

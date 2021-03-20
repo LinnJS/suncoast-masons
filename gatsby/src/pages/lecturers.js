@@ -22,7 +22,7 @@ export const query = graphql`
 
 const LecturersPage = ({ data }) => {
   const lecturers = data.lecturers.nodes;
-  console.log('lecturers: ', lecturers);
+
   return (
     <Layout>
       <LecturersContainer>
