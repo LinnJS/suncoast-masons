@@ -11,7 +11,7 @@ const AboutPage = () => {
   return (
     <Layout>
       <AboutContainer>
-        <h1>About</h1>
+        <h2>About</h2>
         {/* TODO: put this data into CMS */}
         <p>
           The Suncoast Master Mason Association is an organization of Master Masons who are members of regular Lodges in
@@ -30,6 +30,10 @@ const AboutPage = () => {
           </a>
           . Our mailing address is P.O. Box 1738, Oldsmar, FL 34677.
         </p>
+
+        <h3>Forms</h3>
+        <h3>By laws</h3>
+        <h3>Gavel rules</h3>
       </AboutContainer>
     </Layout>
   );

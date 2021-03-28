@@ -3,7 +3,7 @@ import devices from 'utils/devices';
 
 const Page = styled.div`
   display: flex;
-  width: 95%;
+  width: 80%;
   background-color: #fff;
   min-height: 90vh;
   padding: 20px;
@@ -14,11 +14,11 @@ const Page = styled.div`
     rgba(0, 0, 0, 0.12) 0px 1px 8px 0;
 
   @media (${devices.mobileL}) {
-    width: 90%;
+    width: 70%;
   }
 
   @media (${devices.laptop}) {
-    width: 80%;
+    width: 60%;
   }
 `;
 

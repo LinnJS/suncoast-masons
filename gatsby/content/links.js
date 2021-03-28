@@ -20,10 +20,6 @@ const links = [
     link: 'committeemen',
   },
   {
-    name: 'Lecturers',
-    link: 'lecturers',
-  },
-  {
     name: 'Lodges',
     link: 'lodges',
   },
