@@ -8,10 +8,6 @@ const links = [
     link: 'about',
   },
   {
-    name: 'By laws',
-    link: 'by-laws',
-  },
-  {
     name: 'Calendar',
     link: 'calendar',
   },

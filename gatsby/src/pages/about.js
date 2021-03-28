@@ -1,13 +1,29 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
-// import { graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 
 import Page from 'global/Page';
 import Layout from 'global/Layout';
 
-// export const query = graphql``;
+export const query = graphql`
+  query AboutQuery {
+    byLaws: allSanityBylaws(sort: { fields: publishedAt, order: DESC }, limit: 1) {
+      nodes {
+        id
+        title
+        file {
+          asset {
+            size
+            url
+          }
+        }
+      }
+    }
+  }
+`;
 
-const AboutPage = () => {
+const AboutPage = ({ data: { byLaws } }) => {
   return (
     <Layout>
       <AboutContainer>
@@ -32,13 +48,44 @@ const AboutPage = () => {
         </p>
 
         <h3>Forms</h3>
+
         <h3>By laws</h3>
+        <ul className="bylaws">
+          {byLaws.nodes.map((byLaw) => {
+            return (
+              <li key={byLaw.id}>
+                <a href={byLaw.file.asset.url} target="_blank" rel="noreferrer noopener">
+                  {byLaw.title}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+
         <h3>Gavel rules</h3>
       </AboutContainer>
     </Layout>
   );
 };
 
-const AboutContainer = styled(Page)``;
+AboutPage.propTypes = {
+  data: PropTypes.shape({
+    byLaws: PropTypes.shape({
+      nodes: PropTypes.array,
+    }),
+  }),
+};
+
+const AboutContainer = styled(Page)`
+  box-sizing: content-box;
+
+  .bylaws {
+    padding: 0;
+    margin: 0;
+    li {
+      list-style: none;
+    }
+  }
+`;
 
 export default AboutPage;
