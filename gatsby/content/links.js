@@ -20,18 +20,6 @@ const links = [
     link: 'committeemen',
   },
   {
-    name: 'DDGM / DI',
-    link: 'ddgms-dis',
-  },
-  {
-    name: 'Forms',
-    link: 'forms',
-  },
-  {
-    name: 'Gavel Rules',
-    link: 'minutes-rules',
-  },
-  {
     name: 'Lecturers',
     link: 'lecturers',
   },
