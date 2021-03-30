@@ -12,10 +12,6 @@ const links = [
     link: 'calendar',
   },
   {
-    name: 'Committeemen',
-    link: 'committeemen',
-  },
-  {
     name: 'Lodges',
     link: 'lodges',
   },

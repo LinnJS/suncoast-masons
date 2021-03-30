@@ -19,6 +19,20 @@ export const query = graphql`
       }
     }
 
+    committee: allSanityCommittee {
+      nodes {
+        id
+        name
+        committeemen {
+          id
+          name
+          title
+          email
+          phone
+        }
+      }
+    }
+
     lecturers: allSanityStaff(filter: { lectures: { ne: null } }) {
       nodes {
         id
@@ -35,10 +49,14 @@ export const query = graphql`
 const OfficersPage = ({ data }) => {
   const officers = data.officers.nodes[0].officers;
   const lecturers = data.lecturers.nodes;
+  const firstCommittee = data.committee.nodes[0].committeemen;
 
   return (
     <Layout>
       <OfficersContainer>
+        <h2>DDGM/DI</h2>
+        {/* TODO */}
+
         <h2>Officers</h2>
         {officers.map(({ id, name, title, phone, email }) => {
           return (
@@ -51,13 +69,23 @@ const OfficersPage = ({ data }) => {
           );
         })}
 
-        <h3>DDGM/DI</h3>
-        {/* TODO */}
+        <h2>Committeemen</h2>
+        <div className="committeemen-container">
+          {firstCommittee.map((committeemen) => {
+            const { id, name, title, email, phone } = committeemen;
 
-        <h3>Committeemen</h3>
-        {/* TODO */}
+            return (
+              <div className="committeemen" key={id}>
+                <span>{name}</span>
+                <span>{title}</span>
+                <span>{email}</span>
+                <span>{phone}</span>
+              </div>
+            );
+          })}
+        </div>
 
-        <h3>Lecturers</h3>
+        <h2>Lecturers</h2>
         {lecturers.map(({ id, name, title, phone, email, lectures }) => {
           return (
             <div className="lecturer" key={id}>
@@ -82,6 +110,17 @@ const OfficersContainer = styled(Page)`
     display: flex;
     flex-direction: column;
     margin: 20px;
+  }
+
+  .committeemen-container {
+    display: flex;
+    flex-wrap: wrap;
+
+    .committeemen {
+      display: flex;
+      flex-direction: column;
+      margin: 30px;
+    }
   }
 
   .lecturer {
