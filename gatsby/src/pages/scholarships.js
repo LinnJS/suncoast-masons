@@ -1,12 +1,30 @@
 import React, { useMemo } from 'react';
 import styled from 'styled-components';
+import { graphql } from 'gatsby';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 import Page from 'global/Page';
 import Layout from 'global/Layout';
 import PastRecipientsTable from '../components/scholarships/PastRecipientsTable';
 import PastRecipientsData from '../../content/scholarships-recipients';
 
-const ScholarshipsPage = () => {
+export const query = graphql`
+  query ScholarshipsPageQuery {
+    photo1: file(name: { eq: "scholarships-1" }) {
+      childImageSharp {
+        gatsbyImageData(layout: FIXED)
+      }
+    }
+
+    photo2: file(name: { eq: "scholarships-obrien" }) {
+      childImageSharp {
+        gatsbyImageData(layout: FIXED)
+      }
+    }
+  }
+`;
+
+const ScholarshipsPage = ({ data: { photo1, photo2 } }) => {
   const { columns, data } = PastRecipientsData;
   const tableColumns = useMemo(() => columns, []);
   const tableData = useMemo(() => data, []);
@@ -14,21 +32,21 @@ const ScholarshipsPage = () => {
   return (
     <Layout>
       <ScholarshipsContainer>
-        <section>
+        <section className="intro">
           <h2>SCHOLARSHIPS</h2>
-          <p>WILLIAM S. O’BRIEN MEMORIAL MASONIC SCHOLARSHIP</p>
+          <h3>WILLIAM S. O’BRIEN MEMORIAL MASONIC SCHOLARSHIP</h3>
 
-          {/* TODO Add photo */}
+          <GatsbyImage image={photo1.childImageSharp.gatsbyImageData} />
 
           <em>Sponsored by</em>
-          <h3>SUNCOAST MASTER MASON ASSOCIATION</h3>
+          <h4>SUNCOAST MASTER MASON ASSOCIATION</h4>
           <p>A not-for-profit organization serving Masonic Lodges in the 18th Masonic District of Florida.</p>
         </section>
 
-        <section>
+        <section className="obrien">
           <h2>WILLIAM S. O’BRIEN</h2>
 
-          {/* TODO add photo */}
+          <GatsbyImage image={photo2.childImageSharp.gatsbyImageData} />
 
           <p>
             The Association’s Scholarship is named after William (Bill) S. O’Brien who founded the Scholarship Committee
@@ -41,7 +59,7 @@ const ScholarshipsPage = () => {
 
         <PastRecipientsTable columns={tableColumns} data={tableData} />
 
-        <section>
+        <section className="rules">
           <h2>Suncoast Master Mason Association</h2>
           <h3>William S. O’Brien Memorial Masonic Scholarship</h3>
 
@@ -106,6 +124,56 @@ const ScholarshipsPage = () => {
   );
 };
 
-const ScholarshipsContainer = styled(Page)``;
+const ScholarshipsContainer = styled(Page)`
+  align-items: center;
+  justify-content: center;
+
+  .intro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    h3 {
+      margin-top: 0;
+    }
+
+    em {
+      margin-top: 20px;
+    }
+  }
+
+  .obrien {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .rules {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    h2,
+    h3,
+    h4 {
+      text-align: center;
+      font-weight: bold;
+    }
+
+    h2 {
+      margin-top: 40px;
+    }
+
+    h3 {
+      margin-top: 0;
+    }
+
+    span {
+      font-weight: bold;
+    }
+  }
+`;
 
 export default ScholarshipsPage;

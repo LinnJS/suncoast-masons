@@ -26,6 +26,7 @@ const NavContainer = styled.nav`
   width: 100%;
   background-color: white;
   height: 75px;
+  z-index: 10;
 
   ul {
     display: flex;
