@@ -1,11 +1,11 @@
 const columns = [
   {
-    Header: 'Year',
-    accessor: 'year',
-  },
-  {
     Header: 'Full name',
     accessor: 'fullName',
+  },
+  {
+    Header: 'Year',
+    accessor: 'year',
   },
   {
     Header: 'School',

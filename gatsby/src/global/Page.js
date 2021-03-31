@@ -3,7 +3,7 @@ import devices from 'utils/devices';
 
 const Page = styled.div`
   display: flex;
-  width: 80%;
+  width: 85%;
   background-color: #fff;
   min-height: 90vh;
   padding: 20px;
