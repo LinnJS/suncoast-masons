@@ -43,6 +43,12 @@ export default {
       type: 'datetime',
     },
     {
+      name: 'eventDatetime',
+      title: 'Event date and time',
+      type: 'datetime',
+      // hidden: ({article}) => article.category !== 'event'
+    },
+    {
       name: 'body',
       title: 'Body',
       type: 'blockContent',

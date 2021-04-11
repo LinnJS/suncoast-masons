@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Link } from 'primitives';
 import links from '../../content/links';
 
-const Nav = () => {
+const Navigation = () => {
   return (
     <NavContainer>
       <ul>
@@ -26,6 +26,7 @@ const NavContainer = styled.nav`
   width: 100%;
   background-color: white;
   height: 75px;
+  z-index: 10;
 
   ul {
     display: flex;
@@ -49,4 +50,4 @@ const NavContainer = styled.nav`
   }
 `;
 
-export default Nav;
+export default Navigation;

@@ -12,6 +12,12 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: 'lodge',
+      title: 'Lodge',
+      type: 'array',
+      of: [{ type: 'reference', to: { type: 'lodge' } }],
+    },
+    {
       name: 'title',
       title: 'Title',
       description: 'Title or job of committee member',
@@ -30,10 +36,17 @@ export default {
       type: 'phoneField',
     },
     {
+      name: 'categories',
+      title: 'Categories',
+      type: 'array',
+      of: [{ type: 'reference', to: { type: 'category' } }],
+    },
+    {
       name: 'lectures',
       title: 'Lectures',
       description: 'Comma separated list of qualified lectures ',
       type: 'string',
+      hidden: props => console.log({props}),
     },
     {
       name: 'headshot',
