@@ -59,6 +59,7 @@ const ScholarshipsPage = ({ data: { photo1, photo2 } }) => {
         </section>
 
         <PastRecipientsTable columns={tableColumns} data={tableData} />
+
         <ScholarshipsRules />
       </ScholarshipsContainer>
     </Layout>

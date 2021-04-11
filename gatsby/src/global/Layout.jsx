@@ -6,7 +6,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 
 import theme from 'global/theme';
 import GlobalStyle from './GlobalStyle';
-import Nav from './Nav';
+import Navigation from './Navigation';
 
 const Layout = ({ children }) => {
   const [isLightTheme] = useState(true);
@@ -35,7 +35,7 @@ const Layout = ({ children }) => {
       </Helmet>
       <ThemeProvider theme={isLightTheme ? theme.light : theme.dark}>
         <GlobalStyle />
-        <Nav />
+        <Navigation />
         <ContentContainer>{children}</ContentContainer>
       </ThemeProvider>
     </>
