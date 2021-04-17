@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
 import BlockContent from '@sanity/block-content-to-react';
@@ -47,6 +48,14 @@ const LandingPage = ({ data: { articlesSortedByPublishedDate } }) => {
       </HomeContainer>
     </Layout>
   );
+};
+
+LandingPage.propTypes = {
+  data: PropTypes.shape({
+    articlesSortedByPublishedDate: PropTypes.shape({
+      nodes: PropTypes.array,
+    }),
+  }),
 };
 
 const HomeContainer = styled(Page)`

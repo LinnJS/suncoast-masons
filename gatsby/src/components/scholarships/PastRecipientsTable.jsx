@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { useTable } from 'react-table';
 
 const PastRecipientsTable = ({ columns, data }) => {
@@ -13,10 +14,12 @@ const PastRecipientsTable = ({ columns, data }) => {
       <h2>Past Recipients</h2>
       <table {...getTableProps()}>
         <thead>
-          {headerGroups.map((headerGroup) => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
+          {headerGroups.map((headerGroup, idx) => (
+            <tr key={`thead-row-${idx}`} {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => (
-                <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+                <th key={`thead-head-${idx}`} {...column.getHeaderProps()}>
+                  {column.render('Header')}
+                </th>
               ))}
             </tr>
           ))}
@@ -26,9 +29,13 @@ const PastRecipientsTable = ({ columns, data }) => {
           {rows.map((row, idx) => {
             prepareRow(row);
             return (
-              <tr {...row.getRowProps()}>
+              <tr key={`tbody-row-${idx}`} {...row.getRowProps()}>
                 {row.cells.map((cell) => {
-                  return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>;
+                  return (
+                    <td key={`tbody-cell-${idx}`} {...cell.getCellProps()}>
+                      {cell.render('Cell')}
+                    </td>
+                  );
                 })}
               </tr>
             );
@@ -37,6 +44,11 @@ const PastRecipientsTable = ({ columns, data }) => {
       </table>
     </TableContainer>
   );
+};
+
+PastRecipientsTable.propTypes = {
+  columns: PropTypes.array,
+  data: PropTypes.array,
 };
 
 const TableContainer = styled.section`

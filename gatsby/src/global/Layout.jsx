@@ -7,6 +7,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import theme from 'global/theme';
 import GlobalStyle from './GlobalStyle';
 import Navigation from './Navigation';
+import Header from './Header';
 
 const Layout = ({ children }) => {
   const [isLightTheme] = useState(true);
@@ -36,7 +37,10 @@ const Layout = ({ children }) => {
       <ThemeProvider theme={isLightTheme ? theme.light : theme.dark}>
         <GlobalStyle />
         <Navigation />
-        <ContentContainer>{children}</ContentContainer>
+        <ContentContainer>
+          <Header />
+          {children}
+        </ContentContainer>
       </ThemeProvider>
     </>
   );
@@ -48,6 +52,8 @@ Layout.propTypes = {
 
 const ContentContainer = styled.div`
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   padding-top: 75px;
 `;

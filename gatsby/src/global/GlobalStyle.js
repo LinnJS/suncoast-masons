@@ -1,7 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
 
-import checkerBackground from '../assets/images/checker-bg.jpeg';
 import bg from '../assets/svgs/bg.svg';
 
 export default createGlobalStyle`

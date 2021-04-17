@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
 import Page from 'global/Page';
@@ -100,6 +101,20 @@ const OfficersPage = ({ data }) => {
       </OfficersContainer>
     </Layout>
   );
+};
+
+OfficersPage.propTypes = {
+  data: PropTypes.shape({
+    officers: PropTypes.shape({
+      nodes: PropTypes.array,
+    }),
+    lecturers: PropTypes.shape({
+      nodes: PropTypes.array,
+    }),
+    committee: PropTypes.shape({
+      nodes: PropTypes.array,
+    }),
+  }),
 };
 
 const OfficersContainer = styled(Page)`

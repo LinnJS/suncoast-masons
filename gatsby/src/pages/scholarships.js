@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
@@ -27,8 +28,8 @@ export const query = graphql`
 
 const ScholarshipsPage = ({ data: { photo1, photo2 } }) => {
   const { columns, data } = PastRecipientsData;
-  const tableColumns = useMemo(() => columns, []);
-  const tableData = useMemo(() => data, []);
+  const tableColumns = useMemo(() => columns, [columns]);
+  const tableData = useMemo(() => data, [data]);
 
   return (
     <Layout>
@@ -64,6 +65,13 @@ const ScholarshipsPage = ({ data: { photo1, photo2 } }) => {
       </ScholarshipsContainer>
     </Layout>
   );
+};
+
+ScholarshipsPage.propTypes = {
+  data: PropTypes.shape({
+    photo1: PropTypes.object,
+    photo2: PropTypes.object,
+  }),
 };
 
 const ScholarshipsContainer = styled(Page)`
