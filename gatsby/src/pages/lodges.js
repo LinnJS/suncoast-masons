@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
 import Page from 'global/Page';
-import Layout from 'global/Layout';
 
 export const query = graphql`
   query LogePageQuery {
@@ -41,69 +40,67 @@ const LodgesPage = ({ data }) => {
   const lodges = data.lodges.nodes;
 
   return (
-    <Layout>
-      <LodgesContainer>
-        <h1>Lodges</h1>
-        <div className="grid">
-          {lodges.map((lodge) => {
-            const address = lodge.address;
-            const postal = lodge.postalAddress;
-            const phoneString = String(lodge.phone);
-            const phoneLink = `tel:${phoneString.replace(/\D/g, '')}`;
+    <LodgesContainer>
+      <h1>Lodges</h1>
+      <div className="grid">
+        {lodges.map((lodge) => {
+          const address = lodge.address;
+          const postal = lodge.postalAddress;
+          const phoneString = String(lodge.phone);
+          const phoneLink = `tel:${phoneString.replace(/\D/g, '')}`;
 
-            return (
-              <section key={lodge.id}>
-                <h2>{lodge.name}</h2>
+          return (
+            <section key={lodge.id}>
+              <h2>{lodge.name}</h2>
 
-                <div className="address">
-                  <span>{address.street1}</span>
-                  {address.street2 && <span>{address.street2}</span>}
+              <div className="address">
+                <span>{address.street1}</span>
+                {address.street2 && <span>{address.street2}</span>}
+
+                <div>
+                  <span>{address.city}</span>
+                  <span>{address.state}</span>
+                  <span>{address.zipCode}</span>
+                </div>
+              </div>
+
+              {postal && (
+                <div className="postal">
+                  <span>{postal.street1}</span>
+                  {postal.street2 && <span>{postal.street2}</span>}
 
                   <div>
-                    <span>{address.city}</span>
-                    <span>{address.state}</span>
-                    <span>{address.zipCode}</span>
+                    <span>{postal.city}</span>
+                    <span>{postal.state}</span>
+                    <span>{postal.zipCode}</span>
                   </div>
                 </div>
+              )}
 
-                {postal && (
-                  <div className="postal">
-                    <span>{postal.street1}</span>
-                    {postal.street2 && <span>{postal.street2}</span>}
+              <a href={lodge.website} target="_blank" rel="noopener noreferrer">
+                {lodge.website}
+              </a>
 
-                    <div>
-                      <span>{postal.city}</span>
-                      <span>{postal.state}</span>
-                      <span>{postal.zipCode}</span>
-                    </div>
-                  </div>
-                )}
-
-                <a href={lodge.website} target="_blank" rel="noopener noreferrer">
-                  {lodge.website}
+              {lodge.phone && (
+                <a href={phoneLink} target="_blank" rel="noopener noreferrer">
+                  {lodge.phone}
                 </a>
+              )}
 
-                {lodge.phone && (
-                  <a href={phoneLink} target="_blank" rel="noopener noreferrer">
-                    {lodge.phone}
+              {lodge.email && (
+                <span>
+                  Email:
+                  <a href={`mailto:${lodge.email}`} target="_blank" rel="noopener noreferrer">
+                    {lodge.email}
                   </a>
-                )}
-
-                {lodge.email && (
-                  <span>
-                    Email:
-                    <a href={`mailto:${lodge.email}`} target="_blank" rel="noopener noreferrer">
-                      {lodge.email}
-                    </a>
-                  </span>
-                )}
-                {lodge.statedCommunication && <span>{lodge.statedCommunication}</span>}
-              </section>
-            );
-          })}
-        </div>
-      </LodgesContainer>
-    </Layout>
+                </span>
+              )}
+              {lodge.statedCommunication && <span>{lodge.statedCommunication}</span>}
+            </section>
+          );
+        })}
+      </div>
+    </LodgesContainer>
   );
 };
 

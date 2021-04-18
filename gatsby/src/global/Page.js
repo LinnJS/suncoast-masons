@@ -1,7 +1,23 @@
+// import React from 'react';
+// import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import devices from 'utils/devices';
+// import SideBar from './SideBar';
 
-const Page = styled.div`
+// const Page = ({ children }) => {
+//   return (
+//     <PageContainer>
+//       <SideBar />
+//       {children}
+//     </PageContainer>
+//   );
+// };
+
+// Page.propTypes = {
+//   children: PropTypes.element,
+// };
+
+const Page = styled.main`
   display: flex;
   width: 85%;
   background-color: #fff;

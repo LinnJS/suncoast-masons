@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
 import Page from 'global/Page';
-import Layout from 'global/Layout';
 
 export const query = graphql`
   query OfficersPageQuery {
@@ -53,53 +52,51 @@ const OfficersPage = ({ data }) => {
   const firstCommittee = data.committee.nodes[0].committeemen;
 
   return (
-    <Layout>
-      <OfficersContainer>
-        <h2>DDGM/DI</h2>
-        {/* TODO */}
+    <OfficersContainer>
+      <h2>DDGM/DI</h2>
+      {/* TODO */}
 
-        <h2>Officers</h2>
-        {officers.map(({ id, name, title, phone, email }) => {
+      <h2>Officers</h2>
+      {officers.map(({ id, name, title, phone, email }) => {
+        return (
+          <div className="officers" key={id}>
+            <span>{name}</span>
+            <span>{title}</span>
+            <span>{phone}</span>
+            <span>{email}</span>
+          </div>
+        );
+      })}
+
+      <h2>Committeemen</h2>
+      <div className="committeemen-container">
+        {firstCommittee.map((committeemen) => {
+          const { id, name, title, email, phone } = committeemen;
+
           return (
-            <div className="officers" key={id}>
+            <div className="committeemen" key={id}>
               <span>{name}</span>
               <span>{title}</span>
-              <span>{phone}</span>
               <span>{email}</span>
+              <span>{phone}</span>
             </div>
           );
         })}
+      </div>
 
-        <h2>Committeemen</h2>
-        <div className="committeemen-container">
-          {firstCommittee.map((committeemen) => {
-            const { id, name, title, email, phone } = committeemen;
-
-            return (
-              <div className="committeemen" key={id}>
-                <span>{name}</span>
-                <span>{title}</span>
-                <span>{email}</span>
-                <span>{phone}</span>
-              </div>
-            );
-          })}
-        </div>
-
-        <h2>Lecturers</h2>
-        {lecturers.map(({ id, name, title, phone, email, lectures }) => {
-          return (
-            <div className="lecturer" key={id}>
-              <span>{name}</span>
-              <span>{title}</span>
-              <span>{phone}</span>
-              <span>{email}</span>
-              <span>{lectures}</span>
-            </div>
-          );
-        })}
-      </OfficersContainer>
-    </Layout>
+      <h2>Lecturers</h2>
+      {lecturers.map(({ id, name, title, phone, email, lectures }) => {
+        return (
+          <div className="lecturer" key={id}>
+            <span>{name}</span>
+            <span>{title}</span>
+            <span>{phone}</span>
+            <span>{email}</span>
+            <span>{lectures}</span>
+          </div>
+        );
+      })}
+    </OfficersContainer>
   );
 };
 

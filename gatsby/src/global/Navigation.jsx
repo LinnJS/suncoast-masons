@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { Link } from 'primitives';
-import links from '../../content/links';
+import links from '../../content/navLinks';
 
 const Navigation = () => {
   return (
