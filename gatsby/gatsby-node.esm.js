@@ -3,7 +3,7 @@
  *
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
-
+// external imports
 const path = require('path');
 
 // enables absolute imports

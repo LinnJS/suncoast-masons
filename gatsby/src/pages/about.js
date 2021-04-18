@@ -1,8 +1,10 @@
+// external imports
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
 
+// internal imports
 import Page from 'global/Page';
 
 export const query = graphql`

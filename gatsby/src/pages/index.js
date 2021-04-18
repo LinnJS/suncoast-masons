@@ -1,9 +1,11 @@
+// external imports
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
 import BlockContent from '@sanity/block-content-to-react';
 
+// internal imports
 import Page from 'global/Page';
 
 export const query = graphql`
@@ -36,11 +38,11 @@ const LandingPage = ({ data: { articlesSortedByPublishedDate } }) => {
     <HomeContainer>
       {articles.map(({ id, title, body }) => {
         return (
-          <di key={id} className="article">
+          <article key={id}>
             <h3>{title}</h3>
 
             {body && <BlockContent className="body" blocks={body} />}
-          </di>
+          </article>
         );
       })}
     </HomeContainer>
@@ -56,7 +58,7 @@ LandingPage.propTypes = {
 };
 
 const HomeContainer = styled(Page)`
-  .article {
+  article {
     width: 100%;
     border: black solid;
     margin-bottom: 20px;

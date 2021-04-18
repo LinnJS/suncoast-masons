@@ -1,6 +1,8 @@
+// external imports
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
 
+// internal imports
 import bg from '../assets/svgs/bg.svg';
 
 export default createGlobalStyle`
@@ -25,6 +27,11 @@ export default createGlobalStyle`
 
   a {
     color: blue;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
 
     &:visited {
       color: blue;

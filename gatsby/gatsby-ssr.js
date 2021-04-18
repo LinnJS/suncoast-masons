@@ -3,10 +3,12 @@
 /**
  * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
  *
- * See: https://www.gatsbyjs.org/docs/ssr-apis/
- */
+ * See: https://www.gatsbyjs.org/docs/ssr-apis/ */
 
+// external imports
 const React = require('react');
+
+// internal imports
 const Layout = require('./src/global/Layout.jsx').default;
 
 exports.wrapPageElement = ({ element, props }) => {

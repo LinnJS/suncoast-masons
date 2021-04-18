@@ -1,9 +1,11 @@
+// external imports
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled, { ThemeProvider } from 'styled-components';
 import { Helmet } from 'react-helmet';
 import { graphql, useStaticQuery } from 'gatsby';
 
+// internal imports
 import theme from 'global/theme';
 import GlobalStyle from './GlobalStyle';
 import Navigation from './Navigation';

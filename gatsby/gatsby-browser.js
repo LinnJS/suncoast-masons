@@ -6,7 +6,10 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
+// external imports
 const React = require('react');
+
+// internal imports
 const Layout = require('./src/global/Layout.jsx').default;
 
 exports.wrapPageElement = ({ element, props }) => {

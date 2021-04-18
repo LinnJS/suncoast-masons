@@ -1,8 +1,10 @@
+// external imports
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
+// internal imports
 import Page from 'global/Page';
 
 export const query = graphql`
@@ -115,9 +117,6 @@ OfficersPage.propTypes = {
 };
 
 const OfficersContainer = styled(Page)`
-  display: flex;
-  flex-wrap: wrap;
-
   .officers {
     display: flex;
     flex-direction: column;

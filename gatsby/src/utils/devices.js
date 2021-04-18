@@ -1,4 +1,4 @@
-// Responsive device sizes
+// responsive device sizes
 const size = {
   mobileS: '320px',
   mobileM: '375px',
@@ -9,6 +9,7 @@ const size = {
   desktop: '2560px',
 };
 
+// mobile first breakpoints
 export const device = {
   mobileS: `min-width: ${size.mobileS}`,
   mobileM: `min-width: ${size.mobileM}`,

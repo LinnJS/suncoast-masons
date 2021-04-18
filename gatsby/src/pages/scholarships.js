@@ -1,9 +1,11 @@
+// external imports
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 
+// internal imports
 import Page from 'global/Page';
 import PastRecipientsTable from '../components/scholarships/PastRecipientsTable';
 import ScholarshipsRules from '../components/scholarships/ScholarshipsRules';
@@ -36,7 +38,7 @@ const ScholarshipsPage = ({ data: { photo1, photo2 } }) => {
         <h2>SCHOLARSHIPS</h2>
         <h3>WILLIAM S. O’BRIEN MEMORIAL MASONIC SCHOLARSHIP</h3>
 
-        <GatsbyImage image={photo1.childImageSharp.gatsbyImageData} />
+        <GatsbyImage alt="William S. O’Brien and female recipient" image={photo1.childImageSharp.gatsbyImageData} />
 
         <em>Sponsored by</em>
         <h4>SUNCOAST MASTER MASON ASSOCIATION</h4>
@@ -46,7 +48,10 @@ const ScholarshipsPage = ({ data: { photo1, photo2 } }) => {
       <section className="obrien">
         <h2>WILLIAM S. O’BRIEN</h2>
 
-        <GatsbyImage image={photo2.childImageSharp.gatsbyImageData} />
+        <GatsbyImage
+          alt="Head shot of William S. O’Brien in masonic regalia"
+          image={photo2.childImageSharp.gatsbyImageData}
+        />
 
         <p>
           The Association’s Scholarship is named after William (Bill) S. O’Brien who founded the Scholarship Committee
@@ -72,7 +77,7 @@ ScholarshipsPage.propTypes = {
 };
 
 const ScholarshipsContainer = styled(Page)`
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
 
   .intro {
