@@ -46,6 +46,10 @@ const NavContainer = styled.nav`
     color: blue;
     text-decoration: none;
 
+    &:hover {
+      text-decoration: underline;
+    }
+
     &:visited {
       color: blue;
     }

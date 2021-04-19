@@ -21,7 +21,7 @@ Page.propTypes = {
   className: PropTypes.string,
 };
 
-export const PageContainer = styled.main`
+const PageContainer = styled.main`
   display: flex;
   width: 85%;
   flex-direction: column-reverse;
@@ -32,6 +32,10 @@ export const PageContainer = styled.main`
   margin-bottom: 20px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 3px -2px, rgba(0, 0, 0, 0.14) 0px 3px 4px 0px,
     rgba(0, 0, 0, 0.12) 0px 1px 8px 0;
+
+  section {
+    width: 100%;
+  }
 
   @media (${devices.mobileL}) {
     width: 80%;

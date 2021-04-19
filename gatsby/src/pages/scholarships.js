@@ -77,7 +77,6 @@ ScholarshipsPage.propTypes = {
 };
 
 const ScholarshipsContainer = styled(Page)`
-  /* align-items: center; */
   justify-content: center;
 
   .intro {

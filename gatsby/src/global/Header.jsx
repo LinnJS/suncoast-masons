@@ -21,6 +21,7 @@ const HeaderContainer = styled.header`
   align-items: center;
   background-color: white;
   width: 100%;
+  text-align: center;
 `;
 
 export default Header;

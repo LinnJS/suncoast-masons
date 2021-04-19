@@ -59,6 +59,7 @@ module.exports = {
         precachePages: [`/`],
       },
     },
+    'gatsby-plugin-image',
     'gatsby-plugin-root-import',
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-sharp',

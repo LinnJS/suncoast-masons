@@ -24,6 +24,7 @@ const CalendarPage = () => {
 
 const CalendarContainer = styled(Page)`
   & > a {
+    width: 100%;
     margin: 20px 0;
   }
 `;
