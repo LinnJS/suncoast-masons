@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import BlockContent from '@sanity/block-content-to-react';
 
 // internal imports
@@ -14,6 +14,9 @@ export const query = graphql`
       nodes {
         id
         title
+        slug {
+          current
+        }
 
         body {
           list
@@ -36,10 +39,12 @@ const LandingPage = ({ data: { articlesSortedByPublishedDate } }) => {
 
   return (
     <HomeContainer>
-      {articles.map(({ id, title, body }) => {
+      {articles.map(({ id, title, body, slug }) => {
         return (
           <article key={id}>
-            <h3>{title}</h3>
+            <Link to={`article/${slug.current}`}>
+              <h3>{title}</h3>
+            </Link>
 
             {body && <BlockContent className="body" blocks={body} />}
           </article>

@@ -54,11 +54,7 @@ const SideBar = () => {
             <Icon color={'#55acee'} size={35} name="twitter" />
           </a>
 
-          <a
-            href="https://www.facebook.com/search/top?q=District%2018%20Suncoast%20Master%20Mason%20Association"
-            target="=_blank"
-            rel="noreferrer noopener"
-          >
+          <a href="https://www.facebook.com/suncoastmasons/" target="=_blank" rel="noreferrer noopener">
             <Icon color={'#3b5998'} size={35} name="facebook" />
           </a>
         </div>

@@ -14,3 +14,35 @@ export const onCreateWebpackConfig = ({ stage, actions }) => {
     },
   });
 };
+
+const articlesToPages = async ({ graphql, actions }) => {
+  const articleTemplate = path.resolve('src/templates/ArticleTemplate.jsx');
+
+  const { data } = await graphql(`
+    query ArticlesToPagesQuery {
+      articles: allSanityArticle {
+        nodes {
+          id
+          slug {
+            current
+          }
+        }
+      }
+    }
+  `);
+
+  data.articles.nodes.forEach(({ slug }) => {
+    actions.createPage({
+      path: `article/${slug.current}`,
+      component: articleTemplate,
+      context: {
+        slug: slug.current,
+      },
+    });
+  });
+};
+
+export const createPages = async (params) => {
+  // Create pages dynamically
+  await Promise.all([articlesToPages(params)]);
+};
