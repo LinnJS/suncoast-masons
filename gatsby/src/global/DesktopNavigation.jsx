@@ -3,12 +3,13 @@ import React from 'react';
 import styled from 'styled-components';
 
 // internal imports
+import devices from 'utils/devices';
 import { Link } from 'primitives';
 import links from '../../content/navLinks';
 
-const Navigation = () => {
+const DesktopNavigation = () => {
   return (
-    <NavContainer>
+    <DesktopNav>
       <ul>
         {links.map((link, idx) => (
           <li key={`link-${idx}`}>
@@ -16,13 +17,13 @@ const Navigation = () => {
           </li>
         ))}
       </ul>
-    </NavContainer>
+    </DesktopNav>
   );
 };
 
-const NavContainer = styled.nav`
+const DesktopNav = styled.nav`
   position: fixed;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -54,6 +55,10 @@ const NavContainer = styled.nav`
       color: blue;
     }
   }
+
+  @media (${devices.laptop}) {
+    display: flex;
+  }
 `;
 
-export default Navigation;
+export default DesktopNavigation;

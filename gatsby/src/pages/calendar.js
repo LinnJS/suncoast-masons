@@ -6,26 +6,32 @@ import Page from 'global/Page';
 const CalendarPage = () => {
   return (
     <CalendarContainer>
-      <h2>Calendar</h2>
+      <section>
+        <h2>Calendar</h2>
 
-      <a href="https://www.localendar.com/public/MastersAndWardens" target="_blank" rel="noopener noreferrer">
-        Click Here for the Suncoast Master Mason Association Calendar.
-      </a>
-
-      <p>
-        To get your events on the calendar email{' '}
-        <a href="mailto:events@suncoastmasons.org" target="_blank" rel="noopener noreferrer">
-          events@suncoastmasons.org
+        <a href="https://www.localendar.com/public/MastersAndWardens" target="_blank" rel="noopener noreferrer">
+          Click Here for the Suncoast Master Mason Association Calendar.
         </a>
-      </p>
+
+        <p>
+          To get your events on the calendar email{' '}
+          <a href="mailto:events@suncoastmasons.org" target="_blank" rel="noopener noreferrer">
+            events@suncoastmasons.org
+          </a>
+        </p>
+      </section>
     </CalendarContainer>
   );
 };
 
 const CalendarContainer = styled(Page)`
-  & > a {
-    width: 100%;
-    margin: 20px 0;
+  section {
+    flex: 1;
+
+    & > a {
+      width: 100%;
+      margin: 20px 0;
+    }
   }
 `;
 

@@ -7,9 +7,11 @@ import { graphql, useStaticQuery } from 'gatsby';
 
 // internal imports
 import theme from 'global/theme';
-import GlobalStyle from './GlobalStyle';
-import Navigation from './Navigation';
-import Header from './Header';
+import devices from 'utils/devices';
+import GlobalStyle from 'global/GlobalStyle';
+import DesktopNavigation from 'global/DesktopNavigation';
+import MobileNavigation from 'global/MobileNavigation';
+import Header from 'global/Header';
 
 const Layout = ({ children }) => {
   const [isLightTheme] = useState(true);
@@ -38,11 +40,14 @@ const Layout = ({ children }) => {
       </Helmet>
       <ThemeProvider theme={isLightTheme ? theme.light : theme.dark}>
         <GlobalStyle />
-        <Navigation />
+        <DesktopNavigation />
+
         <ContentContainer>
           <Header />
           {children}
         </ContentContainer>
+
+        <MobileNavigation />
       </ThemeProvider>
     </>
   );
@@ -57,7 +62,13 @@ const ContentContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 75px;
+  padding-bottom: 75px;
+
+  @media (${devices.laptop}) {
+    padding-top: 75px;
+    padding-bottom: 0;
+    display: flex;
+  }
 `;
 
 export default Layout;

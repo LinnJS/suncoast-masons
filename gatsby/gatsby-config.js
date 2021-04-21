@@ -8,8 +8,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'Suncoast Masons',
-        short_name: 'Suncoast Masons',
+        name: 'Suncoast Master Mason Association',
+        short_name: 'SMMA',
         start_url: '/',
         background_color: '#fff9a0',
         theme_color: '#131b71',

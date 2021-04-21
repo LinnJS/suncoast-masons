@@ -38,7 +38,11 @@ const ScholarshipsPage = ({ data: { photo1, photo2 } }) => {
         <h2>SCHOLARSHIPS</h2>
         <h3>WILLIAM S. O’BRIEN MEMORIAL MASONIC SCHOLARSHIP</h3>
 
-        <GatsbyImage alt="William S. O’Brien and female recipient" image={photo1.childImageSharp.gatsbyImageData} />
+        <GatsbyImage
+          className="img"
+          alt="William S. O’Brien and female recipient"
+          image={photo1.childImageSharp.gatsbyImageData}
+        />
 
         <em>Sponsored by</em>
         <h4>SUNCOAST MASTER MASON ASSOCIATION</h4>
@@ -82,11 +86,15 @@ const ScholarshipsContainer = styled(Page)`
   .intro {
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
+
+    .img {
+      max-width: 280px;
+    }
 
     h3 {
       margin-top: 0;
+      text-align: center;
     }
 
     em {

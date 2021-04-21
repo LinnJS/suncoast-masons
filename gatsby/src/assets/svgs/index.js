@@ -19,6 +19,12 @@ import ShareAlt from './ShareAlt';
 import Ticket from './Ticket';
 import TwitterIcon from './Twitter';
 import WebsiteIcon from './Website';
+import ToolCompass from './ToolCompass';
+import ToolGavel from './ToolGavel';
+import ToolLevel from './ToolLevel';
+import ToolPlumb from './ToolPlumb';
+import ToolSquare from './ToolSquare';
+import ToolTrowel from './ToolTrowel';
 
 export {
   AddUser,
@@ -42,4 +48,10 @@ export {
   Ticket,
   TwitterIcon,
   WebsiteIcon,
+  ToolCompass,
+  ToolGavel,
+  ToolLevel,
+  ToolPlumb,
+  ToolSquare,
+  ToolTrowel,
 };

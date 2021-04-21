@@ -24,6 +24,7 @@ Page.propTypes = {
 const PageContainer = styled.main`
   display: flex;
   width: 85%;
+  flex: 1;
   flex-direction: column-reverse;
   background-color: #fff;
   min-height: 90vh;
