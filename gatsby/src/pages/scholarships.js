@@ -108,6 +108,10 @@ const ScholarshipsContainer = styled(Page)`
     justify-content: center;
     flex-direction: column;
   }
+
+  li {
+    margin-bottom: 12px;
+  }
 `;
 
 export default ScholarshipsPage;

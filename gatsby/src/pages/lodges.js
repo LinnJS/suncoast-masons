@@ -55,7 +55,7 @@ const LodgesPage = ({ data }) => {
             <section key={lodge.id}>
               <h2>{lodge.name}</h2>
 
-              <div className="address">
+              <section className="address">
                 <span>{address.street1}</span>
                 {address.street2 && <span>{address.street2}</span>}
 
@@ -64,10 +64,10 @@ const LodgesPage = ({ data }) => {
                   <span>{address.state}</span>
                   <span>{address.zipCode}</span>
                 </div>
-              </div>
+              </section>
 
               {postal && (
-                <div className="postal">
+                <section className="postal">
                   <span>{postal.street1}</span>
                   {postal.street2 && <span>{postal.street2}</span>}
 
@@ -76,7 +76,7 @@ const LodgesPage = ({ data }) => {
                     <span>{postal.state}</span>
                     <span>{postal.zipCode}</span>
                   </div>
-                </div>
+                </section>
               )}
 
               <a href={lodge.website} target="_blank" rel="noopener noreferrer">
@@ -91,7 +91,6 @@ const LodgesPage = ({ data }) => {
 
               {lodge.email && (
                 <span>
-                  Email:
                   <a href={`mailto:${lodge.email}`} target="_blank" rel="noopener noreferrer">
                     {lodge.email}
                   </a>

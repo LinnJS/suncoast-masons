@@ -31,8 +31,9 @@ const SideBar = () => {
     <SideBarContainer>
       <Collapsible initialIsOpen={isHome} disabled={!isMobile}>
         <section className="jr-grand-master">
-          <h4>M:.W:. Thomas L. Turlington</h4>
-          <p>Jr. Grand Master 2020-2021</p>
+          <h4>M:.W:. Thomas L. Turlington, Jr.</h4>
+          <p>Grand Master 2020-2021</p>
+
           <GatsbyImage
             alt="Most worshipful Thomas L. Turlington head shot in masonic regalia"
             image={jrGrandMaster.childrenImageSharp[0].gatsbyImageData}

@@ -62,10 +62,10 @@ const OfficersPage = ({ data }) => {
       {officers.map(({ id, name, title, phone, email }) => {
         return (
           <div className="officers" key={id}>
-            <span>{name}</span>
+            <h4>{name}</h4>
             <span>{title}</span>
-            <span>{phone}</span>
-            <span>{email}</span>
+            <a href={`tel:${phone}`}>{phone}</a>
+            <a href={`mailto:${email}`}>{email}</a>
           </div>
         );
       })}
@@ -76,28 +76,30 @@ const OfficersPage = ({ data }) => {
           const { id, name, title, email, phone } = committeemen;
 
           return (
-            <div className="committeemen" key={id}>
-              <span>{name}</span>
+            <section className="committeemen" key={id}>
+              <h4>{name}</h4>
               <span>{title}</span>
-              <span>{email}</span>
-              <span>{phone}</span>
-            </div>
+              <a href={`tel:${phone}`}>{phone}</a>
+              <a href={`mailto:${email}`}>{email}</a>
+            </section>
           );
         })}
       </div>
 
       <h2>Lecturers</h2>
-      {lecturers.map(({ id, name, title, phone, email, lectures }) => {
-        return (
-          <div className="lecturer" key={id}>
-            <span>{name}</span>
-            <span>{title}</span>
-            <span>{phone}</span>
-            <span>{email}</span>
-            <span>{lectures}</span>
-          </div>
-        );
-      })}
+      <div className="committeemen-container">
+        {lecturers.map(({ id, name, title, phone, email, lectures }) => {
+          return (
+            <section className="committeemen" key={id}>
+              <h4>{name}</h4>
+              <span>{title}</span>
+              <a href={`tel:${phone}`}>{phone}</a>
+              <a href={`mailto:${email}`}>{email}</a>
+              <span>{lectures}</span>
+            </section>
+          );
+        })}
+      </div>
     </OfficersContainer>
   );
 };
@@ -126,18 +128,23 @@ const OfficersContainer = styled(Page)`
   .committeemen-container {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
 
     .committeemen {
       display: flex;
+      max-width: 220px;
       flex-direction: column;
-      margin: 30px;
+      margin: 15px;
     }
   }
 
-  .lecturer {
+  h4 {
+    margin: 0;
+    margin-bottom: 5px;
+  }
+
+  section: {
     display: flex;
-    flex-direction: column;
-    margin: 20px;
   }
 `;
 
