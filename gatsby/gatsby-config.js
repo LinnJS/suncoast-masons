@@ -60,6 +60,7 @@ module.exports = {
       },
     },
     'gatsby-plugin-image',
+    'gatsby-plugin-gatsby-cloud',
     'gatsby-plugin-root-import',
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-sharp',
