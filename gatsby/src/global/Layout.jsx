@@ -23,10 +23,10 @@ const Layout = ({ children }) => {
           title
         }
       }
-      imageSharp(fixed: { originalName: { eq: "icon.png" } }) {
-        id
-        fixed(height: 50, width: 50) {
-          ...GatsbyImageSharpFixed
+
+      icon: file(name: { eq: "icon" }) {
+        childrenImageSharp {
+          gatsbyImageData(layout: FIXED, width: 50, height: 50)
         }
       }
     }

@@ -13,21 +13,21 @@ import pastRecipientsData from '../../content/scholarshipsRecipients';
 
 export const query = graphql`
   query ScholarshipsPageQuery {
-    photo1: file(name: { eq: "scholarships-1" }) {
+    scholarshipRecipient: file(name: { eq: "scholarships-1" }) {
       childImageSharp {
-        gatsbyImageData(layout: FIXED)
+        gatsbyImageData(layout: FIXED, width: 334)
       }
     }
 
-    photo2: file(name: { eq: "scholarships-obrien" }) {
+    obrienHeadShot: file(name: { eq: "scholarships-obrien" }) {
       childImageSharp {
-        gatsbyImageData(layout: FIXED)
+        gatsbyImageData(layout: FIXED, width: 192)
       }
     }
   }
 `;
 
-const ScholarshipsPage = ({ data: { photo1, photo2 } }) => {
+const ScholarshipsPage = ({ data: { scholarshipRecipient, obrienHeadShot } }) => {
   const { columns, data } = pastRecipientsData;
   const tableColumns = useMemo(() => columns, [columns]);
   const tableData = useMemo(() => data, [data]);
@@ -41,7 +41,7 @@ const ScholarshipsPage = ({ data: { photo1, photo2 } }) => {
         <GatsbyImage
           className="img"
           alt="William S. O’Brien and female recipient"
-          image={photo1.childImageSharp.gatsbyImageData}
+          image={scholarshipRecipient.childImageSharp.gatsbyImageData}
         />
 
         <em>Sponsored by</em>
@@ -54,7 +54,7 @@ const ScholarshipsPage = ({ data: { photo1, photo2 } }) => {
 
         <GatsbyImage
           alt="Head shot of William S. O’Brien in masonic regalia"
-          image={photo2.childImageSharp.gatsbyImageData}
+          image={obrienHeadShot.childImageSharp.gatsbyImageData}
         />
 
         <p>
@@ -75,8 +75,8 @@ const ScholarshipsPage = ({ data: { photo1, photo2 } }) => {
 
 ScholarshipsPage.propTypes = {
   data: PropTypes.shape({
-    photo1: PropTypes.object,
-    photo2: PropTypes.object,
+    scholarshipRecipient: PropTypes.object,
+    obrienHeadShot: PropTypes.object,
   }),
 };
 

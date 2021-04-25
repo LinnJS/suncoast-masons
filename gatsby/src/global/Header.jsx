@@ -19,7 +19,6 @@ const Header = () => {
     }
   `);
 
-  console.log('headerImg: ', headerImg);
   return (
     <HeaderContainer>
       <Link to="/">
