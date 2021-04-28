@@ -5,23 +5,32 @@ import styled from 'styled-components';
 // internal imports
 import devices from 'utils/devices';
 import { Link } from 'primitives';
+import { isInstalled } from 'utils';
+
 import links from '../../content/navLinks';
-import { ToolCompass, ToolGavel, ToolLevel, ToolPlumb, ToolSquare, ToolTrowel } from '../assets/svgs';
+import {
+  ToolCompassDark,
+  ToolGavelDark,
+  ToolLevelDark,
+  ToolPlumbDark,
+  ToolSquareDark,
+  ToolTrowelDark,
+} from '../assets/svgs';
 
 const getIcon = (name) => {
   switch (name) {
     case 'compass':
-      return <ToolCompass />;
+      return <ToolCompassDark />;
     case 'gavel':
-      return <ToolGavel />;
+      return <ToolGavelDark />;
     case 'level':
-      return <ToolLevel />;
+      return <ToolLevelDark />;
     case 'plumb':
-      return <ToolPlumb />;
+      return <ToolPlumbDark />;
     case 'square':
-      return <ToolSquare />;
+      return <ToolSquareDark />;
     case 'trowel':
-      return <ToolTrowel />;
+      return <ToolTrowelDark />;
     default:
       return null;
   }
