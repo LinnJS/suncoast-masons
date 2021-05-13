@@ -9,7 +9,7 @@ import BlockContent from '@sanity/block-content-to-react';
 import Page from '../global/Page';
 
 export const query = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     article: sanityArticle(slug: { current: { eq: $slug } }) {
       title
       publishedAt(formatString: "dddd, MMM Do h:mma")
