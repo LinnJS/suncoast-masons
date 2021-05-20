@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import tw from 'twin.macro';
 
 // internal imports
 import devices from 'utils/devices';
@@ -21,9 +22,8 @@ Page.propTypes = {
   className: PropTypes.string,
 };
 
-const PageContainer = styled.main.attrs({
-  className: 'flex container mx-auto min-h-screen flex-col-reverse flex-1 shadow-2xl bg-white	mb-8 p-6 justify-end',
-})`
+const PageContainer = styled.main`
+  ${tw`container flex flex-col-reverse justify-end flex-1 min-h-screen p-6 mx-auto mb-8 bg-white shadow-2xl`}
   width: 85%;
 
   section {

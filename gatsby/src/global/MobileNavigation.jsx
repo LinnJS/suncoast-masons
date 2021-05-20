@@ -57,17 +57,17 @@ const MobileNavigation = () => {
 };
 
 const MobileNav = styled.nav`
-  ${tw`z-10 fixed bottom-0 flex justify-center items-center w-full bg-white -mb-6 h-20`}
+  ${tw`fixed bottom-0 z-10 flex items-center justify-center w-full h-20 -mb-6 bg-white`}
   border-top: lightgrey solid 1.4px;
 
   ul {
-    ${tw`flex flex-row flex-wrap justify-center items-center w-full p-0 m-0 pb-6`}
+    ${tw`flex flex-row flex-wrap items-center justify-center w-full p-0 pb-6 m-0`}
 
     li {
-      ${tw`flex-1 list-none text-xs`}
+      ${tw`flex-1 text-xs list-none`}
 
       a {
-        ${tw`flex flex-col justify-center items-center px-1`}
+        ${tw`flex flex-col items-center justify-center px-1`}
       }
 
       svg {
