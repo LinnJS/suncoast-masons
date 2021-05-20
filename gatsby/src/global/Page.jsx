@@ -21,18 +21,10 @@ Page.propTypes = {
   className: PropTypes.string,
 };
 
-const PageContainer = styled.main`
-  display: flex;
+const PageContainer = styled.main.attrs({
+  className: 'flex container mx-auto min-h-screen	flex-col-reverse flex-1 shadow-2xl bg-white	mb-8 p-6',
+})`
   width: 85%;
-  flex: 1;
-  flex-direction: column-reverse;
-  background-color: #fff;
-  min-height: 90vh;
-  padding: 20px;
-  align-items: flex-start;
-  margin-bottom: 20px;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 3px -2px, rgba(0, 0, 0, 0.14) 0px 3px 4px 0px,
-    rgba(0, 0, 0, 0.12) 0px 1px 8px 0;
 
   section {
     width: 100%;
@@ -43,12 +35,7 @@ const PageContainer = styled.main`
   }
 
   @media (${devices.tablet}) {
-    width: 80%;
     flex-direction: row;
-  }
-
-  @media (${devices.laptop}) {
-    width: 80%;
   }
 `;
 

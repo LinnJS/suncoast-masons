@@ -6,6 +6,8 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
+require('./src/styles/global.css');
+
 // external imports
 const React = require('react');
 
