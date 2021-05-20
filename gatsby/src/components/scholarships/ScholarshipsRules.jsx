@@ -8,7 +8,7 @@ const ScholarshipsRules = () => {
       <h2>Suncoast Master Mason Association</h2>
       <h3>William S. O’Brien Memorial Masonic Scholarship</h3>
 
-      <heading>Eligibility:</heading>
+      <header>Eligibility:</header>
       <p>
         All Graduating High School Seniors and graduates in Pinellas County (Boca Ciega, Clearwater, Countryside, Dixie
         Hollins, Dunedin, East Lake, Gibbs, Lakewood, Largo, Northeast, Osceola, Palm Harbor, Pinellas Park, Seminole,
@@ -18,13 +18,13 @@ const ScholarshipsRules = () => {
         summer sessions) after having been awarded the scholarship.
       </p>
 
-      <heading>Requirements:</heading>
+      <header>Requirements:</header>
       <p>
         A 1,000 word essay on the topic “Why Education is Important.” All work must be original and the essay becomes
         the property of The Grand Lodge of Florida.
       </p>
 
-      <heading>Deadline:</heading>
+      <header>Deadline:</header>
       <p>To Be Announced</p>
 
       <h4>ESSAY CONTEST FORMAT</h4>

@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import styled from 'styled-components';
 
-import Icon from './icon';
+import Icon from './Icon';
 import IconSet from './iconSet';
 
 const ICONS = Object.keys(IconSet);
