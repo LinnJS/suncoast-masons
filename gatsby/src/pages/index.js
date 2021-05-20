@@ -3,10 +3,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { graphql, Link } from 'gatsby';
-import BlockContent from '@sanity/block-content-to-react';
 
 // internal imports
 import Page from 'global/Page';
+import { Card } from 'primitives';
+import { truncate } from 'utils';
 
 export const query = graphql`
   query ArticlePageQuery {
@@ -40,14 +41,15 @@ const LandingPage = ({ data: { articlesSortedByPublishedDate } }) => {
   return (
     <HomeContainer>
       {articles.map(({ id, title, body, slug }) => {
+        const firstTest = body[0].children[0].text;
         return (
-          <article key={id}>
+          <Card key={id}>
             <Link to={`article/${slug.current}`}>
-              <h3>{title}</h3>
+              <h3 className="mb-2">{title}</h3>
             </Link>
 
-            {body && <BlockContent className="body" blocks={body} />}
-          </article>
+            {body && truncate(firstTest, 250)}
+          </Card>
         );
       })}
     </HomeContainer>
@@ -65,7 +67,6 @@ LandingPage.propTypes = {
 const HomeContainer = styled(Page)`
   article {
     width: 100%;
-    border: black solid;
     margin-bottom: 20px;
     padding: 16px;
   }

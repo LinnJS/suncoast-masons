@@ -3,7 +3,7 @@
 module.exports = {
   flags: {
     FAST_DEV: true,
-    PARALLEL_SOURCING: true,
+    PARALLEL_SOURCING: false,
     DEV_SSR: false,
     FUNCTIONS: false,
   },

@@ -80,6 +80,7 @@ const AboutContainer = styled(Page)`
     box-sizing: content-box;
     padding: 0;
     margin: 0;
+
     li {
       list-style: none;
     }

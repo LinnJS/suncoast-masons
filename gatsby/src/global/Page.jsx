@@ -22,7 +22,7 @@ Page.propTypes = {
 };
 
 const PageContainer = styled.main.attrs({
-  className: 'flex container mx-auto min-h-screen	flex-col-reverse flex-1 shadow-2xl bg-white	mb-8 p-6',
+  className: 'flex container mx-auto min-h-screen flex-col-reverse flex-1 shadow-2xl bg-white	mb-8 p-6 justify-end',
 })`
   width: 85%;
 
