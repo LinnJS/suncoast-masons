@@ -23,7 +23,7 @@ Page.propTypes = {
 };
 
 const PageContainer = styled.main`
-  ${tw`container flex flex-col-reverse justify-end flex-1 min-h-screen p-6 mx-auto mb-8 bg-white shadow-2xl`}
+  ${tw`container flex flex-col-reverse justify-end flex-1 min-h-screen p-6 mx-auto mb-8 bg-white shadow-xl`}
   width: 85%;
 
   section {

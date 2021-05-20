@@ -6,7 +6,7 @@ import tw from 'twin.macro';
 // internal imports
 import devices from 'utils/devices';
 import { Link } from 'primitives';
-import { isInstalled } from 'utils';
+import { isMobileInstalled } from 'utils';
 
 import links from '../../content/navLinks';
 import {
@@ -38,8 +38,10 @@ const getIcon = (name) => {
 };
 
 const MobileNavigation = () => {
+  const isInstalled = isMobileInstalled;
+
   return (
-    <MobileNav>
+    <MobileNav isInstalled={isInstalled}>
       <ul>
         {links.map((link, idx) => {
           return (
@@ -59,6 +61,8 @@ const MobileNavigation = () => {
 const MobileNav = styled.nav`
   ${tw`fixed bottom-0 z-10 flex items-center justify-center w-full h-20 -mb-6 bg-white`}
   ${tw`border-t border-gray-200 shadow-inner `}
+  ${({ isInstalled }) => (isInstalled ? tw`h-20 px-1 pb-0` : '')}
+
 
   ul {
     ${tw`flex flex-row flex-wrap items-center justify-center w-full p-0 pb-6 m-0`}
@@ -74,6 +78,10 @@ const MobileNav = styled.nav`
         ${tw`w-5 h-5 mb-1`}
       }
     }
+  }
+
+  @media (${devices.mobileM}) {
+    ${({ isInstalled }) => (isInstalled ? tw`h-24 px-2 pb-3` : '')}
   }
 
   @media (${devices.laptop}) {

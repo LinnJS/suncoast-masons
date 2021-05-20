@@ -1,7 +1,7 @@
 import windowCheck from './windowCheck';
 import getCurrentPath from './currentPath';
 import device from './devices';
-import isInstalled from './isInstalled';
+import isMobileInstalled from './isMobileInstalled';
 import truncate from './truncate';
 import useDeviceDetection from './hooks/useDeviceDetection';
 import useLocalStorage from './hooks/useLocalStorage';
@@ -12,7 +12,7 @@ export {
   windowCheck,
   getCurrentPath,
   device,
-  isInstalled,
+  isMobileInstalled,
   truncate,
   useDeviceDetection,
   useLocalStorage,
