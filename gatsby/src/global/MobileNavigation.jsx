@@ -58,7 +58,7 @@ const MobileNavigation = () => {
 
 const MobileNav = styled.nav`
   ${tw`fixed bottom-0 z-10 flex items-center justify-center w-full h-20 -mb-6 bg-white`}
-  border-top: lightgrey solid 1.4px;
+  ${tw`border-t border-gray-200 shadow-inner `}
 
   ul {
     ${tw`flex flex-row flex-wrap items-center justify-center w-full p-0 pb-6 m-0`}
@@ -71,32 +71,13 @@ const MobileNav = styled.nav`
       }
 
       svg {
-        height: 20px;
-        width: 20px;
-        margin-bottom: 5px;
+        ${tw`w-5 h-5 mb-1`}
       }
-
-      &:last-child {
-        border-right: none;
-      }
-    }
-  }
-
-  a {
-    color: blue;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
-
-    &:visited {
-      color: blue;
     }
   }
 
   @media (${devices.laptop}) {
-    display: none;
+    ${tw`hidden`}
   }
 `;
 
