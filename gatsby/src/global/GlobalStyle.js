@@ -1,13 +1,11 @@
 // external imports
 import { createGlobalStyle } from 'styled-components';
-import { normalize } from 'styled-normalize';
 import tw from 'twin.macro';
 
 // internal imports
 import bg from '../assets/svgs/bg.svg';
 
 export default createGlobalStyle`
-  ${normalize};
 
   html {
     overflow-x: hidden;
