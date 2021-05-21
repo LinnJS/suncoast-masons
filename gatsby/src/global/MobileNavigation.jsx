@@ -1,8 +1,7 @@
 // external imports
-import React, { useState } from 'react';
+import React from 'react';
 import tw from 'twin.macro';
 import styled from 'styled-components';
-import { Transition } from '@headlessui/react';
 
 // internal imports
 import devices from 'utils/devices';
@@ -40,48 +39,28 @@ const getIcon = (name) => {
 
 const MobileNavigation = () => {
   const isInstalled = isMobileInstalled;
-  const [isOpen, setIsOpen] = useState(true);
-
-  // setTimeout(() => {
-  //   setIsOpen(true);
-  // }, [1000]);
-
-  // setTimeout(() => {
-  //   setIsOpen(false);
-  // }, [3000]);
 
   return (
-    <Transition
-      appear={true}
-      show={isOpen}
-      enter="transition-all ease-in-out duration-300"
-      enterFrom="opacity-0 -bottom-16"
-      enterTo="opacity-100 bottom-0"
-      leave="transition-all ease-in-out duration-300"
-      leaveFrom="opacity-100 bottom-0"
-      leaveTo="opacity-0 -bottom-16"
-    >
-      <MobileNav isInstalled={isInstalled}>
-        <ul>
-          {links.map((link, idx) => {
-            return (
-              <li key={`link-${idx}`}>
-                <Link to={link.link}>
-                  {getIcon(link.icon)}
-                  {link.name}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      </MobileNav>
-    </Transition>
+    <MobileNav isInstalled={isInstalled}>
+      <ul>
+        {links.map((link, idx) => {
+          return (
+            <li key={`link-${idx}`}>
+              <Link to={link.link}>
+                {getIcon(link.icon)}
+                {link.name}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    </MobileNav>
   );
 };
 
 const MobileNav = styled.nav`
   ${tw`fixed bottom-0 z-10 flex items-center justify-center w-full h-20 -mb-6 bg-white`}
-  ${tw`border-t border-gray-200 shadow-inner `}
+  ${tw`border-t border-gray-200 shadow-inner`}
 
   ${({ isInstalled }) => (isInstalled ? tw`h-20 px-1 pb-0` : '')}
 
