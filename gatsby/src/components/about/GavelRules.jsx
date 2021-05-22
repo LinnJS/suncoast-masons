@@ -63,9 +63,10 @@ const GavelRules = () => {
         </p>
 
         <p>
-          For the “Traveling Gavel” – <em>In the event multiple Lodges are present to obtain the gavel</em>, the Lodge
-          with the most Brothers present will be awarded the gavel. In case of a tie, the Worshipful Master of the Lodge
-          in possession of the gavel shall, at his discretion devise a suitable and fair method to break the tie.
+          For the <mark>“Traveling Gavel”</mark> – <em>In the event multiple Lodges are present to obtain the gavel</em>
+          , the Lodge with the most Brothers present will be awarded the gavel. In case of a tie, the Worshipful Master
+          of the Lodge in possession of the gavel shall, at his discretion devise a suitable and fair method to break
+          the tie.
         </p>
 
         <p>
@@ -88,10 +89,6 @@ const GavelRules = () => {
 };
 
 const GavelRulesContainer = styled.div`
-  p {
-    ${tw`mb-4`};
-  }
-
   mark {
     ${tw`bg-blue-100`};
   }
@@ -106,7 +103,7 @@ const GavelRulesContainer = styled.div`
     }
 
     li {
-      ${tw`my-4`};
+      ${tw`mb-4`};
     }
 
     span {

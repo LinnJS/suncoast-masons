@@ -20,28 +20,36 @@ export default createGlobalStyle`
     background-image: url(${bg});
   }
 
-  h2 {
-    ${tw`w-4/5 mb-3 font-semibold break-words`}
+  h1 {
+  ${tw`w-4/5 mb-3 text-3xl font-semibold break-words`}
 
-    @media (${devices.mobileM}) {
+  @media (${devices.mobileM}) {
     ${tw`w-full`};
   }
+  }
+
+  h2 {
+    ${tw`w-4/5 mb-3 text-2xl font-semibold break-words`}
+
+    @media (${devices.mobileM}) {
+      ${tw`w-full`};
+    }
   }
 
   h3 {
-    ${tw`w-4/5 mb-3 font-semibold break-words`}
+    ${tw`w-4/5 mb-3 text-xl font-semibold break-words`}
 
     @media (${devices.mobileM}) {
     ${tw`w-full`};
-  }
+    }
   }
 
   h4 {
-    ${tw`w-4/5 mb-3 font-semibold break-words`}
+    ${tw`w-4/5 mb-3 text-lg font-semibold break-words`}
 
     @media (${devices.mobileM}) {
     ${tw`w-full`};
-  }
+    }
   }
 
   
@@ -53,5 +61,9 @@ export default createGlobalStyle`
     &:visited {
       ${tw`text-blue-700`}
     }
+  }
+
+  address {
+    ${tw`inline not-italic`}
   }
 `;

@@ -22,10 +22,23 @@ export const query = graphql`
         }
       }
     }
+
+    forms: allSanityDocuments(filter: { type: { elemMatch: { title: { eq: "Form" } } } }) {
+      nodes {
+        id
+        name
+        file {
+          asset {
+            url
+            size
+          }
+        }
+      }
+    }
   }
 `;
 
-const AboutPage = ({ data: { byLaws } }) => {
+const AboutPage = ({ data: { byLaws, forms } }) => {
   return (
     <AboutContainer>
       <h2>About</h2>
@@ -46,12 +59,12 @@ const AboutPage = ({ data: { byLaws } }) => {
           <a href="mailto:secretary@suncoastmasons.org" target="_blank" rel="noreferrer noopener">
             secretary@suncoastmasons.org
           </a>
-          . Our mailing address is P.O. Box 1738, Oldsmar, FL 34677.
+          . Our mailing address is <address>P.O. Box 1738, Oldsmar, FL 34677</address>.
         </p>
       </section>
 
-      <h3>Forms</h3>
       <section>
+        <h3>Forms</h3>
         <p>
           My Brothers, please find below our application for Membership and Two Minute Drill. They can be downloaded and
           filled out on you computer in Adobe Reader or downloaded, printed and filled out by hand. If you do not have
@@ -61,11 +74,23 @@ const AboutPage = ({ data: { byLaws } }) => {
           </a>
           .
         </p>
+
+        <ul>
+          {forms.nodes.map((form) => {
+            return (
+              <li key={form.id}>
+                <a href={form.file.asset.url} target="_blank" rel="noreferrer noopener">
+                  {form.title}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
       </section>
 
-      <h4>By laws</h4>
       <section>
-        <ul className="bylaws">
+        <h3>By laws</h3>
+        <ul>
           {byLaws.nodes.map((byLaw) => {
             return (
               <li key={byLaw.id}>
@@ -88,6 +113,9 @@ AboutPage.propTypes = {
     byLaws: PropTypes.shape({
       nodes: PropTypes.array,
     }),
+    forms: PropTypes.shape({
+      nodes: PropTypes.array,
+    }),
   }),
 };
 
@@ -98,6 +126,10 @@ const AboutContainer = styled(Page)`
     &:last-child {
       ${tw`mb-0`};
     }
+  }
+
+  p {
+    ${tw`mb-4`};
   }
 `;
 
