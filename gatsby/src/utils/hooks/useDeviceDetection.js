@@ -11,7 +11,7 @@ const useDeviceDetection = () => {
     setUserAgent(userAgent);
   }, []);
 
-  return { isMobile };
+  return { isMobile, userAgent };
 };
 
 export default useDeviceDetection;

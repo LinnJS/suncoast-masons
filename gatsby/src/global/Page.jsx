@@ -1,8 +1,7 @@
 // external imports
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import tw from 'twin.macro';
+import tw, { styled } from 'twin.macro';
 
 // internal imports
 import devices from 'utils/devices';
@@ -11,7 +10,7 @@ import SideBar from './SideBar';
 const Page = ({ children, className }) => {
   return (
     <PageContainer className={className}>
-      <section>{children}</section>
+      <section className="w-full mobileL:w-4/5">{children}</section>
       <SideBar />
     </PageContainer>
   );
@@ -27,15 +26,11 @@ const PageContainer = styled.main`
   width: 85%;
 
   section {
-    width: 100%;
-  }
-
-  @media (${devices.mobileL}) {
-    width: 80%;
+    ${tw`w-full`}
   }
 
   @media (${devices.tablet}) {
-    flex-direction: row;
+    ${tw`flex-row`}
   }
 `;
 
