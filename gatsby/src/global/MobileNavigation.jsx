@@ -59,20 +59,22 @@ const MobileNavigation = () => {
 };
 
 const MobileNav = styled.nav`
-  ${tw`fixed bottom-0 z-10 flex items-center justify-center w-full h-20 -mb-6 bg-white`}
+  ${tw`fixed bottom-0 z-10 flex items-center justify-center bg-white`}
+  ${tw`w-full h-20 -mb-6 `}
   ${tw`border-t border-gray-200 shadow-inner`}
 
   ${({ isInstalled }) => (isInstalled ? tw`h-20 px-1 pb-0` : '')}
 
 
   ul {
-    ${tw`flex flex-row flex-wrap items-center justify-center w-full p-0 pb-6 m-0`}
+    ${tw`flex flex-row flex-wrap items-center justify-center `}
+    ${tw`w-full p-0 pb-6 m-0`}
 
     li {
       ${tw`flex-1 text-xs list-none`}
 
       a {
-        ${tw`flex flex-col items-center justify-center px-1`}
+        ${tw`flex flex-col items-center justify-center px-0.5`}
       }
 
       svg {

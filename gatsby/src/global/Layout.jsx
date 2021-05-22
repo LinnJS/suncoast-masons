@@ -6,7 +6,6 @@ import { graphql, useStaticQuery } from 'gatsby';
 import tw, { styled } from 'twin.macro';
 
 // internal imports
-
 import devices from 'utils/devices';
 import GlobalStyle from 'global/GlobalStyle';
 import DesktopNavigation from 'global/DesktopNavigation';
