@@ -20,11 +20,17 @@ import Ticket from './Ticket';
 import TwitterIcon from './Twitter';
 import WebsiteIcon from './Website';
 import ToolCompass from './ToolCompass';
+import ToolCompassDark from './ToolCompassDark';
 import ToolGavel from './ToolGavel';
+import ToolGavelDark from './ToolGavelDark';
 import ToolLevel from './ToolLevel';
+import ToolLevelDark from './ToolLevelDark';
 import ToolPlumb from './ToolPlumb';
+import ToolPlumbDark from './ToolPlumbDark';
 import ToolSquare from './ToolSquare';
+import ToolSquareDark from './ToolSquareDark';
 import ToolTrowel from './ToolTrowel';
+import ToolTrowelDark from './ToolTrowelDark';
 
 export {
   AddUser,
@@ -49,9 +55,15 @@ export {
   TwitterIcon,
   WebsiteIcon,
   ToolCompass,
+  ToolCompassDark,
   ToolGavel,
+  ToolGavelDark,
   ToolLevel,
+  ToolLevelDark,
   ToolPlumb,
+  ToolPlumbDark,
   ToolSquare,
+  ToolSquareDark,
   ToolTrowel,
+  ToolTrowelDark,
 };

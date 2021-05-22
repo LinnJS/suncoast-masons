@@ -25,7 +25,7 @@ const Link = (props) => {
 };
 
 Link.propTypes = {
-  children: PropTypes.any.isRequired,
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
   to: PropTypes.string.isRequired,
 };
 

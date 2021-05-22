@@ -1,17 +1,14 @@
 // external imports
+import tw from 'twin.macro';
 import { createGlobalStyle } from 'styled-components';
-import { normalize } from 'styled-normalize';
+import devices from 'utils/devices';
 
 // internal imports
 import bg from '../assets/svgs/bg.svg';
 
 export default createGlobalStyle`
-  ${normalize};
-
   html {
-    overflow-x: hidden;
-    background: ${({ theme }) => theme.background};
-    box-sizing: border-box;
+    ${tw`box-border overflow-x-hidden bg-white`};
   }
 
   *, *:before, *:after {
@@ -19,22 +16,42 @@ export default createGlobalStyle`
   }
 
   body {
-    font-family: 'Avenir Next', 'Helvetica Neue', 'Helvetica', sans-serif;
-    font-weight: 500;
-    overflow-x: hidden;
+    ${tw`overflow-x-hidden font-sans`};
     background-image: url(${bg});
   }
 
-  a {
-    color: blue;
-    text-decoration: none;
+  h2 {
+    ${tw`w-4/5 mb-3 font-semibold break-words`}
 
-    &:hover {
-      text-decoration: underline;
-    }
+    @media (${devices.mobileM}) {
+    ${tw`w-full`};
+  }
+  }
+
+  h3 {
+    ${tw`w-4/5 mb-3 font-semibold break-words`}
+
+    @media (${devices.mobileM}) {
+    ${tw`w-full`};
+  }
+  }
+
+  h4 {
+    ${tw`w-4/5 mb-3 font-semibold break-words`}
+
+    @media (${devices.mobileM}) {
+    ${tw`w-full`};
+  }
+  }
+
+  
+
+  a {
+    ${tw`text-blue-700 hover:underline`}
+  
 
     &:visited {
-      color: blue;
+      ${tw`text-blue-700`}
     }
   }
 `;

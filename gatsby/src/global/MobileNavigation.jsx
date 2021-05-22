@@ -1,35 +1,46 @@
 // external imports
 import React from 'react';
-import styled from 'styled-components';
+import tw, { styled } from 'twin.macro';
 
 // internal imports
 import devices from 'utils/devices';
 import { Link } from 'primitives';
+import { isMobileInstalled } from 'utils';
+
 import links from '../../content/navLinks';
-import { ToolCompass, ToolGavel, ToolLevel, ToolPlumb, ToolSquare, ToolTrowel } from '../assets/svgs';
+import {
+  ToolCompassDark,
+  ToolGavelDark,
+  ToolLevelDark,
+  ToolPlumbDark,
+  ToolSquareDark,
+  ToolTrowelDark,
+} from '../assets/svgs';
 
 const getIcon = (name) => {
   switch (name) {
     case 'compass':
-      return <ToolCompass />;
+      return <ToolCompassDark />;
     case 'gavel':
-      return <ToolGavel />;
+      return <ToolGavelDark />;
     case 'level':
-      return <ToolLevel />;
+      return <ToolLevelDark />;
     case 'plumb':
-      return <ToolPlumb />;
+      return <ToolPlumbDark />;
     case 'square':
-      return <ToolSquare />;
+      return <ToolSquareDark />;
     case 'trowel':
-      return <ToolTrowel />;
+      return <ToolTrowelDark />;
     default:
       return null;
   }
 };
 
 const MobileNavigation = () => {
+  const isInstalled = isMobileInstalled;
+
   return (
-    <MobileNav>
+    <MobileNav isInstalled={isInstalled}>
       <ul>
         {links.map((link, idx) => {
           return (
@@ -47,70 +58,65 @@ const MobileNavigation = () => {
 };
 
 const MobileNav = styled.nav`
-  position: fixed;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  background-color: white;
-  height: 75px;
-  z-index: 10;
-  margin-bottom: -20px;
-  border-top: lightgrey solid 1.4px;
-  bottom: 0;
+  ${tw`fixed bottom-0 z-10 flex items-center justify-center bg-white`}
+  ${tw`w-full h-20 -mb-6 `}
+  ${tw`border-t border-gray-200 shadow-inner`}
+
+  ${({ isInstalled }) => (isInstalled ? tw`h-20 px-1 pb-0` : '')}
+
 
   ul {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding: 0;
-    padding-bottom: 20px;
-    margin: 0;
+    ${tw`flex flex-row flex-wrap items-center justify-center `}
+    ${tw`w-full p-0 pb-6 m-0`}
 
     li {
-      font-size: 12px;
-      list-style: none;
-      flex: 1;
-      /* border-right: lightgrey solid 1.4px; */
+      ${tw`flex-1 text-xs`}
 
       a {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 0 6px;
+        ${tw`flex flex-col items-center justify-center px-0.5`}
       }
 
       svg {
-        height: 20px;
-        width: 20px;
-        margin-bottom: 5px;
-      }
-
-      &:last-child {
-        border-right: none;
+        ${tw`w-5 h-5 mb-1`}
       }
     }
   }
 
-  a {
-    color: blue;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
-
-    &:visited {
-      color: blue;
-    }
+  @media (${devices.mobileM}) {
+    ${({ isInstalled }) => (isInstalled ? tw`h-24 px-2 pb-3` : '')}
   }
 
   @media (${devices.laptop}) {
-    display: none;
+    ${tw`hidden`}
   }
 `;
+
+/* 
+TODO: need to make specific break point to catch EXACTLY every iPhone without bezels
+this way we can dynamically put padding on the bottom of the nav when scrolling or when PWA is installed
+
+iPhones that have bezels are as follows:
+- iPhone 6s
+- iPhone 6s Plus
+- iPhone 7
+- iPhone 7 Plus
+- iPhone 8
+- iPhone 8 Plus
+- iPhone SE (2020)
+
+iPhones that do not have bezels and need special styles for no home button are as follows:
+- iPhone X
+- iPhone XR
+- iPhone XS
+- iPhone XS Max
+- iPhone 11
+- iPhone 11 Pro
+- iPhone 11 Pro Max
+- iPhone 12 mini
+- iPhone 12
+- iPhone 12 Pro
+- iPhone 12 Pro Max
+
+*/
 
 export default MobileNavigation;

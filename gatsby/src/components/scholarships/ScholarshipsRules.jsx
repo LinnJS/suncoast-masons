@@ -1,6 +1,6 @@
 // external imports
 import React from 'react';
-import styled from 'styled-components';
+import tw, { styled } from 'twin.macro';
 
 const ScholarshipsRules = () => {
   return (
@@ -68,23 +68,12 @@ const ScholarshipsRules = () => {
 };
 
 const RulesSection = styled.section`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-
-  h2,
-  h3,
-  h4 {
-    text-align: center;
-    font-weight: bold;
-  }
-
-  h2 {
-    margin-top: 40px;
-  }
-
-  h3 {
-    margin-top: 0;
+  ${tw`flex flex-col justify-center`}
+  ol {
+    ${tw`pl-4`}
+    li {
+      ${tw`mb-3 placeholder-blue-100 list-decimal`};
+    }
   }
 `;
 

@@ -1,6 +1,6 @@
 // external imports
 import React from 'react';
-import styled from 'styled-components';
+import tw, { styled } from 'twin.macro';
 
 // internal imports
 import devices from 'utils/devices';
@@ -22,42 +22,26 @@ const DesktopNavigation = () => {
 };
 
 const DesktopNav = styled.nav`
-  position: fixed;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  background-color: white;
-  height: 75px;
-  z-index: 10;
+  ${tw`fixed z-10 items-center justify-center hidden w-full h-20 bg-white`}
 
   ul {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
+    ${tw`flex flex-row flex-wrap justify-center`}
 
     li {
-      list-style: none;
-      margin-right: 10px;
+      ${tw`m-2.5`}
     }
   }
 
   a {
-    color: blue;
-    text-decoration: none;
+    ${tw`m-2.5 no-underline`}
 
     &:hover {
-      text-decoration: underline;
-    }
-
-    &:visited {
-      color: blue;
+      ${tw`underline`}
     }
   }
 
   @media (${devices.laptop}) {
-    display: flex;
+    ${tw`flex`}
   }
 `;
 

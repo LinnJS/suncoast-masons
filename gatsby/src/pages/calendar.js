@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import tw, { styled } from 'twin.macro';
 
 import Page from 'global/Page';
 
@@ -26,11 +26,10 @@ const CalendarPage = () => {
 
 const CalendarContainer = styled(Page)`
   section {
-    flex: 1;
+    ${tw`flex-1 `}
 
     & > a {
-      width: 100%;
-      margin: 20px 0;
+      ${tw`w-full my-5 `};
     }
   }
 `;
