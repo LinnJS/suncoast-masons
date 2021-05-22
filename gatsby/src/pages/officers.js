@@ -1,6 +1,6 @@
 // external imports
 import React from 'react';
-import styled from 'styled-components';
+import tw, { styled } from 'twin.macro';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
@@ -59,47 +59,49 @@ const OfficersPage = ({ data }) => {
       {/* TODO */}
 
       <h2>Officers</h2>
-      {officers.map(({ id, name, title, phone, email }) => {
-        return (
-          <div className="officers" key={id}>
-            <h4>{name}</h4>
-            <span>{title}</span>
-            <a href={`tel:${phone}`}>{phone}</a>
-            <a href={`mailto:${email}`}>{email}</a>
-          </div>
-        );
-      })}
-
-      <h2>Committeemen</h2>
-      <div className="committeemen-container">
-        {firstCommittee.map((committeemen) => {
-          const { id, name, title, email, phone } = committeemen;
-
+      <section>
+        {officers.map(({ id, name, title, phone, email }) => {
           return (
-            <section className="committeemen" key={id}>
+            <article key={id}>
               <h4>{name}</h4>
               <span>{title}</span>
               <a href={`tel:${phone}`}>{phone}</a>
               <a href={`mailto:${email}`}>{email}</a>
-            </section>
+            </article>
           );
         })}
-      </div>
+      </section>
+
+      <h2>Committeemen</h2>
+      <section>
+        {firstCommittee.map((committeemen) => {
+          const { id, name, title, email, phone } = committeemen;
+
+          return (
+            <article key={id}>
+              <h4>{name}</h4>
+              <span>{title}</span>
+              <a href={`tel:${phone}`}>{phone}</a>
+              <a href={`mailto:${email}`}>{email}</a>
+            </article>
+          );
+        })}
+      </section>
 
       <h2>Lecturers</h2>
-      <div className="committeemen-container">
+      <section>
         {lecturers.map(({ id, name, title, phone, email, lectures }) => {
           return (
-            <section className="committeemen" key={id}>
+            <article key={id}>
               <h4>{name}</h4>
               <span>{title}</span>
               <a href={`tel:${phone}`}>{phone}</a>
               <a href={`mailto:${email}`}>{email}</a>
               <span>{lectures}</span>
-            </section>
+            </article>
           );
         })}
-      </div>
+      </section>
     </OfficersContainer>
   );
 };
@@ -119,32 +121,17 @@ OfficersPage.propTypes = {
 };
 
 const OfficersContainer = styled(Page)`
-  .officers {
-    display: flex;
-    flex-direction: column;
-    margin: 20px;
-  }
+  section {
+    ${tw`grid gap-1 mb-12`}
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 
-  .committeemen-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-
-    .committeemen {
-      display: flex;
-      max-width: 220px;
-      flex-direction: column;
-      margin: 15px;
+    article {
+      ${tw`flex flex-col mb-3`}
     }
   }
 
   h4 {
-    margin: 0;
     margin-bottom: 5px;
-  }
-
-  section: {
-    display: flex;
   }
 `;
 

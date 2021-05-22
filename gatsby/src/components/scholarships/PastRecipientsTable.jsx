@@ -1,6 +1,6 @@
 // external imports
 import React from 'react';
-import styled from 'styled-components';
+import tw, { styled } from 'twin.macro';
 import PropTypes from 'prop-types';
 import { useTable } from 'react-table';
 
@@ -53,21 +53,13 @@ PastRecipientsTable.propTypes = {
 };
 
 const TableContainer = styled.section`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-
-  h2 {
-    text-align: center;
-  }
+  ${tw`flex flex-col items-center justify-center w-full mb-12`};
 
   table {
-    width: 100%;
+    ${tw`w-full`};
 
     th {
-      text-align: start;
+      ${tw`text-left`};
     }
   }
 `;

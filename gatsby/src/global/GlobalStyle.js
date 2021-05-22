@@ -1,6 +1,7 @@
 // external imports
 import tw from 'twin.macro';
 import { createGlobalStyle } from 'styled-components';
+import devices from 'utils/devices';
 
 // internal imports
 import bg from '../assets/svgs/bg.svg';
@@ -20,8 +21,30 @@ export default createGlobalStyle`
   }
 
   h2 {
-    ${tw`my-3 font-semibold`};
+    ${tw`mb-3 font-semibold break-words`};
+
+    @media (${devices.mobileS}) {
+    ${tw`w-4/5`}
   }
+  }
+
+  h3 {
+    ${tw`mb-3 font-semibold break-words`};
+
+    @media (${devices.mobileS}) {
+    ${tw`w-4/5`}
+  }
+  }
+
+  h4 {
+    ${tw`mb-3 font-semibold break-words`};
+
+    @media (${devices.mobileS}) {
+    ${tw`w-4/5`}
+  }
+  }
+
+  
 
   a {
     ${tw`text-blue-700 hover:underline`}

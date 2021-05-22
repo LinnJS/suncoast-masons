@@ -30,7 +30,7 @@ const SideBar = () => {
   return (
     <SideBarContainer>
       <Collapsible initialIsOpen={isHome} disabled={!isMobile}>
-        <section className="jr-grand-master">
+        <section>
           <h4>M:.W:. Thomas L. Turlington, Jr.</h4>
           <p>Grand Master 2020-2021</p>
 
@@ -86,7 +86,7 @@ const SideBarContainer = styled.aside`
 
   .socials {
     div {
-      ${tw`flex mb-3`};
+      ${tw`flex justify-center mb-3`};
 
       a + a {
         ${tw`mx-1.5`};

@@ -1,12 +1,13 @@
 // external imports
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import tw, { styled } from 'twin.macro';
 import { graphql } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 
 // internal imports
 import Page from 'global/Page';
+import devices from 'utils/devices';
 import PastRecipientsTable from '../components/scholarships/PastRecipientsTable';
 import ScholarshipsRules from '../components/scholarships/ScholarshipsRules';
 import pastRecipientsData from '../../content/scholarshipsRecipients';
@@ -34,7 +35,7 @@ const ScholarshipsPage = ({ data: { scholarshipRecipient, obrienHeadShot } }) =>
 
   return (
     <ScholarshipsContainer>
-      <section className="intro">
+      <section className="scholarship-section">
         <h2>SCHOLARSHIPS</h2>
         <h3>WILLIAM S. O’BRIEN MEMORIAL MASONIC SCHOLARSHIP</h3>
 
@@ -49,10 +50,11 @@ const ScholarshipsPage = ({ data: { scholarshipRecipient, obrienHeadShot } }) =>
         <p>A not-for-profit organization serving Masonic Lodges in the 18th Masonic District of Florida.</p>
       </section>
 
-      <section className="obrien">
+      <section className="scholarship-section">
         <h2>WILLIAM S. O’BRIEN</h2>
 
         <GatsbyImage
+          className="img"
           alt="Head shot of William S. O’Brien in masonic regalia"
           image={obrienHeadShot.childImageSharp.gatsbyImageData}
         />
@@ -81,36 +83,36 @@ ScholarshipsPage.propTypes = {
 };
 
 const ScholarshipsContainer = styled(Page)`
-  justify-content: center;
+  ${tw`justify-center`};
 
-  .intro {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-
-    .img {
-      max-width: 280px;
-    }
-
-    h3 {
-      margin-top: 0;
-      text-align: center;
-    }
-
-    em {
-      margin-top: 20px;
-    }
+  .img {
+    ${tw`mb-3`};
+    max-width: 250px;
+    max-height: 400px;
   }
 
-  .obrien {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+  .scholarship-section {
+    ${tw`flex flex-col items-center justify-center mb-12`};
+  }
+
+  h2,
+  h3,
+  h4 {
+    ${tw`mb-2 text-center`};
   }
 
   li {
-    margin-bottom: 12px;
+    ${tw`mb-3`};
+  }
+
+  em {
+    ${tw`mt-5`};
+  }
+
+  @media (${devices.mobileM}) {
+    .img {
+      ${tw`max-w-xs`};
+    }
   }
 `;
 

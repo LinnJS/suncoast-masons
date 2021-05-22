@@ -1,6 +1,6 @@
 // external imports
 import React from 'react';
-import styled from 'styled-components';
+import tw, { styled } from 'twin.macro';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
@@ -115,14 +115,15 @@ LodgesPage.propTypes = {
 
 const LodgesContainer = styled(Page)`
   .grid {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-gap: 0.5em;
+    ${tw`grid w-full gap-1 space-y-2`}
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 
     section {
-      display: flex;
-      flex-direction: column;
+      ${tw`flex flex-col`}
+    }
+
+    a {
+      ${tw`max-w-xs truncate`}
     }
   }
 `;
