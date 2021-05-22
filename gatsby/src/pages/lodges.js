@@ -43,7 +43,7 @@ const LodgesPage = ({ data }) => {
 
   return (
     <LodgesContainer>
-      <h1>Lodges</h1>
+      <h2>Lodges</h2>
       <div className="grid">
         {lodges.map((lodge) => {
           const address = lodge.address;

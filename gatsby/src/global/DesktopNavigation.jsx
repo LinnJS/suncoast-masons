@@ -22,18 +22,18 @@ const DesktopNavigation = () => {
 };
 
 const DesktopNav = styled.nav`
-  ${tw`fixed z-0 items-center justify-center hidden w-full h-20 bg-white`}
+  ${tw`fixed z-10 items-center justify-center hidden w-full h-20 bg-white`}
 
   ul {
     ${tw`flex flex-row flex-wrap justify-center`}
 
     li {
-      ${tw`list-none m-2.5`}
+      ${tw`m-2.5`}
     }
   }
 
   a {
-    ${tw` m-2.5 no-underline`}
+    ${tw`m-2.5 no-underline`}
 
     &:hover {
       ${tw`underline`}

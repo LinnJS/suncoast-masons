@@ -1,7 +1,7 @@
 // external imports
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import { styled } from 'twin.macro';
 import { graphql } from 'gatsby';
 
 // internal imports
@@ -75,16 +75,6 @@ AboutPage.propTypes = {
   }),
 };
 
-const AboutContainer = styled(Page)`
-  .bylaws {
-    box-sizing: content-box;
-    padding: 0;
-    margin: 0;
-
-    li {
-      list-style: none;
-    }
-  }
-`;
+const AboutContainer = styled(Page)``;
 
 export default AboutPage;

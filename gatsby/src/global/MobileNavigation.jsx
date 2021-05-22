@@ -1,7 +1,6 @@
 // external imports
 import React from 'react';
-import tw from 'twin.macro';
-import styled from 'styled-components';
+import tw, { styled } from 'twin.macro';
 
 // internal imports
 import devices from 'utils/devices';
@@ -71,7 +70,7 @@ const MobileNav = styled.nav`
     ${tw`w-full p-0 pb-6 m-0`}
 
     li {
-      ${tw`flex-1 text-xs list-none`}
+      ${tw`flex-1 text-xs`}
 
       a {
         ${tw`flex flex-col items-center justify-center px-0.5`}

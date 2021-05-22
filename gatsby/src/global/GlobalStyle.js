@@ -19,6 +19,10 @@ export default createGlobalStyle`
     background-image: url(${bg});
   }
 
+  h2 {
+    ${tw`my-3 font-semibold`};
+  }
+
   a {
     ${tw`text-blue-700 hover:underline`}
   

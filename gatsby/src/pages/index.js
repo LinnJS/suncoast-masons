@@ -1,7 +1,7 @@
 // external imports
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import tw, { styled } from 'twin.macro';
 import { graphql, Link } from 'gatsby';
 
 // internal imports
@@ -66,9 +66,7 @@ LandingPage.propTypes = {
 
 const HomeContainer = styled(Page)`
   article {
-    width: 100%;
-    margin-bottom: 20px;
-    padding: 16px;
+    ${tw`w-full p-4 mb-5`}
   }
 `;
 
