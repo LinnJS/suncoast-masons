@@ -1,11 +1,11 @@
 // external imports
 import React from 'react';
-import styled from 'styled-components';
+import tw, { styled } from 'twin.macro';
 import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import devices from 'utils/devices';
 
 // internal imports
+import devices from 'utils/devices';
 import { Link } from 'primitives';
 
 const Header = () => {
@@ -33,20 +33,15 @@ const Header = () => {
 };
 
 const HeaderContainer = styled.header`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: white;
-  width: 100%;
-  text-align: center;
+  ${tw`flex flex-col items-center w-full text-center bg-white`};
 
   .img {
-    display: none;
+    ${tw`hidden`};
   }
 
   @media (${devices.laptop}) {
     .img {
-      display: flex;
+      ${tw`flex`};
     }
   }
 `;

@@ -1,16 +1,13 @@
 // external imports
-import { createGlobalStyle } from 'styled-components';
 import tw from 'twin.macro';
+import { createGlobalStyle } from 'styled-components';
 
 // internal imports
 import bg from '../assets/svgs/bg.svg';
 
 export default createGlobalStyle`
-
   html {
-    overflow-x: hidden;
-    background: ${({ theme }) => theme.background};
-    box-sizing: border-box;
+    ${tw`box-border overflow-x-hidden bg-white`};
   }
 
   *, *:before, *:after {
@@ -18,9 +15,7 @@ export default createGlobalStyle`
   }
 
   body {
-    font-family: 'Avenir Next', 'Helvetica Neue', 'Helvetica', sans-serif;
-    font-weight: 500;
-    overflow-x: hidden;
+    ${tw`overflow-x-hidden font-sans`};
     background-image: url(${bg});
   }
 

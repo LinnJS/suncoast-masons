@@ -1,12 +1,12 @@
 // external imports
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { ThemeProvider } from 'styled-components';
 import { Helmet } from 'react-helmet';
 import { graphql, useStaticQuery } from 'gatsby';
+import tw, { styled } from 'twin.macro';
 
 // internal imports
-import theme from 'global/theme';
+
 import devices from 'utils/devices';
 import GlobalStyle from 'global/GlobalStyle';
 import DesktopNavigation from 'global/DesktopNavigation';
@@ -14,8 +14,6 @@ import MobileNavigation from 'global/MobileNavigation';
 import Header from 'global/Header';
 
 const Layout = ({ children }) => {
-  const [isLightTheme] = useState(true);
-
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -38,17 +36,16 @@ const Layout = ({ children }) => {
         <title>{data.site.siteMetadata.title}</title>
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
       </Helmet>
-      <ThemeProvider theme={isLightTheme ? theme.light : theme.dark}>
-        <GlobalStyle />
-        <DesktopNavigation />
 
-        <ContentContainer>
-          <Header />
-          {children}
-        </ContentContainer>
+      <GlobalStyle />
+      <DesktopNavigation />
 
-        <MobileNavigation />
-      </ThemeProvider>
+      <ContentContainer>
+        <Header />
+        {children}
+      </ContentContainer>
+
+      <MobileNavigation />
     </>
   );
 };
@@ -58,16 +55,10 @@ Layout.propTypes = {
 };
 
 const ContentContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding-bottom: 75px;
+  ${tw`flex flex-col items-center justify-center mb-16`}
 
   @media (${devices.laptop}) {
-    padding-top: 75px;
-    padding-bottom: 0;
-    display: flex;
+    ${tw`flex pt-20 pb-0`}
   }
 `;
 

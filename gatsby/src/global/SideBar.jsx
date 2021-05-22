@@ -1,6 +1,6 @@
 // external imports
 import React from 'react';
-import styled from 'styled-components';
+import tw, { styled } from 'twin.macro';
 import { useLocation } from '@reach/router';
 import { useStaticQuery, graphql } from 'gatsby';
 
@@ -40,7 +40,7 @@ const SideBar = () => {
           />
         </section>
 
-        <section className="masonic-links">
+        <section>
           <h3>Masonic Links</h3>
           <ul>
             {masonicLinks.map((masonicLink, idx) => {
@@ -74,57 +74,37 @@ const SideBar = () => {
 };
 
 const SideBarContainer = styled.aside`
-  align-self: center;
-  min-width: 230px;
-  width: 100%;
+  ${tw`self-center w-full`};
 
-  .jr-grand-master {
-    h4 {
-      margin: 0;
-    }
-
-    p {
-      margin: 10px 0;
-    }
+  p {
+    ${tw`my-2.5`};
   }
 
-  .masonic-links {
-    ul {
-      background-color: lightgray;
-      padding: 10px;
-      padding-left: 30px;
-      margin: 0;
-
-      li {
-        margin: 12px 0;
-      }
-    }
+  ul {
+    ${tw`p-6 space-y-3 bg-gray-300`};
   }
 
   .socials {
     div {
-      display: flex;
+      ${tw`flex mb-3`};
 
       a + a {
-        margin: 0 5px;
+        ${tw`mx-1.5`};
       }
     }
   }
 
   h3 {
-    margin-top: 20px;
-    margin-bottom: 5px;
+    ${tw`my-3.5`};
   }
 
   section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    ${tw`flex flex-col items-center`};
   }
 
   @media (${devices.tablet}) {
-    align-self: flex-start;
-    margin-left: 20px;
+    ${tw`self-start ml-5`};
+
     max-width: 230px;
   }
 `;
