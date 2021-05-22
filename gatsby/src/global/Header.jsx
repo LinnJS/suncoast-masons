@@ -33,7 +33,8 @@ const Header = () => {
 };
 
 const HeaderContainer = styled.header`
-  ${tw`flex flex-col items-center w-full text-center bg-white`};
+  ${tw`flex flex-col items-center text-center bg-white`};
+  width: 85%;
 
   .img {
     ${tw`hidden`};

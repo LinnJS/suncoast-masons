@@ -31,7 +31,7 @@ const SideBar = () => {
     <SideBarContainer>
       <Collapsible initialIsOpen={isHome} disabled={!isMobile}>
         <section>
-          <h4>M:.W:. Thomas L. Turlington, Jr.</h4>
+          <h3>M:.W:. Thomas L. Turlington, Jr.</h3>
           <p>Grand Master 2020-2021</p>
 
           <GatsbyImage
@@ -95,7 +95,7 @@ const SideBarContainer = styled.aside`
   }
 
   h3 {
-    ${tw`my-3.5`};
+    ${tw`my-3 `};
   }
 
   section {

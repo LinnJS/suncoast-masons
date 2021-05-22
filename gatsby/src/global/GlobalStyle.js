@@ -21,26 +21,26 @@ export default createGlobalStyle`
   }
 
   h2 {
-    ${tw`mb-3 font-semibold break-words`};
+    ${tw`w-4/5 mb-3 font-semibold break-words`}
 
-    @media (${devices.mobileS}) {
-    ${tw`w-4/5`}
+    @media (${devices.mobileM}) {
+    ${tw`w-full`};
   }
   }
 
   h3 {
-    ${tw`mb-3 font-semibold break-words`};
+    ${tw`w-4/5 mb-3 font-semibold break-words`}
 
-    @media (${devices.mobileS}) {
-    ${tw`w-4/5`}
+    @media (${devices.mobileM}) {
+    ${tw`w-full`};
   }
   }
 
   h4 {
-    ${tw`mb-3 font-semibold break-words`};
+    ${tw`w-4/5 mb-3 font-semibold break-words`}
 
-    @media (${devices.mobileS}) {
-    ${tw`w-4/5`}
+    @media (${devices.mobileM}) {
+    ${tw`w-full`};
   }
   }
 

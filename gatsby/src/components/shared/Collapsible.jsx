@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 // import { useSpring, animated } from '@react-spring/web';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import tw, { styled } from 'twin.macro';
 
 const Collapsible = ({ children, disabled, initialIsOpen = false }) => {
   const [isOpen, setIsOpen] = useState(initialIsOpen);
@@ -26,21 +26,14 @@ Collapsible.propTypes = {
 };
 
 const CollapsibleContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
+  ${tw`flex flex-col items-center w-full`};
 
   .content {
     display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
   }
 
   button {
-    width: 100%;
-    margin-bottom: 20px;
-    border: unset;
-    cursor: pointer;
-    padding: 10px;
+    ${tw`w-full mb-5 cursor-pointer p-2.5`};
   }
 `;
 

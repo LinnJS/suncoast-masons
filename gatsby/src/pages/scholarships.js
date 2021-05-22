@@ -101,10 +101,6 @@ const ScholarshipsContainer = styled(Page)`
     ${tw`mb-2 text-center`};
   }
 
-  li {
-    ${tw`mb-3`};
-  }
-
   em {
     ${tw`mt-5`};
   }

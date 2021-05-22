@@ -69,6 +69,12 @@ const ScholarshipsRules = () => {
 
 const RulesSection = styled.section`
   ${tw`flex flex-col justify-center`}
+  ol {
+    ${tw`pl-4`}
+    li {
+      ${tw`mb-3 placeholder-blue-100 list-decimal`};
+    }
+  }
 `;
 
 export default ScholarshipsRules;
