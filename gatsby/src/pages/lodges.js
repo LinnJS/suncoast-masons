@@ -52,8 +52,8 @@ const LodgesPage = ({ data }) => {
           const phoneLink = `tel:${phoneString.replace(/\D/g, '')}`;
 
           return (
-            <section key={lodge.id}>
-              <h2>{lodge.name}</h2>
+            <section className="lodge" key={lodge.id}>
+              <h3>{lodge.name}</h3>
 
               <section className="address">
                 <span>{address.street1}</span>
@@ -115,11 +115,11 @@ LodgesPage.propTypes = {
 
 const LodgesContainer = styled(Page)`
   .grid {
-    ${tw`grid w-full gap-1 space-y-2`}
+    ${tw`grid w-full gap-2 `}
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 
-    section {
-      ${tw`flex flex-col`}
+    .lodge {
+      ${tw`flex flex-col self-start mb-4`}
     }
 
     a {
