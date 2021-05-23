@@ -41,8 +41,8 @@ const GavelRules = () => {
           which of must be an elected officer. In addition, they must be present at the opening and stay until the Lodge
           is closed. The gavels can be presented or obtained at either at Stated or Called Communications.{' '}
           <em>Under no circumstances</em> is the <mark>“Installation of Officers” </mark>or a{' '}
-          <mark>“Funeral Lodge”</mark> to be considered for presenting or obtaining either the “hot” or “traveling”
-          gavel.
+          <mark>“Funeral Lodge”</mark> to be considered for presenting or obtaining either the <mark>“Hot Gavel”</mark>{' '}
+          or <mark>“Traveling Gavel”</mark> gavel.
         </p>
 
         <p>

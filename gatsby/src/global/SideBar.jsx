@@ -95,7 +95,7 @@ const SideBarContainer = styled.aside`
   }
 
   h3 {
-    ${tw`my-3 `};
+    ${tw`my-3 text-center`};
   }
 
   section {
