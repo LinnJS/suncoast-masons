@@ -39,6 +39,7 @@ export const query = graphql`
 `;
 
 const AboutPage = ({ data: { byLaws, forms } }) => {
+  console.log('forms: ', forms);
   return (
     <AboutContainer>
       <h2>About</h2>
@@ -59,7 +60,7 @@ const AboutPage = ({ data: { byLaws, forms } }) => {
           <a href="mailto:secretary@suncoastmasons.org" target="_blank" rel="noreferrer noopener">
             secretary@suncoastmasons.org
           </a>
-          . Our mailing address is <address>P.O. Box 1738, Oldsmar, FL 34677</address>.
+          . Our mailing address is P.O. Box 1738, Oldsmar, FL 34677.
         </p>
       </section>
 
@@ -77,10 +78,11 @@ const AboutPage = ({ data: { byLaws, forms } }) => {
 
         <ul>
           {forms.nodes.map((form) => {
+            console.log('form: ', form);
             return (
               <li key={form.id}>
                 <a href={form.file.asset.url} target="_blank" rel="noreferrer noopener">
-                  {form.title}
+                  {form.name}
                 </a>
               </li>
             );
@@ -130,6 +132,12 @@ const AboutContainer = styled(Page)`
 
   p {
     ${tw`mb-4`};
+  }
+
+  ul {
+    li {
+      ${tw`mb-2`};
+    }
   }
 `;
 
