@@ -1,6 +1,6 @@
 export default {
-  name: 'article',
-  title: 'Articles',
+  name: 'post',
+  title: 'Posts',
   type: 'document',
   fields: [
     {
@@ -18,8 +18,8 @@ export default {
       },
     },
     {
-      name: 'staff',
-      title: 'Staff',
+      name: 'author',
+      title: 'Author',
       type: 'reference',
       to: { type: 'staff' },
     },

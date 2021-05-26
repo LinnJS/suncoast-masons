@@ -8,7 +8,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type';
 import committeemen from './documents/committee';
 import documents from './documents/documents';
 import officers from './documents/officers';
-import article from './documents/article';
+import post from './documents/post';
 import bylaws from './documents/bylaws';
 import lodge from './documents/lodge';
 import staff from './documents/staff';
@@ -20,6 +20,7 @@ import phoneField from './objects/phoneField';
 import emailField from './objects/emailField';
 import urlField from './objects/urlField';
 import category from './objects/category';
+import documentType from './objects/documentType';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -30,7 +31,7 @@ export default createSchema({
   types: schemaTypes.concat([
     // The following are document types which will appear
     // in the studio.
-    article,
+    post,
     officers,
     committeemen,
     documents,
@@ -38,6 +39,7 @@ export default createSchema({
     bylaws,
     lodge,
     category,
+    documentType,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
     blockContent,
