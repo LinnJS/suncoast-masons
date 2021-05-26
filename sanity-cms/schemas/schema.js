@@ -15,7 +15,6 @@ import documents from './documents';
 import category from './category';
 import officers from './officers';
 import article from './article';
-import author from './author';
 import bylaws from './bylaws';
 import lodge from './lodge';
 import staff from './staff';
@@ -35,7 +34,6 @@ export default createSchema({
     documents,
     staff,
     bylaws,
-    author,
     lodge,
     category,
     // When added to this list, object types can be used as

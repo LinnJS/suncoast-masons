@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "package.json",
-  "author": "type works <hellotypeworks@gmail.com>",
+  "author": "TypeWorks <hellotypeworks@gmail.com>",
   "license": "MIT",
   "scripts": {
     "start": "sanity start",
