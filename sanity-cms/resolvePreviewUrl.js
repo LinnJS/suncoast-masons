@@ -9,7 +9,7 @@ const env = process.env.NODE_ENV || 'development'
       }
       return `${baseUrl}/${document.slug.current}`
     default:
-      return null
+      return baseUrl
   }
 }
 

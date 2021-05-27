@@ -1,39 +1,39 @@
-import S from '@sanity/desk-tool/structure-builder'
+import Sanity from '@sanity/desk-tool/structure-builder'
 import PreviewIFrame from '../../src/components/previewIFrame'
 
 import { MdMenu } from "react-icons/md"
 
-export default S.listItem()
+export default Sanity.listItem()
   .title('Page Builder')
   .child(
-    S.list()
+    Sanity.list()
       .title('Landing Pages')
       .items([
-        S.listItem()
+        Sanity.listItem()
           .title('Navigation Menus')
           .icon(MdMenu)
           .schemaType('navigationMenu')
-          .child(S.documentTypeList('navigationMenu').title('Navigation Menus')),
-        S.listItem()
+          .child(Sanity.documentTypeList('navigationMenu').title('Navigation Menus')),
+        Sanity.listItem()
           .title('Routes')
           .schemaType('route')
           .child(
-            S.documentTypeList('route')
+            Sanity.documentTypeList('route')
               .title('Routes')
               .child((documentId) =>
-                S.document()
+                Sanity.document()
                   .documentId(documentId)
                   .schemaType('route')
-                  .views([S.view.form(), PreviewIFrame()])
+                  .views([Sanity.view.form(), PreviewIFrame()])
               )
           ),
-        S.listItem()
+        Sanity.listItem()
           .title('Pages')
           .schemaType('page')
           .child(
-            S.documentList('page')
+            Sanity.documentList('page')
               .title('Pages')
-              .menuItems(S.documentTypeList('page').getMenuItems())
+              .menuItems(Sanity.documentTypeList('page').getMenuItems())
               .filter('_type == "page" && _id != "frontpage"')
           ),
       ])

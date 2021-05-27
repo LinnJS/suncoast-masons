@@ -1,4 +1,4 @@
-import S from '@sanity/desk-tool/structure-builder'
+import Sanity from '@sanity/desk-tool/structure-builder'
 import {
   GoMegaphone as BlogIcon,
   GoChecklist as ApprovedIcon,
@@ -18,41 +18,41 @@ export const icons = {
   AllIcon,
 }
 
-const blog = S.listItem()
-  .title('Blog')
+const blog = Sanity.listItem()
+  .title('Posts')
   .icon(BlogIcon)
   .child(
-    S.list()
-      .title('/blog')
+    Sanity.list()
+      .title('Posts')
       .items([
-        S.listItem()
+        Sanity.listItem()
           .title('Published posts')
           .schemaType('post')
           .icon(BlogIcon)
           .child(
-            S.documentList('post')
+            Sanity.documentList('post')
               .title('Published posts')
-              .menuItems(S.documentTypeList('post').getMenuItems())
+              .menuItems(Sanity.documentTypeList('post').getMenuItems())
               // Only show posts with publish date earlier than now and that is not drafts
               .filter('_type == "post" && publishedAt < now() && !(_id in path("drafts.**"))')
               .child((documentId) =>
-                S.document()
+                Sanity.document()
                   .documentId(documentId)
                   .schemaType('post')
-                  .views([S.view.form(), PreviewIFrame()])
+                  .views([Sanity.view.form(), PreviewIFrame()])
               )
           ),
-        S.documentTypeListItem('post').title('All posts').icon(AllIcon),
-        S.listItem()
+        Sanity.documentTypeListItem('post').title('All posts').icon(AllIcon),
+        Sanity.listItem()
           .title('Posts by category')
           .child(
             // List out all categories
-            S.documentTypeList('category')
+            Sanity.documentTypeList('category')
               .title('Posts by category')
               .child(catId =>
                 // List out project documents where the _id for the selected
                 // category appear as a _ref in the project’s categories array
-                S.documentList()
+                Sanity.documentList()
                   .schemaType('post')
                   .title('Posts')
                   .filter(
@@ -61,9 +61,8 @@ const blog = S.listItem()
                   .params({ catId })
               )
         ),
-        S.divider(),
-        S.documentTypeListItem('staff').title('Staff').icon(AuthorIcon),
-        S.documentTypeListItem('category').title('Categories')
+        Sanity.divider(),
+        Sanity.documentTypeListItem('category').title('Categories')
       ])
   )
 

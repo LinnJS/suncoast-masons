@@ -1,11 +1,11 @@
 import React from 'react'
-import S from '@sanity/desk-tool/structure-builder'
+import Sanity from '@sanity/desk-tool/structure-builder'
 import resolveUrl from '../../resolvePreviewUrl'
 
 const env = process.env.NODE_ENV || 'development'
 
 const PreviewIFrame = () =>
-  S.view
+Sanity.view
     .component(({ document }) => {
       const { displayed } = document
 
@@ -14,6 +14,8 @@ const PreviewIFrame = () =>
       }
 
       const url = resolveUrl(displayed)
+
+      console.log('url: ', url);
       return (
         <>
           {env !== 'development' && (
