@@ -1,5 +1,3 @@
-import windowCheck from './windowCheck';
-
-const isMobileInstalled = windowCheck() && window.matchMedia('(display-mode: standalone)').matches;
+const isMobileInstalled = typeof window !== `undefined` && window.matchMedia('(display-mode: standalone)').matches;
 
 export default isMobileInstalled;
