@@ -13,7 +13,7 @@ export const onCreateWebpackConfig = ({ stage, actions }) => {
       modules: [path.resolve(__dirname, 'src'), 'node_modules'],
     },
   });
-};
+};``
 
 const articlesToPages = async ({ graphql, actions }) => {
   const articleTemplate = path.resolve('src/templates/ArticleTemplate.jsx');
