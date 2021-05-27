@@ -10,7 +10,7 @@ import Page from '../global/Page';
 
 export const query = graphql`
   query ($slug: String!) {
-    article: sanityArticle(slug: { current: { eq: $slug } }) {
+    article: sanityPost(slug: { current: { eq: $slug } }) {
       title
       publishedAt(formatString: "dddd, MMM Do h:mma")
       eventDatetime(formatString: "dddd, MMM Do h:mma")
