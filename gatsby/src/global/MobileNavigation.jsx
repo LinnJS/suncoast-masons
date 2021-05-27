@@ -64,7 +64,7 @@ const MobileNav = styled.nav`
 
   ${tw`h-20 px-1 pb-0`}
   /* figure out why this works on localhost but not in production */
-  ${({ isInstalled }) => (isInstalled ? tw`h-20 px-1 pb-0` : '')}
+  /* ${({ isInstalled }) => (isInstalled ? tw`h-20 px-1 pb-0` : '')} */
 
 
   ul {

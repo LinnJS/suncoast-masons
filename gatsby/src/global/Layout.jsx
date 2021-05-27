@@ -34,6 +34,7 @@ const Layout = ({ children }) => {
       <Helmet>
         <title>{data.site.siteMetadata.title}</title>
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="robots" content="noindex" />
       </Helmet>
 
       <GlobalStyle />
