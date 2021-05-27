@@ -15,12 +15,12 @@ export const onCreateWebpackConfig = ({ stage, actions }) => {
   });
 };
 
-const postsToPages = async ({ graphql, actions }) => {
+const articlesToPages = async ({ graphql, actions }) => {
   const articleTemplate = path.resolve('src/templates/ArticleTemplate.jsx');
 
   const { data } = await graphql(`
-    query PostsToPagesQuery {
-      posts: allSanityPost {
+    query ArticlesToPagesQuery {
+      articles: allSanityArticle {
         nodes {
           id
           slug {
@@ -31,7 +31,7 @@ const postsToPages = async ({ graphql, actions }) => {
     }
   `);
 
-  data.posts.nodes.forEach(({ slug }) => {
+  data.articles.nodes.forEach(({ slug }) => {
     actions.createPage({
       path: `article/${slug.current}`,
       component: articleTemplate,
@@ -44,5 +44,5 @@ const postsToPages = async ({ graphql, actions }) => {
 
 export const createPages = async (params) => {
   // Create pages dynamically
-  await Promise.all([postsToPages(params)]);
+  await Promise.all([articlesToPages(params)]);
 };

@@ -4,13 +4,13 @@ import { MdMenu } from 'react-icons/md'
 import { GoBrowser as PageIcon, GoHome, GoSettings } from 'react-icons/go'
 
 // internal
-import blog from './src/structure/blog'
+import blog from './src/structure/article'
 import PreviewIFrame from './src/components/previewIFrame'
 
 // can filter out stuff you don't the users of the CMS to edit
 // TODO: need to hide documentType, 
 const hiddenDocTypes = listItem =>
-  !['category', 'post'].includes(
+  !['category', 'article'].includes(
     listItem.getId()
   )
 

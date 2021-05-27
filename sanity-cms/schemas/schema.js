@@ -8,7 +8,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type';
 import committeemen from './documents/committee';
 import documents from './documents/documents';
 import officers from './documents/officers';
-import post from './documents/post';
+import article from './documents/article';
 import bylaws from './documents/bylaws';
 import lodge from './documents/lodge';
 import staff from './documents/staff';
@@ -31,7 +31,7 @@ export default createSchema({
   types: schemaTypes.concat([
     // The following are document types which will appear
     // in the studio.
-    post,
+    article,
     officers,
     committeemen,
     documents,

@@ -19,44 +19,44 @@ export const icons = {
 }
 
 const blog = Sanity.listItem()
-  .title('Posts')
+  .title('Articles')
   .icon(BlogIcon)
   .child(
     Sanity.list()
-      .title('Posts')
+      .title('Articles')
       .items([
         Sanity.listItem()
-          .title('Published posts')
-          .schemaType('post')
+          .title('Published articles')
+          .schemaType('article')
           .icon(BlogIcon)
           .child(
-            Sanity.documentList('post')
-              .title('Published posts')
-              .menuItems(Sanity.documentTypeList('post').getMenuItems())
+            Sanity.documentList('article')
+              .title('Published articles')
+              .menuItems(Sanity.documentTypeList('article').getMenuItems())
               // Only show posts with publish date earlier than now and that is not drafts
-              .filter('_type == "post" && publishedAt < now() && !(_id in path("drafts.**"))')
+              .filter('_type == "article" && publishedAt < now() && !(_id in path("drafts.**"))')
               .child((documentId) =>
                 Sanity.document()
                   .documentId(documentId)
-                  .schemaType('post')
+                  .schemaType('article')
                   .views([Sanity.view.form(), PreviewIFrame()])
               )
           ),
-        Sanity.documentTypeListItem('post').title('All posts').icon(AllIcon),
+        Sanity.documentTypeListItem('article').title('All articles').icon(AllIcon),
         Sanity.listItem()
-          .title('Posts by category')
+          .title('Articles by category')
           .child(
             // List out all categories
             Sanity.documentTypeList('category')
-              .title('Posts by category')
+              .title('Articles by category')
               .child(catId =>
                 // List out project documents where the _id for the selected
                 // category appear as a _ref in the project’s categories array
                 Sanity.documentList()
-                  .schemaType('post')
-                  .title('Posts')
+                  .schemaType('article')
+                  .title('Articles')
                   .filter(
-                    '_type == "post" && $catId in categories[]._ref'
+                    '_type == "article" && $catId in categories[]._ref'
                   )
                   .params({ catId })
               )
