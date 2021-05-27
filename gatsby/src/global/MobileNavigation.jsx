@@ -86,6 +86,7 @@ const MobileNav = styled.nav`
 
   @media (${devices.mobileM}) {
     ${({ isInstalled }) => (isInstalled ? tw`h-24 px-2 pb-3` : '')}
+    ${tw`h-24 px-2 pb-3`}
   }
 
   @media (${devices.laptop}) {
