@@ -23,7 +23,7 @@ export const query = graphql`
       }
     }
 
-    forms: allSanityDocuments(filter: { type: { elemMatch: { title: { eq: "Form" } } } }) {
+    forms: allSanityDocuments(filter: { documentType: { elemMatch: { title: { eq: "Form" } } } }) {
       nodes {
         id
         name

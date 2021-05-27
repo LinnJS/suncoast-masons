@@ -2,7 +2,7 @@
 
 export default {
   name: 'staff',
-  title: 'Staff',
+  title: 'Brothers',
   type: 'document',
   fields: [
     {
@@ -36,17 +36,10 @@ export default {
       type: 'phoneField',
     },
     {
-      name: 'categories',
-      title: 'Categories',
-      type: 'array',
-      of: [{ type: 'reference', to: { type: 'category' } }],
-    },
-    {
       name: 'lectures',
       title: 'Lectures',
-      description: 'Comma separated list of qualified lectures ',
+      description: 'Comma separated list of qualified lectures',
       type: 'string',
-      hidden: props => console.log({props}),
     },
     {
       name: 'headshot',

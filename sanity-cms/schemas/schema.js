@@ -1,24 +1,26 @@
-// First, we must import the schema creator
+// import the schema creator
 import createSchema from 'part:@sanity/base/schema-creator';
 
-// Then import schema types from any plugins that might expose them
+// import schema types from any plugins that might expose them
 import schemaTypes from 'all:part:@sanity/base/schema-type';
 
-// We import object and document schemas
-import blockContent from './fieldSchemas/blockContent';
-import addressField from './fieldSchemas/addressField';
-import phoneField from './fieldSchemas/phoneField';
-import emailField from './fieldSchemas/emailField';
-import urlField from './fieldSchemas/urlField';
-import committeemen from './committee';
-import documents from './documents';
-import category from './category';
-import officers from './officers';
-import article from './article';
-import author from './author';
-import bylaws from './bylaws';
-import lodge from './lodge';
-import staff from './staff';
+// documents
+import committeemen from './documents/committee';
+import documents from './documents/documents';
+import officers from './documents/officers';
+import article from './documents/article';
+import bylaws from './documents/bylaws';
+import lodge from './documents/lodge';
+import staff from './documents/staff';
+
+// objects
+import blockContent from './objects/blockContent';
+import addressField from './objects/addressField';
+import phoneField from './objects/phoneField';
+import emailField from './objects/emailField';
+import urlField from './objects/urlField';
+import category from './objects/category';
+import documentType from './objects/documentType';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -35,9 +37,9 @@ export default createSchema({
     documents,
     staff,
     bylaws,
-    author,
     lodge,
     category,
+    documentType,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
     blockContent,

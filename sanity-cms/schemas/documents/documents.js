@@ -15,10 +15,11 @@ export default {
       type: 'date',
     },
     {
-      name: 'type',
+      name: 'documentType',
       title: 'Document type',
+      description: 'A tag given to documents to determine what section they go in',
       type: 'array',
-      of: [{ type: 'reference', to: { type: 'category' } }],
+      of: [{ type: 'reference', to: { type: 'documentType' } }],
     },
     {
       name: 'file',
