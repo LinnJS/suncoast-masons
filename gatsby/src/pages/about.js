@@ -92,7 +92,6 @@ const AboutPage = ({ data: { byLaws, forms } }) => {
         <h2>By laws</h2>
         <ul>
           {byLaws.nodes.map((byLaw) => {
-            console.log('byLaw: ', byLaw);
             return (
               <li key={byLaw.id}>
                 <a href={byLaw.file.asset.url} target="_blank" rel="noreferrer noopener">

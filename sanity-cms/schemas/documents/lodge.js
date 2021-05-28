@@ -1,9 +1,12 @@
+import { HiOutlineLibrary as icon } from "react-icons/hi";
+
 // import emailPattern from "../utils/emailPattern";
 
 export default {
   name: 'lodge',
   title: 'Lodges',
   type: 'document',
+  icon,
   fields: [
     {
       name: 'name',

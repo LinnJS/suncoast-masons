@@ -4,9 +4,13 @@ import {
   GoChecklist as ApprovedIcon,
   GoEye as ReviewIcon,
   GoCircleSlash as RejectedIcon,
-  GoArchive as AllIcon,
-  GoPerson as AuthorIcon,
 } from "react-icons/go"
+
+import { 
+  HiOutlineDocumentDuplicate as ArticlesByCategoryIcon,
+  HiOutlineDocumentReport as CategoryIcon,
+  HiOutlineArchive as AllIcon
+  } from "react-icons/hi";
 
 import PreviewIFrame from '../components/previewIFrame'
 
@@ -18,7 +22,7 @@ export const icons = {
   AllIcon,
 }
 
-const blog = Sanity.listItem()
+const article = Sanity.listItem()
   .title('Articles')
   .icon(BlogIcon)
   .child(
@@ -45,6 +49,7 @@ const blog = Sanity.listItem()
         Sanity.documentTypeListItem('article').title('All articles').icon(AllIcon),
         Sanity.listItem()
           .title('Articles by category')
+          .icon(ArticlesByCategoryIcon)
           .child(
             // List out all categories
             Sanity.documentTypeList('category')
@@ -62,8 +67,8 @@ const blog = Sanity.listItem()
               )
         ),
         Sanity.divider(),
-        Sanity.documentTypeListItem('category').title('Categories')
+        Sanity.documentTypeListItem('category').title('Categories').icon(CategoryIcon)
       ])
   )
 
-export default blog
+export default article

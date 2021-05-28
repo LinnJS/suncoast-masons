@@ -1,9 +1,12 @@
+import { HiOutlineUsers as icon } from "react-icons/hi";
+
 // import emailPattern from "../utils/emailPattern";
 
 export default {
   name: 'staff',
   title: 'Brothers',
   type: 'document',
+  icon,
   fields: [
     {
       name: 'name',

@@ -8,7 +8,6 @@ import schemaTypes from 'all:part:@sanity/base/schema-type';
 import documents from './documents/documents';
 import officers from './documents/officers';
 import article from './documents/article';
-import bylaws from './documents/bylaws';
 import lodge from './documents/lodge';
 import staff from './documents/staff';
 
@@ -34,7 +33,6 @@ export default createSchema({
     officers,
     documents,
     staff,
-    bylaws,
     lodge,
     category,
     documentType,

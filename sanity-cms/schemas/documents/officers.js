@@ -1,7 +1,10 @@
+import { HiOutlineUserGroup as icon } from "react-icons/hi";
+
 export default {
   name: 'officers',
   title: 'Officers',
   type: 'document',
+  icon,
   fields: [
     {
       name: 'title',
