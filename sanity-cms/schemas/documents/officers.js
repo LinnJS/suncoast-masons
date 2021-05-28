@@ -14,8 +14,23 @@ export default {
       type: 'date',
     },
     {
+      name: 'districtDeputy',
+      title: 'District Deputies',
+      description: 'DDGM / DI',
+      type: 'array',
+      of: [{ type: 'reference', to: [{ type: 'staff' }] }],
+    },
+    {
       name: 'officers',
       title: 'Officers',
+      description: 'Suncoast Master Masons of the 18th district officers',
+      type: 'array',
+      of: [{ type: 'reference', to: [{ type: 'staff' }] }],
+    },
+    {
+      name: 'committeemen',
+      title: 'Committeemen',
+      description: 'Suncoast Master Masons of the 18th district Committeemen',
       type: 'array',
       of: [{ type: 'reference', to: [{ type: 'staff' }] }],
     },

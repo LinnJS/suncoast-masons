@@ -21,10 +21,8 @@ export const query = graphql`
       }
     }
 
-    committee: allSanityCommittee {
+    committee: allSanityOfficers {
       nodes {
-        id
-        name
         committeemen {
           id
           name

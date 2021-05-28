@@ -5,7 +5,6 @@ import createSchema from 'part:@sanity/base/schema-creator';
 import schemaTypes from 'all:part:@sanity/base/schema-type';
 
 // documents
-import committeemen from './documents/committee';
 import documents from './documents/documents';
 import officers from './documents/officers';
 import article from './documents/article';
@@ -33,7 +32,6 @@ export default createSchema({
     // in the studio.
     article,
     officers,
-    committeemen,
     documents,
     staff,
     bylaws,
