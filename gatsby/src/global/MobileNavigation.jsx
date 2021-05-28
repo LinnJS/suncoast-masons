@@ -63,7 +63,7 @@ const MobileNav = styled.nav`
   ${tw`border-t border-gray-200 shadow-inner`}
 
   ${tw`h-20 px-1 pb-0`}
-  /* figure out why this works on localhost but not in production */
+  /* TODO figure out why this works on localhost but not in production */
   /* ${({ isInstalled }) => (isInstalled ? tw`h-20 px-1 pb-0` : '')} */
 
 
@@ -85,6 +85,8 @@ const MobileNav = styled.nav`
   }
 
   @media (${devices.mobileM}) {
+    /* TODO figure out why this works on localhost but not in production 
+       maybe use react-device-detection */
     ${({ isInstalled }) => (isInstalled ? tw`h-24 px-2 pb-3` : '')}
     ${tw`h-24 px-2 pb-3`}
   }

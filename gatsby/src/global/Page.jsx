@@ -25,7 +25,7 @@ const PageContainer = styled.main`
   ${tw`container flex flex-col-reverse justify-end flex-1 min-h-screen p-3 mx-auto mb-8 bg-white shadow-xl`}
   width: 85%;
 
-  div {
+  > div {
     ${tw`w-full`};
   }
 

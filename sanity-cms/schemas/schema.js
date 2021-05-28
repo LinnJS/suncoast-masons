@@ -13,13 +13,13 @@ import lodge from './documents/lodge';
 import staff from './documents/staff';
 
 // objects
-import blockContent from './objects/blockContent';
+import documentType from './documents/documentType';
 import addressField from './objects/addressField';
+import blockContent from './objects/blockContent';
 import phoneField from './objects/phoneField';
 import emailField from './objects/emailField';
+import category from './documents/category';
 import urlField from './objects/urlField';
-import category from './objects/category';
-import documentType from './objects/documentType';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({

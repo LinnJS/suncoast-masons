@@ -76,10 +76,6 @@ const SideBar = () => {
 const SideBarContainer = styled.aside`
   ${tw`self-center w-full`};
 
-  p {
-    ${tw`my-2.5`};
-  }
-
   ul {
     ${tw`p-6 space-y-3 bg-gray-300`};
   }
@@ -95,7 +91,7 @@ const SideBarContainer = styled.aside`
   }
 
   h3 {
-    ${tw`my-3 text-center`};
+    ${tw`text-center`};
   }
 
   section {

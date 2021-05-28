@@ -10,10 +10,10 @@ import GavelRules from 'components/about/GavelRules';
 
 export const query = graphql`
   query AboutQuery {
-    byLaws: allSanityBylaws(sort: { fields: publishedAt, order: DESC }, limit: 1) {
+    byLaws: allSanityDocuments(filter: { documentType: { elemMatch: { title: { eq: "By laws" } } } }) {
       nodes {
         id
-        title
+        name
         file {
           asset {
             size
@@ -39,12 +39,11 @@ export const query = graphql`
 `;
 
 const AboutPage = ({ data: { byLaws, forms } }) => {
-  console.log('forms: ', forms);
+  console.log('byLaws: ', byLaws);
   return (
     <AboutContainer>
-      <h2>About</h2>
-      {/* TODO: put this data into CMS */}
       <section>
+        <h2>About</h2>
         <p>
           The Suncoast Master Mason Association is an organization of Master Masons who are members of regular Lodges in
           the 18th Masonic District of the Grand Lodge of Florida. These lodges are located throughout Pinellas County.
@@ -65,7 +64,7 @@ const AboutPage = ({ data: { byLaws, forms } }) => {
       </section>
 
       <section>
-        <h3>Forms</h3>
+        <h2>Forms</h2>
         <p>
           My Brothers, please find below our application for Membership and Two Minute Drill. They can be downloaded and
           filled out on you computer in Adobe Reader or downloaded, printed and filled out by hand. If you do not have
@@ -78,7 +77,6 @@ const AboutPage = ({ data: { byLaws, forms } }) => {
 
         <ul>
           {forms.nodes.map((form) => {
-            console.log('form: ', form);
             return (
               <li key={form.id}>
                 <a href={form.file.asset.url} target="_blank" rel="noreferrer noopener">
@@ -91,13 +89,14 @@ const AboutPage = ({ data: { byLaws, forms } }) => {
       </section>
 
       <section>
-        <h3>By laws</h3>
+        <h2>By laws</h2>
         <ul>
           {byLaws.nodes.map((byLaw) => {
+            console.log('byLaw: ', byLaw);
             return (
               <li key={byLaw.id}>
                 <a href={byLaw.file.asset.url} target="_blank" rel="noreferrer noopener">
-                  {byLaw.title}
+                  {byLaw.name}
                 </a>
               </li>
             );
@@ -128,10 +127,6 @@ const AboutContainer = styled(Page)`
     &:last-child {
       ${tw`mb-0`};
     }
-  }
-
-  p {
-    ${tw`mb-4`};
   }
 
   ul {

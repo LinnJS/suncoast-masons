@@ -52,7 +52,9 @@ export default createGlobalStyle`
     }
   }
 
-  
+  p {
+    ${tw`mb-4`};
+  }
 
   a {
     ${tw`text-blue-700 hover:underline`}

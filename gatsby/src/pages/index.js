@@ -42,6 +42,7 @@ const LandingPage = ({ data: { articlesSortedByPublishedDate } }) => {
     <HomeContainer>
       {articles.map(({ id, title, body, slug }) => {
         const firstTest = body[0].children[0].text;
+
         return (
           <Card key={id}>
             <Link to={`article/${slug.current}`}>

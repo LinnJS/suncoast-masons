@@ -163,7 +163,7 @@ OfficersPage.propTypes = {
 
 const OfficersContainer = styled(Page)`
   section {
-    div {
+    > div {
       ${tw`grid gap-1 mb-12`}
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 

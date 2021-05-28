@@ -98,7 +98,7 @@ const ScholarshipsContainer = styled(Page)`
   h2,
   h3,
   h4 {
-    ${tw`mb-2 text-center`};
+    ${tw`text-center`};
   }
 
   em {
