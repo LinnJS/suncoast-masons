@@ -9,9 +9,9 @@ import Page from 'global/Page';
 
 export const query = graphql`
   query OfficersPageQuery {
-    officers: allSanityOfficers {
+    districtDeputies: allSanityOfficers(sort: { fields: publishedAt, order: DESC }, limit: 1) {
       nodes {
-        officers {
+        districtDeputy {
           id
           name
           title
@@ -21,15 +21,31 @@ export const query = graphql`
       }
     }
 
-    committee: allSanityOfficers {
+    officers: allSanityOfficers(sort: { fields: publishedAt, order: DESC }, limit: 1) {
+      nodes {
+        officers {
+          id
+          name
+          title
+          phone
+          email
+        }
+        title
+        publishedAt
+      }
+    }
+
+    committee: allSanityOfficers(sort: { fields: publishedAt, order: DESC }, limit: 1) {
       nodes {
         committeemen {
           id
           name
           title
-          email
           phone
+          email
         }
+        title
+        publishedAt
       }
     }
 
@@ -48,57 +64,81 @@ export const query = graphql`
 
 const OfficersPage = ({ data }) => {
   const officers = data.officers.nodes[0].officers;
+  const districtDeputies = data.districtDeputies.nodes[0].districtDeputy;
   const lecturers = data.lecturers.nodes;
-  const firstCommittee = data.committee.nodes[0].committeemen;
+  const committee = data.committee.nodes[0].committeemen;
 
   return (
     <OfficersContainer>
-      <h2>DDGM/DI</h2>
-      {/* TODO */}
-
-      <h2>Officers</h2>
       <section>
-        {officers.map(({ id, name, title, phone, email }) => {
-          return (
-            <article key={id}>
-              <h4>{name}</h4>
-              <span>{title}</span>
-              <a href={`tel:${phone}`}>{phone}</a>
-              <a href={`mailto:${email}`}>{email}</a>
-            </article>
-          );
-        })}
+        <h2>DDGM/DI</h2>
+
+        <div>
+          {districtDeputies.map(({ id, name, title, phone, email }) => {
+            return (
+              <article key={id}>
+                <h4>{name}</h4>
+                <span>{title}</span>
+                <a href={`tel:${phone}`}>{phone}</a>
+                <a href={`mailto:${email}`}>{email}</a>
+              </article>
+            );
+          })}
+        </div>
       </section>
 
-      <h2>Committeemen</h2>
       <section>
-        {firstCommittee.map((committeemen) => {
-          const { id, name, title, email, phone } = committeemen;
+        <h2>Officers</h2>
 
-          return (
-            <article key={id}>
-              <h4>{name}</h4>
-              <span>{title}</span>
-              <a href={`tel:${phone}`}>{phone}</a>
-              <a href={`mailto:${email}`}>{email}</a>
-            </article>
-          );
-        })}
+        <div>
+          {officers.map(({ id, name, title, phone, email }) => {
+            return (
+              <article key={id}>
+                <h4>{name}</h4>
+                <span>{title}</span>
+                <a href={`tel:${phone}`}>{phone}</a>
+                <a href={`mailto:${email}`}>{email}</a>
+              </article>
+            );
+          })}
+        </div>
       </section>
 
-      <h2>Lecturers</h2>
       <section>
-        {lecturers.map(({ id, name, title, phone, email, lectures }) => {
-          return (
-            <article key={id}>
-              <h4>{name}</h4>
-              <span>{title}</span>
-              <a href={`tel:${phone}`}>{phone}</a>
-              <a href={`mailto:${email}`}>{email}</a>
-              <span>{lectures}</span>
-            </article>
-          );
-        })}
+        <h2>Committeemen</h2>
+
+        <div>
+          {committee.map((committeemen) => {
+            const { id, name, title, email, phone } = committeemen;
+
+            return (
+              <article key={id}>
+                <h4>{name}</h4>
+                <span>{title}</span>
+                <a href={`tel:${phone}`}>{phone}</a>
+                <a href={`mailto:${email}`}>{email}</a>
+              </article>
+            );
+          })}
+        </div>
+      </section>
+
+      <section>
+        <h2>Lecturers</h2>
+
+        <div>
+          {lecturers.map(({ id, name, title, phone, email, lectures }) => {
+            return (
+              <article key={id}>
+                <h4>{name}</h4>
+                <span>{title}</span>
+                <a href={`tel:${phone}`}>{phone}</a>
+                <a href={`mailto:${email}`}>{email}</a>
+                <span>{lectures}</span>
+              </article>
+            );
+          })}
+        </div>
       </section>
     </OfficersContainer>
   );
@@ -115,16 +155,21 @@ OfficersPage.propTypes = {
     committee: PropTypes.shape({
       nodes: PropTypes.array,
     }),
+    districtDeputies: PropTypes.shape({
+      nodes: PropTypes.array,
+    }),
   }),
 };
 
 const OfficersContainer = styled(Page)`
   section {
-    ${tw`grid gap-1 mb-12`}
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    div {
+      ${tw`grid gap-1 mb-12`}
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 
-    article {
-      ${tw`flex flex-col mb-3`}
+      article {
+        ${tw`flex flex-col mb-3`}
+      }
     }
   }
 
