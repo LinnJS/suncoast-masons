@@ -39,7 +39,6 @@ export const query = graphql`
 `;
 
 const AboutPage = ({ data: { byLaws, forms } }) => {
-  console.log('byLaws: ', byLaws);
   return (
     <AboutContainer>
       <section>
