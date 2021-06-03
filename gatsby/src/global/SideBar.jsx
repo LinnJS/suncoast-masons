@@ -3,17 +3,16 @@ import React from 'react';
 import tw, { styled } from 'twin.macro';
 import { useLocation } from '@reach/router';
 import { useStaticQuery, graphql } from 'gatsby';
+import { GatsbyImage } from 'gatsby-plugin-image';
+import { isMobileOnly } from 'react-device-detect';
 
 // internal imports
 import devices from 'utils/devices';
-import masonicLinks from '../../content/masonicLinks';
-import { GatsbyImage } from 'gatsby-plugin-image';
 import { Icon } from 'primitives';
-import useDeviceDetection from '../utils/hooks/useDeviceDetection';
+import masonicLinks from '../../content/masonicLinks';
 import Collapsible from '../components/shared/Collapsible';
 
 const SideBar = () => {
-  const { isMobile } = useDeviceDetection();
   const { pathname } = useLocation();
   const isHome = pathname === '/';
 
@@ -29,7 +28,7 @@ const SideBar = () => {
 
   return (
     <SideBarContainer>
-      <Collapsible initialIsOpen={isHome} disabled={!isMobile}>
+      <Collapsible initialIsOpen={isHome} disabled={!isMobileOnly}>
         <section>
           <h3>M:.W:. Thomas L. Turlington, Jr.</h3>
           <p>Grand Master 2020-2021</p>
@@ -95,7 +94,7 @@ const SideBarContainer = styled.aside`
   }
 
   section {
-    ${tw`flex flex-col items-center`};
+    ${tw`flex flex-col items-center mb-3`};
   }
 
   @media (${devices.tablet}) {

@@ -1,11 +1,11 @@
 // external imports
 import React from 'react';
 import tw, { styled } from 'twin.macro';
+import { isMobileSafari } from 'react-device-detect';
 
 // internal imports
 import devices from 'utils/devices';
 import { Link } from 'primitives';
-import { isMobileInstalled } from 'utils';
 
 import links from '../../content/navLinks';
 import {
@@ -37,10 +37,8 @@ const getIcon = (name) => {
 };
 
 const MobileNavigation = () => {
-  const isInstalled = isMobileInstalled;
-
   return (
-    <MobileNav isInstalled={isInstalled}>
+    <MobileNav isIphone={isMobileSafari}>
       <ul>
         {links.map((link, idx) => {
           return (
@@ -62,9 +60,7 @@ const MobileNav = styled.nav`
   ${tw`w-full h-20 -mb-6 `}
   ${tw`border-t border-gray-200 shadow-inner`}
 
-  ${tw`h-20 px-1 pb-0`}
-  /* TODO figure out why this works on localhost but not in production */
-  /* ${({ isInstalled }) => (isInstalled ? tw`h-20 px-1 pb-0` : '')} */
+  ${({ isIphone }) => (isIphone ? tw`h-20 px-1 pb-0` : '')}
 
 
   ul {
@@ -85,10 +81,7 @@ const MobileNav = styled.nav`
   }
 
   @media (${devices.mobileM}) {
-    /* TODO figure out why this works on localhost but not in production 
-       maybe use react-device-detection */
-    ${({ isInstalled }) => (isInstalled ? tw`h-24 px-2 pb-3` : '')}
-    ${tw`h-24 px-2 pb-3`}
+    ${({ isIphone }) => (isIphone ? tw`h-24 px-2 pb-3` : '')}
   }
 
   @media (${devices.laptop}) {
