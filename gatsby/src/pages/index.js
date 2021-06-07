@@ -49,7 +49,7 @@ const LandingPage = ({ data: { articlesSortedByPublishedDate } }) => {
 
   return (
     <HomeContainer>
-      {articles.map(({ id, title, body, slug, mainImage, alt }) => {
+      {articles.map(({ id, title, body, slug, mainImage }) => {
         const firstTest = body[0].children[0].text;
 
         return (
@@ -60,7 +60,7 @@ const LandingPage = ({ data: { articlesSortedByPublishedDate } }) => {
 
             {body && truncate(firstTest, 250)}
 
-            {mainImage && <Img className="img" image={mainImage.asset.gatsbyImageData} alt={alt} />}
+            {mainImage && <Img className="img" image={mainImage.asset.gatsbyImageData} alt={mainImage.alt} />}
           </Card>
         );
       })}
@@ -71,7 +71,18 @@ const LandingPage = ({ data: { articlesSortedByPublishedDate } }) => {
 LandingPage.propTypes = {
   data: PropTypes.shape({
     articlesSortedByPublishedDate: PropTypes.shape({
-      nodes: PropTypes.array,
+      nodes: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.string,
+          title: PropTypes.string,
+          slug: PropTypes.object,
+          body: PropTypes.array,
+          mainImage: PropTypes.shape({
+            asset: PropTypes.object.isRequired,
+            alt: PropTypes.string.isRequired,
+          }),
+        }),
+      ),
     }),
   }),
 };
@@ -81,6 +92,7 @@ const HomeContainer = styled(Page)`
     ${tw`w-full p-4 mb-5`}
 
     .img {
+      ${tw`mt-2`}
       height: 150px;
       width: 150px;
     }
