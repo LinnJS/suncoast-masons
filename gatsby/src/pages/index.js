@@ -12,7 +12,7 @@ import { truncate } from 'utils';
 
 export const query = graphql`
   query ArticlePageQuery {
-    articlesSortedByPublishedDate: allSanityArticle {
+    articlesSortedByPublishedDate: allSanityArticle(sort: { fields: publishedAt, order: DESC }) {
       nodes {
         id
         title

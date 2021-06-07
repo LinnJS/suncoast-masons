@@ -129,7 +129,6 @@ export const RequestReview = ({ id, type, draft, onComplete }) => {
 };
 
 // Badges
-
 export const WorkflowBadge = ({ draft }) => {
   const [status, setStatus] = useState(null);
 
