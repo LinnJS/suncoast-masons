@@ -22,9 +22,9 @@ export const query = graphql`
         }
 
         mainImage {
+          alt
           asset {
             gatsbyImageData
-            altText
           }
         }
 
@@ -49,7 +49,8 @@ const LandingPage = ({ data: { articlesSortedByPublishedDate } }) => {
 
   return (
     <HomeContainer>
-      {articles.map(({ id, title, body, slug, mainImage }) => {
+      {articles.map(({ id, title, body, slug, mainImage, alt }) => {
+        console.log('mainImage: ', mainImage);
         const firstTest = body[0].children[0].text;
 
         return (
@@ -60,7 +61,7 @@ const LandingPage = ({ data: { articlesSortedByPublishedDate } }) => {
 
             {body && truncate(firstTest, 250)}
 
-            {mainImage && <Img className="img" image={mainImage.asset.gatsbyImageData} alt={mainImage.asset.altText} />}
+            {mainImage && <Img className="img" image={mainImage.asset.gatsbyImageData} alt={alt} />}
           </Card>
         );
       })}
