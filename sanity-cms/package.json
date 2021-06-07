@@ -9,10 +9,11 @@
   "scripts": {
     "start": "sanity start",
     "build": "sanity build",
-    "lint:fix": "yarn prettier --write .",
     "deploy": "sanity deploy",
     "deploy:graphql": "sanity graphql deploy",
-    "deploy:all": "yarn deploy && yarn deploy:graphql"
+    "deploy:all": "yarn deploy && yarn deploy:graphql",
+    "lint": "eslint src -c .eslintrc.js --ext js,jsx",
+    "lint:fix": "yarn prettier --write . && eslint src -c .eslintrc.js --fix --ext js,jsx"
   },
   "keywords": [
     "sanity"
@@ -33,6 +34,18 @@
     "sanity-plugin-dashboard-widget-gatsby": "^1.0.9"
   },
   "devDependencies": {
+    "eslint": "^7.28.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-html": "^6.1.2",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-standard": "^5.0.0",
     "prettier": "2.3.1"
   }
 }

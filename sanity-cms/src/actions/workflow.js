@@ -1,78 +1,77 @@
-import React, { useMemo } from 'react'
-import { useDocumentOperation } from '@sanity/react-hooks'
-import { PublishAction } from 'part:@sanity/base/document-actions'
-import client from 'part:@sanity/base/client'
-import { icons } from '../structure/article'
+import React, { useMemo, useState } from 'react';
+import { PublishAction } from 'part:@sanity/base/document-actions';
+import client from 'part:@sanity/base/client';
+import { icons } from '../structure/article';
 
 // Get the latest workflow status for a draft revision
- const workflowStatus = async (draft) => {
-  if (!draft) return null
+const workflowStatus = async (draft) => {
+  if (!draft) return null;
 
-  return client.fetch('* [_id == $id][0]{_rev}', { id: draft._id }).then(doc => {
-    console.log('draft', draft, doc)
+  return client.fetch('* [_id == $id][0]{_rev}', { id: draft._id }).then((doc) => {
+    console.log('draft', draft, doc);
     return client.fetch(
       " *[_type == 'workflow.status' && draft == $id && revision == $revision] | order(_updatedAt desc)[0]",
       {
         id: draft._id,
-        revision: doc._rev
-      }
-    )
-  })
-}
+        revision: doc._rev,
+      },
+    );
+  });
+};
 
- const createReviewStatus = async (draft, status, reason) => {
+const createReviewStatus = async (draft, status, reason) => {
   const doc = await client.create({
     _type: 'workflow.status',
     draft: draft._id,
     revision: draft._rev,
     status,
-    reason
-  })
-  return doc
-}
+    reason,
+  });
+  return doc;
+};
 
 export const PublishApprovedAction = (props) => {
-  return PublishAction(props)
-}
+  return PublishAction(props);
+};
 
 export const RejectAction = ({ id, type, published, draft, onComplete }) => {
-  if (!draft) return null
-  const [reason, setReason] = React.useState('')
-  const [isDialogOpen, setDialogOpen] = React.useState(false)
-  const [status, setStatus] = React.useState(null)
+  const [reason, setReason] = useState('');
+  const [isDialogOpen, setDialogOpen] = useState(false);
+  const [status, setStatus] = useState(null);
 
   useMemo(async () => {
-    const res = await workflowStatus(draft)
-    setStatus(res)
-  }, [draft])
+    const res = await workflowStatus(draft);
+    setStatus(res);
+  }, [draft]);
 
-  if (!status || status.status !== 'review') return null
+  if (!draft) return null;
+  if (!status || status.status !== 'review') return null;
 
   return {
     icon: icons.RejectedIcon,
     label: 'Reject',
     onHandle: () => {
-      setDialogOpen(true)
+      setDialogOpen(true);
     },
     dialog: isDialogOpen && {
       type: 'modal',
       content: (
         <>
           <h2>Reason</h2>
-          <input type="text" onChange={event => setReason(event.target.value)} />
+          <input type="text" onChange={(event) => setReason(event.target.value)} />
           <button
             onClick={async () => {
-              await createReviewStatus(draft, 'rejected', reason)
-              setDialogOpen(false)
-              onComplete()
+              await createReviewStatus(draft, 'rejected', reason);
+              setDialogOpen(false);
+              onComplete();
             }}
           >
             Done
           </button>
         </>
-      )
-    }
-  }
+      ),
+    },
+  };
 
   /*
 
@@ -86,80 +85,82 @@ export const RejectAction = ({ id, type, published, draft, onComplete }) => {
     }
   }
   */
-}
+};
 
 export const Approve = ({ id, type, published, draft, onComplete }) => {
-  if (!draft) return null
-  const [status, setStatus] = React.useState(null)
-  useMemo(async () => {
-    const res = await workflowStatus(draft)
-    setStatus(res)
-  }, [draft])
+  const [status, setStatus] = useState(null);
 
-  if (!status || status.status !== 'review') return null
+  useMemo(async () => {
+    const res = await workflowStatus(draft);
+    setStatus(res);
+  }, [draft]);
+
+  if (!draft) return null;
+  if (!status || status.status !== 'review') return null;
 
   return {
     label: 'Approve',
     onHandle: async () => {
-      await createReviewStatus(draft, 'approved')
-      onComplete()
-    }
-  }
-}
+      await createReviewStatus(draft, 'approved');
+      onComplete();
+    },
+  };
+};
 
 export const RequestReview = ({ id, type, draft, onComplete }) => {
-  if (!draft) return null
-  const [status, setStatus] = React.useState(null)
-  useMemo(async () => {
-    const res = await workflowStatus(draft)
-    setStatus(res)
-  }, [draft])
+  const [status, setStatus] = useState(null);
 
-  if (status && ['review', 'approved'].includes(status.status)) return null
+  useMemo(async () => {
+    const res = await workflowStatus(draft);
+    setStatus(res);
+  }, [draft]);
+
+  if (!draft) return null;
+  if (status && ['review', 'approved'].includes(status.status)) return null;
 
   return {
     disabled: !draft,
     label: 'Request review',
     onHandle: async () => {
-      await createReviewStatus(draft, 'review')
-      onComplete()
-    }
-  }
-}
+      await createReviewStatus(draft, 'review');
+      onComplete();
+    },
+  };
+};
 
 // Badges
 
 export const WorkflowBadge = ({ draft }) => {
-  if (!draft) return null
+  const [status, setStatus] = useState(null);
 
-  const [status, setStatus] = React.useState(null)
   useMemo(async () => {
-    const res = await workflowStatus(draft)
-    setStatus(res)
-  }, [draft])
+    const res = await workflowStatus(draft);
+    setStatus(res);
+  }, [draft]);
 
-  if (!status) return null
+  if (!draft) return null;
+  if (!status) return null;
 
   switch (status.status) {
     case 'rejected':
       return {
         label: 'Rejected',
         title: 'This draft has been rejected and need more editing',
-        color: 'danger'
-      }
+        color: 'danger',
+      };
     case 'review':
       return {
         label: 'Waiting review',
         title: 'This draft is waiting for someone to start a review',
-        color: 'warning'
-      }
+        color: 'warning',
+      };
     case 'approved':
       return {
         label: 'Approved',
         title: 'This draft is ready to be published',
-        color: 'success'
-      }
+        color: 'success',
+      };
     default:
-      return null
+      return null;
   }
-}
+};

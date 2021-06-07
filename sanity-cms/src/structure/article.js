@@ -1,18 +1,18 @@
-import Sanity from '@sanity/desk-tool/structure-builder'
+import Sanity from '@sanity/desk-tool/structure-builder';
 import {
   GoMegaphone as BlogIcon,
   GoChecklist as ApprovedIcon,
   GoEye as ReviewIcon,
   GoCircleSlash as RejectedIcon,
-} from "react-icons/go"
+} from 'react-icons/go';
 
-import { 
+import {
   HiOutlineDocumentDuplicate as ArticlesByCategoryIcon,
   HiOutlineDocumentReport as CategoryIcon,
-  HiOutlineArchive as AllIcon
-  } from "react-icons/hi";
+  HiOutlineArchive as AllIcon,
+} from 'react-icons/hi';
 
-import PreviewIFrame from '../components/previewIFrame'
+import PreviewIFrame from '../components/previewIFrame';
 
 export const icons = {
   BlogIcon,
@@ -20,7 +20,7 @@ export const icons = {
   ReviewIcon,
   RejectedIcon,
   AllIcon,
-}
+};
 
 const article = Sanity.listItem()
   .title('Articles')
@@ -43,8 +43,8 @@ const article = Sanity.listItem()
                 Sanity.document()
                   .documentId(documentId)
                   .schemaType('article')
-                  .views([Sanity.view.form(), PreviewIFrame()])
-              )
+                  .views([Sanity.view.form(), PreviewIFrame()]),
+              ),
           ),
         Sanity.documentTypeListItem('article').title('All articles').icon(AllIcon),
         Sanity.listItem()
@@ -54,21 +54,19 @@ const article = Sanity.listItem()
             // List out all categories
             Sanity.documentTypeList('category')
               .title('Articles by category')
-              .child(catId =>
+              .child((catId) =>
                 // List out project documents where the _id for the selected
                 // category appear as a _ref in the project’s categories array
                 Sanity.documentList()
                   .schemaType('article')
                   .title('Articles')
-                  .filter(
-                    '_type == "article" && $catId in categories[]._ref'
-                  )
-                  .params({ catId })
-              )
-        ),
+                  .filter('_type == "article" && $catId in categories[]._ref')
+                  .params({ catId }),
+              ),
+          ),
         Sanity.divider(),
-        Sanity.documentTypeListItem('category').title('Categories').icon(CategoryIcon)
-      ])
-  )
+        Sanity.documentTypeListItem('category').title('Categories').icon(CategoryIcon),
+      ]),
+  );
 
-export default article
+export default article;

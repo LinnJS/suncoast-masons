@@ -2,7 +2,7 @@
 import React from 'react';
 import tw, { styled } from 'twin.macro';
 import { graphql, useStaticQuery } from 'gatsby';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { GatsbyImage as Img } from 'gatsby-plugin-image';
 
 // internal imports
 import devices from 'utils/devices';
@@ -22,7 +22,7 @@ const Header = () => {
   return (
     <HeaderContainer>
       <Link to="/">
-        <GatsbyImage
+        <Img
           className="img"
           alt="Suncoast master masons banner with sun under Pinellas county"
           image={headerImg.childImageSharp.gatsbyImageData}

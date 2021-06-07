@@ -1,4 +1,4 @@
-import { HiOutlineUserGroup as icon } from "react-icons/hi";
+import { HiOutlineUserGroup as icon } from 'react-icons/hi';
 
 export default {
   name: 'officers',

@@ -1,4 +1,4 @@
-import { HiOutlineLibrary as icon } from "react-icons/hi";
+import { HiOutlineLibrary as icon } from 'react-icons/hi';
 
 // import emailPattern from "../utils/emailPattern";
 

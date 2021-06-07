@@ -1,13 +1,13 @@
-import Sanity from '@sanity/desk-tool/structure-builder'
+import Sanity from '@sanity/desk-tool/structure-builder';
 
-import { 
+import {
   HiOutlineDocumentDuplicate as DocumentsIcon,
   HiOutlineDocumentSearch as PublishedDocumentsIcon,
   HiOutlineDocumentReport as DocumentTypeIcon,
-  HiOutlineArchive as AllDocumentsIcon
-  } from "react-icons/hi";
+  HiOutlineArchive as AllDocumentsIcon,
+} from 'react-icons/hi';
 
-import PreviewIFrame from '../components/previewIFrame'
+import PreviewIFrame from '../components/previewIFrame';
 
 const documents = Sanity.listItem()
   .title('Documents')
@@ -30,8 +30,8 @@ const documents = Sanity.listItem()
                 Sanity.document()
                   .documentId(documentId)
                   .schemaType('documents')
-                  .views([Sanity.view.form(), PreviewIFrame()])
-              )
+                  .views([Sanity.view.form(), PreviewIFrame()]),
+              ),
           ),
         Sanity.documentTypeListItem('documents').title('All documents').icon(AllDocumentsIcon),
         Sanity.listItem()
@@ -41,21 +41,19 @@ const documents = Sanity.listItem()
             // List out all categories
             Sanity.documentTypeList('documentType')
               .title('Document by type')
-              .child(catId =>
+              .child((catId) =>
                 // List out project documents where the _id for the selected
                 // category appear as a _ref in the project’s categories array
                 Sanity.documentList()
                   .schemaType('documents')
                   .title('Documents')
-                  .filter(
-                    '_type == "documents" && $catId in documentType[]._ref'
-                  )
-                  .params({ catId })
-              )
-        ),
+                  .filter('_type == "documents" && $catId in documentType[]._ref')
+                  .params({ catId }),
+              ),
+          ),
         Sanity.divider(),
-        Sanity.documentTypeListItem('documentType').title('Document types').icon(DocumentTypeIcon)
-      ])
-  )
+        Sanity.documentTypeListItem('documentType').title('Document types').icon(DocumentTypeIcon),
+      ]),
+  );
 
-export default documents
+export default documents;

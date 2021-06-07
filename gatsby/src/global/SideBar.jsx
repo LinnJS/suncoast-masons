@@ -3,7 +3,7 @@ import React from 'react';
 import tw, { styled } from 'twin.macro';
 import { useLocation } from '@reach/router';
 import { useStaticQuery, graphql } from 'gatsby';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { GatsbyImage as Img } from 'gatsby-plugin-image';
 import { isMobileOnly } from 'react-device-detect';
 
 // internal imports
@@ -33,7 +33,7 @@ const SideBar = () => {
           <h3>M:.W:. Thomas L. Turlington, Jr.</h3>
           <p>Grand Master 2020-2021</p>
 
-          <GatsbyImage
+          <Img
             alt="Most worshipful Thomas L. Turlington head shot in masonic regalia"
             image={jrGrandMaster.childrenImageSharp[0].gatsbyImageData}
           />

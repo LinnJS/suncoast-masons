@@ -1,7 +1,7 @@
-import Sanity from '@sanity/desk-tool/structure-builder'
-import PreviewIFrame from '../../src/components/previewIFrame'
+import Sanity from '@sanity/desk-tool/structure-builder';
+import PreviewIFrame from '../../src/components/previewIFrame';
 
-import { MdMenu } from "react-icons/md"
+import { MdMenu } from 'react-icons/md';
 
 export default Sanity.listItem()
   .title('Page Builder')
@@ -24,8 +24,8 @@ export default Sanity.listItem()
                 Sanity.document()
                   .documentId(documentId)
                   .schemaType('route')
-                  .views([Sanity.view.form(), PreviewIFrame()])
-              )
+                  .views([Sanity.view.form(), PreviewIFrame()]),
+              ),
           ),
         Sanity.listItem()
           .title('Pages')
@@ -34,7 +34,7 @@ export default Sanity.listItem()
             Sanity.documentList('page')
               .title('Pages')
               .menuItems(Sanity.documentTypeList('page').getMenuItems())
-              .filter('_type == "page" && _id != "frontpage"')
+              .filter('_type == "page" && _id != "frontpage"'),
           ),
-      ])
-  )
+      ]),
+  );

@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import tw, { styled } from 'twin.macro';
 import { graphql, Link } from 'gatsby';
+import { GatsbyImage as Img } from 'gatsby-plugin-image';
 
 // internal imports
 import Page from 'global/Page';
@@ -15,8 +16,16 @@ export const query = graphql`
       nodes {
         id
         title
+
         slug {
           current
+        }
+
+        mainImage {
+          asset {
+            gatsbyImageData
+            altText
+          }
         }
 
         body {
@@ -40,7 +49,7 @@ const LandingPage = ({ data: { articlesSortedByPublishedDate } }) => {
 
   return (
     <HomeContainer>
-      {articles.map(({ id, title, body, slug }) => {
+      {articles.map(({ id, title, body, slug, mainImage }) => {
         const firstTest = body[0].children[0].text;
 
         return (
@@ -50,6 +59,8 @@ const LandingPage = ({ data: { articlesSortedByPublishedDate } }) => {
             </Link>
 
             {body && truncate(firstTest, 250)}
+
+            {mainImage && <Img className="img" image={mainImage.asset.gatsbyImageData} alt={mainImage.asset.altText} />}
           </Card>
         );
       })}
@@ -68,6 +79,11 @@ LandingPage.propTypes = {
 const HomeContainer = styled(Page)`
   article {
     ${tw`w-full p-4 mb-5`}
+
+    .img {
+      height: 150px;
+      width: 150px;
+    }
   }
 `;
 

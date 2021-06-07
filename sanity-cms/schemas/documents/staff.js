@@ -1,4 +1,4 @@
-import { HiOutlineUsers as icon } from "react-icons/hi";
+import { HiOutlineUsers as icon } from 'react-icons/hi';
 
 // import emailPattern from "../utils/emailPattern";
 

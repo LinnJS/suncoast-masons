@@ -18,6 +18,7 @@ import blockContent from './objects/blockContent';
 import phoneField from './objects/phoneField';
 import emailField from './objects/emailField';
 import category from './documents/category';
+import mainImage from './objects/mainImage';
 import urlField from './objects/urlField';
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -35,6 +36,7 @@ export default createSchema({
     staff,
     lodge,
     category,
+    mainImage,
     documentType,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
