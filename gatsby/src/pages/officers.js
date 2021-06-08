@@ -1,7 +1,8 @@
 // external imports
 import React from 'react';
-import tw, { styled } from 'twin.macro';
+import tw from 'twin.macro';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { graphql } from 'gatsby';
 
 // internal imports

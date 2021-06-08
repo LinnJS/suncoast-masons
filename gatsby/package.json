@@ -55,6 +55,7 @@
     "twin.macro": "^2.4.2"
   },
   "devDependencies": {
+    "@emotion/babel-plugin": "^11.3.0",
     "@storybook/addon-actions": "^6.2.9",
     "@storybook/addon-links": "^6.2.9",
     "@storybook/addon-notes": "^5.3.21",

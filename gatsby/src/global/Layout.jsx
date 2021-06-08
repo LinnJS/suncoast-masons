@@ -1,9 +1,10 @@
 // external imports
 import React from 'react';
+import tw from 'twin.macro';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
 import { graphql, useStaticQuery } from 'gatsby';
-import tw, { styled } from 'twin.macro';
 
 // internal imports
 import devices from 'utils/devices';

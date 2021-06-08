@@ -1,7 +1,7 @@
 // external import
 import React from 'react';
 import PropTypes from 'prop-types';
-import { styled } from 'twin.macro';
+import styled from 'styled-components';
 import { graphql } from 'gatsby';
 import BlockContent from '@sanity/block-content-to-react';
 

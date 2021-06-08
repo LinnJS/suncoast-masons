@@ -1,14 +1,15 @@
 // external imports
 import React from 'react';
 import PropTypes from 'prop-types';
-import tw, { styled } from 'twin.macro';
+import tw from 'twin.macro';
+import styled from 'styled-components';
 import { graphql, Link } from 'gatsby';
 import { GatsbyImage as Img } from 'gatsby-plugin-image';
 
 // internal imports
 import Page from 'global/Page';
 import { Card } from 'primitives';
-import { truncate } from 'utils';
+import { truncate, device } from 'utils';
 
 export const query = graphql`
   query ArticlePageQuery {
@@ -54,11 +55,13 @@ const LandingPage = ({ data: { articlesSortedByPublishedDate } }) => {
 
         return (
           <Card key={id}>
-            <Link to={`article/${slug.current}`}>
-              <h3 className="mb-2">{title}</h3>
-            </Link>
+            <div>
+              <Link to={`article/${slug.current}`}>
+                <h3 className="mb-2">{title}</h3>
+              </Link>
 
-            {body && truncate(firstTest, 250)}
+              {body && truncate(firstTest, 250)}
+            </div>
 
             {mainImage && <Img className="img" image={mainImage.asset.gatsbyImageData} alt={mainImage.alt} />}
           </Card>
@@ -88,13 +91,22 @@ LandingPage.propTypes = {
 };
 
 const HomeContainer = styled(Page)`
-  article {
-    ${tw`w-full p-4 mb-5`}
+  ${Card} {
+    ${tw`flex-col w-full p-4 mb-5`}
+    background-color: red;
 
     .img {
-      ${tw`mt-2`}
-      height: 150px;
-      width: 150px;
+      ${tw`max-w-sm mt-4 max-h-60`}
+    }
+  }
+
+  @media (${device.laptop}) {
+    ${Card} {
+      ${tw`flex-row`}
+
+      .img {
+        ${tw`mt-0 ml-4`}
+      }
     }
   }
 `;

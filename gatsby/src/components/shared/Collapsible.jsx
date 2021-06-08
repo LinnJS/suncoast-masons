@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 // import { useSpring, animated } from '@react-spring/web';
+import tw from 'twin.macro';
 import PropTypes from 'prop-types';
-import tw, { styled } from 'twin.macro';
+import styled from 'styled-components';
 
 const Collapsible = ({ children, disabled, initialIsOpen = false }) => {
   const [isOpen, setIsOpen] = useState(initialIsOpen);

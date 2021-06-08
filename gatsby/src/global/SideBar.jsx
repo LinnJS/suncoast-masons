@@ -1,6 +1,7 @@
 // external imports
 import React from 'react';
-import tw, { styled } from 'twin.macro';
+import tw from 'twin.macro';
+import styled from 'styled-components';
 import { useLocation } from '@reach/router';
 import { useStaticQuery, graphql } from 'gatsby';
 import { GatsbyImage as Img } from 'gatsby-plugin-image';
