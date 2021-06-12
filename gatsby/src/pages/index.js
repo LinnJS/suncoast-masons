@@ -93,7 +93,6 @@ LandingPage.propTypes = {
 const HomeContainer = styled(Page)`
   ${Card} {
     ${tw`flex-col w-full p-4 mb-5`}
-    background-color: red;
 
     .img {
       ${tw`max-w-sm mt-4 max-h-60`}
