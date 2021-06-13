@@ -11,7 +11,7 @@ import SideBar from './SideBar';
 const Page = ({ children, className }) => {
   return (
     <PageContainer className={className}>
-      <div className="w-full mobileL:w-4/5">{children}</div>
+      <div>{children}</div>
       <SideBar />
     </PageContainer>
   );

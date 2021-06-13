@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 // import { useSpring, animated } from '@react-spring/web';
 import tw from 'twin.macro';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const Collapsible = ({ children, disabled, initialIsOpen = false }) => {
-  const [isOpen, setIsOpen] = useState(initialIsOpen);
-
+const Collapsible = ({ children, disabled, isOpen, setIsOpen }) => {
   if (disabled) return children;
 
   return (
@@ -21,8 +19,9 @@ const Collapsible = ({ children, disabled, initialIsOpen = false }) => {
 };
 
 Collapsible.propTypes = {
+  isOpen: PropTypes.bool,
   disabled: PropTypes.bool,
-  initialIsOpen: PropTypes.bool,
+  setIsOpen: PropTypes.func,
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
 };
 
