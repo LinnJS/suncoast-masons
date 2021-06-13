@@ -12,7 +12,7 @@ import GlobalStyle from 'global/GlobalStyle';
 import DesktopNavigation from 'global/DesktopNavigation';
 import MobileNavigation from 'global/MobileNavigation';
 import Header from 'global/Header';
-import TailwindHeader from 'global/header/index';
+// import TailwindHeader from 'global/header/index';
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -43,7 +43,7 @@ const Layout = ({ children }) => {
       <DesktopNavigation />
 
       <ContentContainer>
-        <TailwindHeader />
+        {/* <TailwindHeader /> */}
         <Header />
         {children}
       </ContentContainer>
