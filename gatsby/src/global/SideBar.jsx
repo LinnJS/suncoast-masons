@@ -19,9 +19,9 @@ const SideBar = () => {
   const [isOpen, setIsOpen] = useState(isHome);
   const isHidden = isMobileOnly && !isOpen;
 
-  const { jrGrandMaster } = useStaticQuery(graphql`
+  const { grandMaster } = useStaticQuery(graphql`
     query SideBarQuery {
-      jrGrandMaster: file(name: { eq: "jr-grand-master" }) {
+      grandMaster: file(name: { eq: "grand-master" }) {
         childrenImageSharp {
           gatsbyImageData(layout: FIXED, width: 230)
         }
@@ -33,12 +33,12 @@ const SideBar = () => {
     <SideBarContainer>
       <Collapsible isOpen={isOpen} setIsOpen={setIsOpen} disabled={!isMobileOnly} isHidden={isHidden}>
         <section>
-          <h3>M:.W:. Thomas L. Turlington, Jr.</h3>
-          <p>Grand Master 2020-2021</p>
+          <h3>M:.W:. Jeffrey S. Foster</h3>
+          <p>Grand Master 2021-2022</p>
 
           <Img
-            alt="Most worshipful Thomas L. Turlington head shot in masonic regalia"
-            image={jrGrandMaster.childrenImageSharp[0].gatsbyImageData}
+            alt="Most worshipful Jeffrey S. Foster head shot in masonic regalia"
+            image={grandMaster.childrenImageSharp[0].gatsbyImageData}
           />
         </section>
 
