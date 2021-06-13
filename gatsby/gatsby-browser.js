@@ -6,10 +6,9 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-require('./src/styles/global.css');
-
 // external imports
 const React = require('react');
+require('./src/global/tailwind.css');
 
 // internal imports
 const Layout = require('./src/global/Layout.jsx').default;

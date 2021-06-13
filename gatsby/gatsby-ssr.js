@@ -10,6 +10,7 @@ const React = require('react');
 
 // internal imports
 const Layout = require('./src/global/Layout.jsx').default;
+require('./src/global/tailwind.css');
 
 exports.wrapPageElement = ({ element, props }) => {
   // props provide same data to Layout as Page element will get
