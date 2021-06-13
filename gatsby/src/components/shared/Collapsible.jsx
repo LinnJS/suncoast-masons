@@ -1,18 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 // import { useSpring, animated } from '@react-spring/web';
+import tw from 'twin.macro';
 import PropTypes from 'prop-types';
-import tw, { styled } from 'twin.macro';
+import styled from 'styled-components';
 
-const Collapsible = ({ children, disabled, initialIsOpen = false }) => {
-  const [isOpen, setIsOpen] = useState(initialIsOpen);
-
+const Collapsible = ({ children, disabled, isOpen, setIsOpen, isHidden }) => {
   if (disabled) return children;
 
   return (
     <CollapsibleContainer isOpen={isOpen}>
       <button onClick={() => setIsOpen(!isOpen)}>{isOpen ? 'Close info column' : 'Open info column'}</button>
 
-      <div className="content" aria-hidden={isOpen}>
+      <div className="content" hidden={isHidden || isOpen}>
         {children}
       </div>
     </CollapsibleContainer>
@@ -20,8 +19,10 @@ const Collapsible = ({ children, disabled, initialIsOpen = false }) => {
 };
 
 Collapsible.propTypes = {
+  isHidden: PropTypes.bool,
   disabled: PropTypes.bool,
-  initialIsOpen: PropTypes.bool,
+  isOpen: PropTypes.bool.isRequired,
+  setIsOpen: PropTypes.func.isRequired,
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
 };
 
@@ -30,6 +31,7 @@ const CollapsibleContainer = styled.div`
 
   .content {
     display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
+    visibility: ${({ isOpen }) => (isOpen ? 'visible' : 'hidden')};
   }
 
   button {

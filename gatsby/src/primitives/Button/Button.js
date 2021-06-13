@@ -1,5 +1,5 @@
 // external imports
-import { styled } from 'twin.macro';
+import styled from 'styled-components';
 
 const Button = styled.button`
   padding: 15px 30px;

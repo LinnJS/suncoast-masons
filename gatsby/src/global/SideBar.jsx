@@ -1,6 +1,7 @@
 // external imports
-import React from 'react';
-import tw, { styled } from 'twin.macro';
+import React, { useState } from 'react';
+import tw from 'twin.macro';
+import styled from 'styled-components';
 import { useLocation } from '@reach/router';
 import { useStaticQuery, graphql } from 'gatsby';
 import { GatsbyImage as Img } from 'gatsby-plugin-image';
@@ -15,6 +16,8 @@ import Collapsible from '../components/shared/Collapsible';
 const SideBar = () => {
   const { pathname } = useLocation();
   const isHome = pathname === '/';
+  const [isOpen, setIsOpen] = useState(isHome);
+  const isHidden = isMobileOnly && !isOpen;
 
   const { jrGrandMaster } = useStaticQuery(graphql`
     query SideBarQuery {
@@ -28,7 +31,7 @@ const SideBar = () => {
 
   return (
     <SideBarContainer>
-      <Collapsible initialIsOpen={isHome} disabled={!isMobileOnly}>
+      <Collapsible isOpen={isOpen} setIsOpen={setIsOpen} disabled={!isMobileOnly} isHidden={isHidden}>
         <section>
           <h3>M:.W:. Thomas L. Turlington, Jr.</h3>
           <p>Grand Master 2020-2021</p>
@@ -45,7 +48,7 @@ const SideBar = () => {
             {masonicLinks.map((masonicLink, idx) => {
               return (
                 <li key={`masonic-link-${idx}`}>
-                  <a href={masonicLink.link} target="=_blank" rel="noreferrer noopener">
+                  <a href={masonicLink.link} aria-hidden={isHidden} target="=_blank" rel="noreferrer noopener">
                     {masonicLink.label}
                   </a>
                 </li>
@@ -58,11 +61,23 @@ const SideBar = () => {
           <h3>Follow Us on our Socials</h3>
 
           <div>
-            <a href="https://twitter.com/suncoastmasons" target="=_blank" rel="noreferrer noopener">
+            <a
+              href="https://twitter.com/suncoastmasons"
+              aria-hidden={isHidden}
+              aria-label="Follow us on twitter"
+              target="=_blank"
+              rel="noreferrer noopener"
+            >
               <Icon color={'#55acee'} size={35} name="twitter" />
             </a>
 
-            <a href="https://www.facebook.com/suncoastmasons/" target="=_blank" rel="noreferrer noopener">
+            <a
+              href="https://www.facebook.com/suncoastmasons/"
+              aria-hidden={isHidden}
+              aria-label="Check out our Facebook"
+              target="=_blank"
+              rel="noreferrer noopener"
+            >
               <Icon color={'#3b5998'} size={35} name="facebook" />
             </a>
           </div>

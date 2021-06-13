@@ -1,7 +1,8 @@
 // external imports
 import React from 'react';
+import tw from 'twin.macro';
 import PropTypes from 'prop-types';
-import tw, { styled } from 'twin.macro';
+import styled from 'styled-components';
 
 // internal imports
 import devices from 'utils/devices';
@@ -10,7 +11,7 @@ import SideBar from './SideBar';
 const Page = ({ children, className }) => {
   return (
     <PageContainer className={className}>
-      <div className="w-full mobileL:w-4/5">{children}</div>
+      <div>{children}</div>
       <SideBar />
     </PageContainer>
   );

@@ -1,6 +1,7 @@
 // external imports
 import React from 'react';
-import tw, { styled } from 'twin.macro';
+import tw from 'twin.macro';
+import styled from 'styled-components';
 import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage as Img } from 'gatsby-plugin-image';
 
@@ -21,7 +22,7 @@ const Header = () => {
 
   return (
     <HeaderContainer>
-      <Link to="/">
+      <Link aria-label="Navigate home" to="/">
         <Img
           className="img"
           alt="Suncoast master masons banner with sun under Pinellas county"
