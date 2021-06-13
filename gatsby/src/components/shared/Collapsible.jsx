@@ -4,14 +4,14 @@ import tw from 'twin.macro';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const Collapsible = ({ children, disabled, isOpen, setIsOpen }) => {
+const Collapsible = ({ children, disabled, isOpen, setIsOpen, isHidden }) => {
   if (disabled) return children;
 
   return (
     <CollapsibleContainer isOpen={isOpen}>
       <button onClick={() => setIsOpen(!isOpen)}>{isOpen ? 'Close info column' : 'Open info column'}</button>
 
-      <div className="content" hidden={isOpen}>
+      <div className="content" hidden={isHidden || isOpen}>
         {children}
       </div>
     </CollapsibleContainer>
@@ -19,9 +19,10 @@ const Collapsible = ({ children, disabled, isOpen, setIsOpen }) => {
 };
 
 Collapsible.propTypes = {
-  isOpen: PropTypes.bool,
+  isHidden: PropTypes.bool,
   disabled: PropTypes.bool,
-  setIsOpen: PropTypes.func,
+  isOpen: PropTypes.bool.isRequired,
+  setIsOpen: PropTypes.func.isRequired,
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
 };
 

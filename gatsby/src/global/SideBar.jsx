@@ -17,6 +17,7 @@ const SideBar = () => {
   const { pathname } = useLocation();
   const isHome = pathname === '/';
   const [isOpen, setIsOpen] = useState(isHome);
+  const isHidden = isMobileOnly && !isOpen;
 
   const { jrGrandMaster } = useStaticQuery(graphql`
     query SideBarQuery {
@@ -29,8 +30,8 @@ const SideBar = () => {
   `);
 
   return (
-    <SideBarContainer aria-hidden={isOpen}>
-      <Collapsible isOpen={isOpen} setIsOpen={setIsOpen} disabled={!isMobileOnly}>
+    <SideBarContainer>
+      <Collapsible isOpen={isOpen} setIsOpen={setIsOpen} disabled={!isMobileOnly} isHidden={isHidden}>
         <section>
           <h3>M:.W:. Thomas L. Turlington, Jr.</h3>
           <p>Grand Master 2020-2021</p>
@@ -47,7 +48,7 @@ const SideBar = () => {
             {masonicLinks.map((masonicLink, idx) => {
               return (
                 <li key={`masonic-link-${idx}`}>
-                  <a href={masonicLink.link} aria-hidden={isOpen} target="=_blank" rel="noreferrer noopener">
+                  <a href={masonicLink.link} aria-hidden={isHidden} target="=_blank" rel="noreferrer noopener">
                     {masonicLink.label}
                   </a>
                 </li>
@@ -62,7 +63,8 @@ const SideBar = () => {
           <div>
             <a
               href="https://twitter.com/suncoastmasons"
-              aria-hidden={isOpen}
+              aria-hidden={isHidden}
+              aria-label="Follow us on twitter"
               target="=_blank"
               rel="noreferrer noopener"
             >
@@ -71,7 +73,8 @@ const SideBar = () => {
 
             <a
               href="https://www.facebook.com/suncoastmasons/"
-              aria-hidden={isOpen}
+              aria-hidden={isHidden}
+              aria-label="Check out our Facebook"
               target="=_blank"
               rel="noreferrer noopener"
             >
