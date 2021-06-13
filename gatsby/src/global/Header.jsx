@@ -22,7 +22,7 @@ const Header = () => {
 
   return (
     <HeaderContainer>
-      <Link to="/">
+      <Link aria-label="Navigate home" to="/">
         <Img
           className="img"
           alt="Suncoast master masons banner with sun under Pinellas county"
