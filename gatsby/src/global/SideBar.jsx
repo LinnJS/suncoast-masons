@@ -29,7 +29,7 @@ const SideBar = () => {
   `);
 
   return (
-    <SideBarContainer>
+    <SideBarContainer aria-hidden={isOpen}>
       <Collapsible isOpen={isOpen} setIsOpen={setIsOpen} disabled={!isMobileOnly}>
         <section>
           <h3>M:.W:. Thomas L. Turlington, Jr.</h3>

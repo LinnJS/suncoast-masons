@@ -11,7 +11,7 @@ const Collapsible = ({ children, disabled, isOpen, setIsOpen }) => {
     <CollapsibleContainer isOpen={isOpen}>
       <button onClick={() => setIsOpen(!isOpen)}>{isOpen ? 'Close info column' : 'Open info column'}</button>
 
-      <div className="content" aria-hidden={isOpen}>
+      <div className="content" hidden={isOpen} aria-hidden={isOpen}>
         {children}
       </div>
     </CollapsibleContainer>
@@ -30,6 +30,7 @@ const CollapsibleContainer = styled.div`
 
   .content {
     display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
+    visibility: ${({ isOpen }) => (isOpen ? 'visible' : 'hidden')};
   }
 
   button {
