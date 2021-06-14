@@ -1,7 +1,9 @@
 import React, { Fragment } from 'react';
 import { Popover, Transition } from '@headlessui/react';
 
-const resources = [
+import RecentPostSection from './RecentPostSection';
+
+const officersSections = [
   {
     name: 'DDGM / DI',
     description: 'District Deputy Grand Master / District Instructor',
@@ -61,7 +63,7 @@ const OfficersSection = () => {
               >
                 <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                   <section className="relative grid gap-6 px-5 py-6 bg-white sm:gap-8 sm:p-8">
-                    {resources.map(({ href, name, description }) => (
+                    {officersSections.map(({ href, name, description }) => (
                       <a key={name} href={href} className="flex items-start p-3 -m-3 rounded-lg hover:bg-gray-50">
                         <div className="ml-4">
                           <p className="text-base font-medium text-gray-900">{name}</p>
@@ -71,28 +73,7 @@ const OfficersSection = () => {
                     ))}
                   </section>
 
-                  {recentPosts && (
-                    <section className="px-5 py-5 bg-gray-50 sm:px-8 sm:py-8">
-                      <div>
-                        <h3 className="text-sm font-medium tracking-wide text-gray-500 uppercase">Recent Posts</h3>
-                        <ul className="mt-4 space-y-4">
-                          {recentPosts.map(({ id, href, name }) => (
-                            <li key={id} className="text-base truncate">
-                              <a href={href} className="font-medium text-gray-900 hover:text-gray-700">
-                                {name}
-                              </a>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      <div className="mt-5 text-sm">
-                        <a href="/officers" className="font-medium">
-                          View all posts <span aria-hidden="true">&rarr;</span>
-                        </a>
-                      </div>
-                    </section>
-                  )}
+                  {recentPosts && <RecentPostSection posts={recentPosts} />}
                 </div>
               </Popover.Panel>
             </Transition>

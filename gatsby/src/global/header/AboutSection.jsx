@@ -1,7 +1,9 @@
 import React, { Fragment } from 'react';
 import { Popover, Transition } from '@headlessui/react';
 
-const about = [
+import RecentPostSection from './RecentPostSection';
+
+const aboutSections = [
   {
     name: 'About Suncoast Master Masons',
     description: 'Learn about Suncoast Master Masons Association of the 18th district',
@@ -22,6 +24,12 @@ const about = [
     description: "Connect with third-party tools that you're already using.",
     href: '/about',
   },
+];
+
+const recentPosts = [
+  { id: 1, name: 'Boost your conversion rate', href: '#' },
+  { id: 2, name: 'How to use search engine optimization to drive traffic to your site', href: '#' },
+  { id: 3, name: 'Improve your customer experience', href: '#' },
 ];
 
 const classNames = (...classes) => {
@@ -60,19 +68,17 @@ const AboutSection = () => {
               >
                 <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                   <div className="relative grid gap-6 px-5 py-6 bg-white sm:gap-8 sm:p-8">
-                    {about.map((solution) => (
-                      <a
-                        key={solution.name}
-                        href={solution.href}
-                        className="flex items-start p-3 -m-3 rounded-lg hover:bg-gray-50"
-                      >
+                    {aboutSections.map(({ name, href, description }) => (
+                      <a key={name} href={href} className="flex items-start p-3 -m-3 rounded-lg hover:bg-gray-50">
                         <div className="ml-4">
-                          <p className="text-base font-medium text-gray-900">{solution.name}</p>
-                          <p className="mt-1 text-sm text-gray-500">{solution.description}</p>
+                          <p className="text-base font-medium text-gray-900">{name}</p>
+                          <p className="mt-1 text-sm text-gray-500">{description}</p>
                         </div>
                       </a>
                     ))}
                   </div>
+
+                  {recentPosts && <RecentPostSection posts={recentPosts} />}
                 </div>
               </Popover.Panel>
             </Transition>
