@@ -3,21 +3,21 @@ import { Popover, Transition } from '@headlessui/react';
 
 const resources = [
   {
-    name: 'Help Center',
-    description: 'Get all of your questions answered in our forums or contact support.',
-    href: '#',
+    name: 'DDGM / DI',
+    description: 'District Deputy Grand Master / District Instructor',
+    href: '/officers',
   },
   {
-    name: 'Guides',
-    description: 'Learn how to maximize our platform to get the most out of it.',
-    href: '#',
+    name: 'Officers',
+    description: 'Officers of Suncoast Master Masons Association',
+    href: '/officers',
   },
   {
-    name: 'Events',
-    description: 'See what meet-ups and other events we might be planning near you.',
-    href: '#',
+    name: 'Committeemen',
+    description: 'Committeemen of Suncoast Master Masons Association',
+    href: '/officers',
   },
-  { name: 'Security', description: 'Understand how we take your privacy seriously.', href: '#' },
+  { name: 'Lecturers', description: 'Lecturers of the 18th Masonic District', href: '/officers' },
 ];
 
 const recentPosts = [
@@ -37,11 +37,11 @@ const OfficersSection = () => {
           <>
             <Popover.Button
               className={classNames(
-                open ? 'text-gray-900' : 'text-gray-500',
-                'group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500',
+                open ? 'text-gray-900' : 'text-blue-700',
+                'group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:text-blue-700',
               )}
             >
-              <span>More</span>
+              <span>Officers</span>
               {/* TODO: add chevron down */}
             </Popover.Button>
 
@@ -61,40 +61,38 @@ const OfficersSection = () => {
               >
                 <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                   <section className="relative grid gap-6 px-5 py-6 bg-white sm:gap-8 sm:p-8">
-                    {resources.map((resource) => (
-                      <a
-                        key={resource.name}
-                        href={resource.href}
-                        className="flex items-start p-3 -m-3 rounded-lg hover:bg-gray-50"
-                      >
+                    {resources.map(({ href, name, description }) => (
+                      <a key={name} href={href} className="flex items-start p-3 -m-3 rounded-lg hover:bg-gray-50">
                         <div className="ml-4">
-                          <p className="text-base font-medium text-gray-900">{resource.name}</p>
-                          <p className="mt-1 text-sm text-gray-500">{resource.description}</p>
+                          <p className="text-base font-medium text-gray-900">{name}</p>
+                          <p className="mt-1 text-sm text-gray-500">{description}</p>
                         </div>
                       </a>
                     ))}
                   </section>
 
-                  <section className="px-5 py-5 bg-gray-50 sm:px-8 sm:py-8">
-                    <div>
-                      <h3 className="text-sm font-medium tracking-wide text-gray-500 uppercase">Recent Posts</h3>
-                      <ul className="mt-4 space-y-4">
-                        {recentPosts.map((post) => (
-                          <li key={post.id} className="text-base truncate">
-                            <a href={post.href} className="font-medium text-gray-900 hover:text-gray-700">
-                              {post.name}
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                  {recentPosts && (
+                    <section className="px-5 py-5 bg-gray-50 sm:px-8 sm:py-8">
+                      <div>
+                        <h3 className="text-sm font-medium tracking-wide text-gray-500 uppercase">Recent Posts</h3>
+                        <ul className="mt-4 space-y-4">
+                          {recentPosts.map(({ id, href, name }) => (
+                            <li key={id} className="text-base truncate">
+                              <a href={href} className="font-medium text-gray-900 hover:text-gray-700">
+                                {name}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
 
-                    <div className="mt-5 text-sm">
-                      <a href="/#" className="font-medium">
-                        View all posts <span aria-hidden="true">&rarr;</span>
-                      </a>
-                    </div>
-                  </section>
+                      <div className="mt-5 text-sm">
+                        <a href="/officers" className="font-medium">
+                          View all posts <span aria-hidden="true">&rarr;</span>
+                        </a>
+                      </div>
+                    </section>
+                  )}
                 </div>
               </Popover.Panel>
             </Transition>
