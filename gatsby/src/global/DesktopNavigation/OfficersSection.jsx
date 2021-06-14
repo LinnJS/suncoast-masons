@@ -1,42 +1,32 @@
 import React, { Fragment } from 'react';
 import { Popover, Transition } from '@headlessui/react';
 
+import { Icon } from 'primitives';
 import RecentPostSection from './RecentPostSection';
 
-const aboutSections = [
+const officersSections = [
   {
-    name: 'About Suncoast Master Masons',
-    description: 'Learn about Suncoast Master Masons Association of the 18th district',
-    href: '/about',
+    name: 'DDGM / DI',
+    description: 'District Deputy Grand Master / District Instructor',
+    href: '/officers',
   },
   {
-    name: 'Forms',
-    description: 'Suncoast Master Masons related forms like two minute drill and application for membership',
-    href: '/about',
+    name: 'Officers',
+    description: 'Officers of Suncoast Master Masons Association',
+    href: '/officers',
   },
   {
-    name: 'By laws',
-    description: 'Last published by laws',
-    href: '/about',
+    name: 'Committeemen',
+    description: 'Committeemen of Suncoast Master Masons Association',
+    href: '/officers',
   },
-  {
-    name: 'Gavel Rules',
-    description: "Connect with third-party tools that you're already using.",
-    href: '/about',
-  },
-];
-
-const recentPosts = [
-  { id: 1, name: 'Boost your conversion rate', href: '#' },
-  { id: 2, name: 'How to use search engine optimization to drive traffic to your site', href: '#' },
-  { id: 3, name: 'Improve your customer experience', href: '#' },
+  { name: 'Lecturers', description: 'Lecturers of the 18th Masonic District', href: '/officers' },
 ];
 
 const classNames = (...classes) => {
   return classes.filter(Boolean).join(' ');
 };
-
-const AboutSection = () => {
+const OfficersSection = () => {
   return (
     <>
       <Popover className="relative">
@@ -45,11 +35,11 @@ const AboutSection = () => {
             <Popover.Button
               className={classNames(
                 open ? 'text-gray-900' : 'text-blue-700',
-                'group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:text-blue-700',
+                'group bg-white rounded-md inline-flex items-center text-base hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:text-blue-700',
               )}
             >
-              <span>About</span>
-              {/* TODO: add chevron down */}
+              <span>Officers</span>
+              <Icon className="ml-3" size={14} name="chevronDown" />
             </Popover.Button>
 
             <Transition
@@ -64,11 +54,11 @@ const AboutSection = () => {
             >
               <Popover.Panel
                 static
-                className="absolute z-10 w-screen max-w-md px-2 mt-3 -ml-4 transform sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2"
+                className="absolute z-10 w-screen max-w-md px-2 mt-3 transform -translate-x-1/2 left-1/2 sm:px-0"
               >
                 <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
-                  <div className="relative grid gap-6 px-5 py-6 bg-white sm:gap-8 sm:p-8">
-                    {aboutSections.map(({ name, href, description }) => (
+                  <section className="relative grid gap-6 px-5 py-6 bg-white sm:gap-8 sm:p-8">
+                    {officersSections.map(({ href, name, description }) => (
                       <a key={name} href={href} className="flex items-start p-3 -m-3 rounded-lg hover:bg-gray-50">
                         <div className="ml-4">
                           <p className="text-base font-medium text-gray-900">{name}</p>
@@ -76,9 +66,9 @@ const AboutSection = () => {
                         </div>
                       </a>
                     ))}
-                  </div>
+                  </section>
 
-                  {recentPosts && <RecentPostSection posts={recentPosts} />}
+                  <RecentPostSection />
                 </div>
               </Popover.Panel>
             </Transition>
@@ -89,4 +79,4 @@ const AboutSection = () => {
   );
 };
 
-export default AboutSection;
+export default OfficersSection;

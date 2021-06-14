@@ -42,13 +42,15 @@ const HeaderContainer = styled(Popover)`
   ${tw`fixed z-10 items-center justify-center hidden w-full h-20 bg-white `};
 
   header {
-    ${tw`px-6 mx-auto max-w-7xl`};
+    ${tw`flex items-center justify-center px-6`};
+    width: 85%;
 
     .group-wrapper {
-      ${tw`flex items-center justify-between py-6 border-b-2 border-gray-100 md:justify-start md:space-x-10`};
+      ${tw`py-6 space-x-10 border-b-2 border-gray-100`}
+      width: 85%;
 
       & > nav {
-        ${tw`flex space-x-10`};
+        ${tw`flex items-center justify-center space-x-10`};
       }
     }
   }

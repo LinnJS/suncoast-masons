@@ -1,13 +1,19 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
-const RecentPostSection = ({ posts }) => {
+const RecentPostSection = () => {
+  const recentPosts = [
+    { id: 1, name: 'Boost your conversion rate', href: '#' },
+    { id: 2, name: 'How to use search engine optimization to drive traffic to your site', href: '#' },
+    { id: 3, name: 'Improve your customer experience', href: '#' },
+  ];
+
   return (
     <section className="px-5 py-5 bg-gray-50 sm:px-8 sm:py-8">
       <div>
         <h3 className="text-sm font-medium tracking-wide text-gray-500 uppercase">Recent Posts</h3>
         <ul className="mt-4 space-y-4">
-          {posts.map(({ id, href, name }) => (
+          {recentPosts.map(({ id, href, name }) => (
             <li key={id} className="text-base truncate">
               <a href={href} className="font-medium text-gray-900 hover:text-gray-700">
                 {name}
@@ -26,14 +32,6 @@ const RecentPostSection = ({ posts }) => {
   );
 };
 
-RecentPostSection.propTypes = {
-  posts: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string,
-      href: PropTypes.string,
-      name: PropTypes.string,
-    }),
-  ),
-};
+RecentPostSection.propTypes = {};
 
 export default RecentPostSection;
