@@ -1,11 +1,13 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 
+import { Link } from 'primitives';
+
 const RecentPostSection = () => {
   const recentPosts = [
     { id: 1, name: 'Boost your conversion rate', href: '#' },
     { id: 2, name: 'How to use search engine optimization to drive traffic to your site', href: '#' },
-    { id: 3, name: 'Improve your customer experience', href: '#' },
+    { id: 3, name: 'Improve your customer experience', href: '/' },
   ];
 
   return (
@@ -15,18 +17,18 @@ const RecentPostSection = () => {
         <ul className="mt-4 space-y-4">
           {recentPosts.map(({ id, href, name }) => (
             <li key={id} className="text-base truncate">
-              <a href={href} className="font-medium text-gray-900 hover:text-gray-700">
+              <Link to={href} className="font-medium text-gray-900 hover:text-gray-700">
                 {name}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
       </div>
 
       <div className="mt-5 text-sm">
-        <a href="/officers" className="font-medium">
+        <Link to="/" className="font-medium">
           View all posts <span aria-hidden="true">&rarr;</span>
-        </a>
+        </Link>
       </div>
     </section>
   );

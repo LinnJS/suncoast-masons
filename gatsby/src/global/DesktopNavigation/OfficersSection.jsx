@@ -1,26 +1,26 @@
 import React, { Fragment } from 'react';
 import { Popover, Transition } from '@headlessui/react';
 
-import { Icon } from 'primitives';
+import { Icon, Link } from 'primitives';
 import RecentPostSection from './RecentPostSection';
 
 const officersSections = [
   {
     name: 'DDGM / DI',
     description: 'District Deputy Grand Master / District Instructor',
-    href: '/officers',
+    href: 'officers',
   },
   {
     name: 'Officers',
     description: 'Officers of Suncoast Master Masons Association',
-    href: '/officers',
+    href: 'officers',
   },
   {
     name: 'Committeemen',
     description: 'Committeemen of Suncoast Master Masons Association',
-    href: '/officers',
+    href: 'officers',
   },
-  { name: 'Lecturers', description: 'Lecturers of the 18th Masonic District', href: '/officers' },
+  { name: 'Lecturers', description: 'Lecturers of the 18th Masonic District', href: 'officers' },
 ];
 
 const classNames = (...classes) => {
@@ -59,12 +59,12 @@ const OfficersSection = () => {
                 <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                   <section className="relative grid gap-6 px-5 py-6 bg-white sm:gap-8 sm:p-8">
                     {officersSections.map(({ href, name, description }) => (
-                      <a key={name} href={href} className="flex items-start p-3 -m-3 rounded-lg hover:bg-gray-50">
+                      <Link key={name} to={href} className="flex items-start p-3 -m-3 rounded-lg hover:bg-gray-50">
                         <div className="ml-4">
                           <p className="text-base font-medium text-gray-900">{name}</p>
                           <p className="mt-1 text-sm text-gray-500">{description}</p>
                         </div>
-                      </a>
+                      </Link>
                     ))}
                   </section>
 
