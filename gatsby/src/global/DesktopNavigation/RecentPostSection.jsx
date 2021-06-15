@@ -2,23 +2,33 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 
 import { Link } from 'primitives';
+import { useStaticQuery, graphql } from 'gatsby';
 
 const RecentPostSection = () => {
-  const recentPosts = [
-    { id: 1, name: 'Boost your conversion rate', href: '#' },
-    { id: 2, name: 'How to use search engine optimization to drive traffic to your site', href: '#' },
-    { id: 3, name: 'Improve your customer experience', href: '/' },
-  ];
+  const { articlesSortedByPublishedDate } = useStaticQuery(graphql`
+    query RecentPostQuery {
+      articlesSortedByPublishedDate: allSanityArticle(sort: { fields: publishedAt, order: DESC }, limit: 3) {
+        nodes {
+          publishedAt
+          id
+          title
+          slug {
+            current
+          }
+        }
+      }
+    }
+  `);
 
   return (
     <section className="px-5 py-5 bg-gray-50 sm:px-8 sm:py-8">
       <div>
         <h3 className="text-sm font-medium tracking-wide text-gray-500 uppercase">Recent Posts</h3>
         <ul className="mt-4 space-y-4">
-          {recentPosts.map(({ id, href, name }) => (
+          {articlesSortedByPublishedDate.nodes.map(({ id, slug, title }) => (
             <li key={id} className="text-base truncate">
-              <Link to={href} className="font-medium text-gray-900 hover:text-gray-700">
-                {name}
+              <Link to={`article/${slug.current}`} className="font-medium text-gray-900 hover:text-gray-700">
+                {title}
               </Link>
             </li>
           ))}
