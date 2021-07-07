@@ -42,7 +42,7 @@ export const query = graphql`
 const AboutPage = ({ data: { byLaws, forms } }) => {
   return (
     <AboutContainer>
-      <section>
+      <section id="about">
         <h2>About</h2>
         <p>
           The Suncoast Master Mason Association is an organization of Master Masons who are members of regular Lodges in
@@ -63,7 +63,7 @@ const AboutPage = ({ data: { byLaws, forms } }) => {
         </p>
       </section>
 
-      <section>
+      <section id="forms">
         <h2>Forms</h2>
         <p>
           My Brothers, please find below our application for Membership and Two Minute Drill. They can be downloaded and
@@ -88,7 +88,7 @@ const AboutPage = ({ data: { byLaws, forms } }) => {
         </ul>
       </section>
 
-      <section>
+      <section id="bylaws">
         <h2>By laws</h2>
         <ul>
           {byLaws.nodes.map((byLaw) => {
@@ -103,7 +103,7 @@ const AboutPage = ({ data: { byLaws, forms } }) => {
         </ul>
       </section>
 
-      <GavelRules />
+      <GavelRules id="gavel-rules" />
     </AboutContainer>
   );
 };

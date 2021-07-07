@@ -63,6 +63,7 @@ module.exports = {
       },
     },
     'gatsby-plugin-postcss',
+    'gatsby-plugin-smoothscroll',
     'gatsby-plugin-image',
     'gatsby-plugin-gatsby-cloud',
     'gatsby-plugin-root-import',

@@ -2,9 +2,9 @@ import React from 'react';
 import tw from 'twin.macro';
 import styled from 'styled-components';
 
-const GavelRules = () => {
+const GavelRules = ({ ...rest }) => {
   return (
-    <GavelRulesContainer>
+    <GavelRulesContainer {...rest}>
       <h3>Gavel rules</h3>
       <section>
         <p>

@@ -71,7 +71,7 @@ const OfficersPage = ({ data }) => {
 
   return (
     <OfficersContainer>
-      <section>
+      <section id="#ddgm-di">
         <h2>DDGM/DI</h2>
 
         <div>
@@ -88,7 +88,7 @@ const OfficersPage = ({ data }) => {
         </div>
       </section>
 
-      <section>
+      <section id="#officers">
         <h2>Officers</h2>
 
         <div>
@@ -105,7 +105,7 @@ const OfficersPage = ({ data }) => {
         </div>
       </section>
 
-      <section>
+      <section id="#committeemen">
         <h2>Committeemen</h2>
 
         <div>
@@ -124,7 +124,7 @@ const OfficersPage = ({ data }) => {
         </div>
       </section>
 
-      <section>
+      <section id="#lecturers">
         <h2>Lecturers</h2>
 
         <div>
