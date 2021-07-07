@@ -19,14 +19,14 @@
     "sanity"
   ],
   "dependencies": {
-    "@sanity/base": "^2.11.1",
+    "@sanity/base": "^2.12.2",
     "@sanity/components": "^2.2.6",
-    "@sanity/core": "^2.11.0",
+    "@sanity/core": "^2.12.2",
     "@sanity/dashboard": "^2.10.5",
-    "@sanity/default-layout": "^2.11.1",
+    "@sanity/default-layout": "^2.12.2",
     "@sanity/default-login": "^2.11.1",
-    "@sanity/desk-tool": "^2.11.1",
-    "@sanity/vision": "^2.11.0",
+    "@sanity/desk-tool": "^2.12.2",
+    "@sanity/vision": "^2.11.2",
     "prop-types": "^15.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -34,7 +34,7 @@
     "sanity-plugin-dashboard-widget-gatsby": "^1.0.9"
   },
   "devDependencies": {
-    "eslint": "^7.28.0",
+    "eslint": "^7.30.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-html": "^6.1.2",
@@ -46,6 +46,6 @@
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-standard": "^5.0.0",
-    "prettier": "2.3.1"
+    "prettier": "2.3.2"
   }
 }
