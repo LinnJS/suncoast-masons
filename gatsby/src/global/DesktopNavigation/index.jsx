@@ -36,19 +36,19 @@ const officersSections = [
   {
     name: 'DDGM / DI',
     description: 'District Deputy Grand Master / District Instructor',
-    href: 'officers',
+    href: 'officers/#ddgm-di',
   },
   {
     name: 'Officers',
     description: 'Officers of Suncoast Master Masons Association',
-    href: 'officers',
+    href: 'officers/#officers',
   },
   {
     name: 'Committeemen',
     description: 'Committeemen of Suncoast Master Masons Association',
-    href: 'officers',
+    href: 'officers/#committeemen',
   },
-  { name: 'Lecturers', description: 'Lecturers of the 18th Masonic District', href: 'officers' },
+  { name: 'Lecturers', description: 'Lecturers of the 18th Masonic District', href: 'officers/#lecturers' },
 ];
 
 const TailwindHeader = () => {
