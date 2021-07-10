@@ -71,7 +71,7 @@ const OfficersPage = ({ data }) => {
 
   return (
     <OfficersContainer>
-      <section id="ddgm-di">
+      <section className="officer-section" id="ddgm-di">
         <h2>DDGM/DI</h2>
 
         <div>
@@ -88,7 +88,7 @@ const OfficersPage = ({ data }) => {
         </div>
       </section>
 
-      <section id="officers">
+      <section className="officer-section" id="officers">
         <h2>Officers</h2>
 
         <div>
@@ -105,7 +105,7 @@ const OfficersPage = ({ data }) => {
         </div>
       </section>
 
-      <section id="committeemen">
+      <section className="officer-section" id="committeemen">
         <h2>Committeemen</h2>
 
         <div>
@@ -124,7 +124,7 @@ const OfficersPage = ({ data }) => {
         </div>
       </section>
 
-      <section id="lecturers">
+      <section className="officer-section" id="lecturers">
         <h2>Lecturers</h2>
 
         <div>
@@ -163,7 +163,7 @@ OfficersPage.propTypes = {
 };
 
 const OfficersContainer = styled(Page)`
-  section {
+  .officer-section {
     > div {
       ${tw`grid gap-1 mb-12`}
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
