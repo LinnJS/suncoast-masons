@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const GavelRules = ({ ...rest }) => {
   return (
     <GavelRulesContainer {...rest}>
-      <h3>Gavel rules</h3>
+      <h2>Gavel rules</h2>
       <section>
         <p>
           The purpose of the gavel program is to promote visitation of Lodges within District 18 of the Grand Lodge of
@@ -89,7 +89,7 @@ const GavelRules = ({ ...rest }) => {
   );
 };
 
-const GavelRulesContainer = styled.div`
+const GavelRulesContainer = styled.section`
   mark {
     ${tw`bg-blue-100`};
   }

@@ -39,7 +39,6 @@
     "gatsby-plugin-react-helmet": "^4.9.0",
     "gatsby-plugin-root-import": "^2.0.6",
     "gatsby-plugin-sharp": "^3.9.0",
-    "gatsby-plugin-smoothscroll": "^1.2.0",
     "gatsby-plugin-styled-components": "^4.9.0",
     "gatsby-source-filesystem": "^3.9.0",
     "gatsby-source-sanity": "^7.0.7",

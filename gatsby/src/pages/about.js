@@ -1,9 +1,9 @@
 // external imports
-import React from 'react';
+import React, { useEffect } from 'react';
 import tw from 'twin.macro';
+import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { graphql } from 'gatsby';
 
 // internal imports
 import Page from 'global/Page';
@@ -39,10 +39,24 @@ export const query = graphql`
   }
 `;
 
-const AboutPage = ({ data: { byLaws, forms } }) => {
+const AboutPage = ({ data: { byLaws, forms }, location }) => {
+  const { state } = location;
+
+  // useEffect(() => {
+  //   if (!state || !document || !window) return;
+
+  //   const element = document.querySelector(state.section);
+  //   const headerOffset = 90;
+  //   if (!element) return;
+  //   const elementPosition = element.getBoundingClientRect().top;
+  //   const offsetPosition = elementPosition - headerOffset;
+
+  //   window.scrollTo({ top: offsetPosition, behavior: 'smooth', block: 'start' });
+  // }, [state]);
+
   return (
     <AboutContainer>
-      <section className="about-section" id="about">
+      <section className="about-section">
         <h2>About</h2>
         <p>
           The Suncoast Master Mason Association is an organization of Master Masons who are members of regular Lodges in
@@ -116,6 +130,10 @@ AboutPage.propTypes = {
     forms: PropTypes.shape({
       nodes: PropTypes.array,
     }),
+  }),
+  location: PropTypes.shape({
+    hash: PropTypes.string,
+    state: PropTypes.object,
   }),
 };
 

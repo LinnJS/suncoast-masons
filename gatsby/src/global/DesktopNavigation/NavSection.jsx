@@ -1,13 +1,28 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import tw from 'twin.macro';
 import { Popover, Transition } from '@headlessui/react';
+import { useLocation } from '@reach/router';
 
 import { Icon, Link } from 'primitives';
 import RecentPostSection from './RecentPostSection';
 
 const NavSection = ({ name, sections }) => {
+  const { state } = useLocation();
+
+  useEffect(() => {
+    if (!state || !document || !window) return;
+
+    const element = document.querySelector(state.section);
+    const headerOffset = 90;
+    if (!element) return;
+    const elementPosition = element.getBoundingClientRect().top;
+    const offsetPosition = elementPosition - headerOffset;
+
+    window.scrollTo({ top: offsetPosition, behavior: 'smooth', block: 'start' });
+  }, [state]);
+
   return (
     <>
       <NavSectionContainer>
@@ -31,8 +46,8 @@ const NavSection = ({ name, sections }) => {
               <Popover.Panel static className="panel">
                 <div className="section-group">
                   <section className="nav-section">
-                    {sections.map(({ href, name, description }) => (
-                      <Link className="nav-link" key={name} to={href}>
+                    {sections.map(({ href, name, description, section }) => (
+                      <Link className="nav-link" key={name} to={href} state={{ section }}>
                         <div className="ml-4">
                           <p className="text-base font-medium text-gray-900">{name}</p>
                           <p className="mt-1 text-sm text-gray-500">{description}</p>

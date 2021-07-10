@@ -13,22 +13,26 @@ const aboutSections = [
   {
     name: 'About Suncoast Master Masons',
     description: 'Learn about Suncoast Master Masons Association of the 18th district',
-    href: 'about/#about',
+    href: 'about',
+    section: '#about',
   },
   {
     name: 'Forms',
     description: 'Suncoast Master Masons related forms like two minute drill and application for membership',
-    href: 'about/#forms',
+    href: 'about',
+    section: '#forms',
   },
   {
     name: 'By laws',
     description: 'Last published by laws',
-    href: 'about/#bylaws',
+    href: 'about',
+    section: '#bylaws',
   },
   {
     name: 'Gavel Rules',
     description: "Connect with third-party tools that you're already using.",
-    href: 'about/#gavel-rules',
+    href: 'about',
+    section: '#gavel-rules',
   },
 ];
 
