@@ -1,12 +1,16 @@
 // external imports
 import tw from 'twin.macro';
 import { createGlobalStyle } from 'styled-components';
+import { normalize } from 'styled-normalize';
+
 import devices from 'utils/devices';
 
 // internal imports
 import bg from '../assets/svgs/bg.svg';
 
 export default createGlobalStyle`
+${normalize}
+
   html {
     ${tw`box-border overflow-x-hidden bg-white`};
   }

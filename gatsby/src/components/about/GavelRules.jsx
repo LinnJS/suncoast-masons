@@ -2,10 +2,10 @@ import React from 'react';
 import tw from 'twin.macro';
 import styled from 'styled-components';
 
-const GavelRules = () => {
+const GavelRules = ({ ...rest }) => {
   return (
-    <GavelRulesContainer>
-      <h3>Gavel rules</h3>
+    <GavelRulesContainer {...rest}>
+      <h2>Gavel rules</h2>
       <section>
         <p>
           The purpose of the gavel program is to promote visitation of Lodges within District 18 of the Grand Lodge of
@@ -89,7 +89,7 @@ const GavelRules = () => {
   );
 };
 
-const GavelRulesContainer = styled.div`
+const GavelRulesContainer = styled.section`
   mark {
     ${tw`bg-blue-100`};
   }
