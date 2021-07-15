@@ -2,8 +2,6 @@ import React from 'react';
 import tw from 'twin.macro';
 import styled from 'styled-components';
 
-import Page from 'global/Page';
-
 const CalendarPage = () => {
   return (
     <CalendarContainer>

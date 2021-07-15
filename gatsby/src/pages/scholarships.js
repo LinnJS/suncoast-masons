@@ -7,7 +7,6 @@ import { graphql } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 
 // internal imports
-import Page from 'global/Page';
 import devices from 'utils/devices';
 import PastRecipientsTable from '../components/scholarships/PastRecipientsTable';
 import ScholarshipsRules from '../components/scholarships/ScholarshipsRules';

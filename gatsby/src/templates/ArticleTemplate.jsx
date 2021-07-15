@@ -6,7 +6,6 @@ import { graphql } from 'gatsby';
 import BlockContent from '@sanity/block-content-to-react';
 
 // internal import
-import Page from '../global/Page';
 
 export const query = graphql`
   query ($slug: String!) {
@@ -36,11 +35,11 @@ const ArticleTemplate = ({
   },
 }) => {
   return (
-    <ArticleContainer>
+    <div>
       <h2>{title}</h2>
 
       {body && <BlockContent className="body" blocks={body} />}
-    </ArticleContainer>
+    </div>
   );
 };
 
@@ -52,7 +51,5 @@ ArticleTemplate.propTypes = {
     }),
   }),
 };
-
-const ArticleContainer = styled(Page)``;
 
 export default ArticleTemplate;

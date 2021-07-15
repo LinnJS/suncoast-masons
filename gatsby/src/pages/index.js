@@ -1,15 +1,13 @@
 // external imports
 import React from 'react';
 import PropTypes from 'prop-types';
-import tw from 'twin.macro';
-import styled from 'styled-components';
 import { graphql, Link } from 'gatsby';
 import { GatsbyImage as Img } from 'gatsby-plugin-image';
+import { styled } from 'twin.macro';
 
 // internal imports
-import Page from 'global/Page';
 import { Card } from 'primitives';
-import { truncate, device } from 'utils';
+import devices from 'utils/devices';
 
 export const query = graphql`
   query ArticlePageQuery {
@@ -25,7 +23,7 @@ export const query = graphql`
         mainImage {
           alt
           asset {
-            gatsbyImageData
+            gatsbyImageData(layout: CONSTRAINED, width: 380, height: 240, fit: SCALE)
           }
         }
 
@@ -49,27 +47,44 @@ const LandingPage = ({ data: { articlesSortedByPublishedDate } }) => {
   const articles = articlesSortedByPublishedDate.nodes;
 
   return (
-    <HomeContainer>
+    <ArticleGrid>
       {articles.map(({ id, title, body, slug, mainImage }) => {
         const firstTest = body[0].children[0].text;
 
         return (
-          <Card key={id}>
+          <Card className="flex-col max-w-sm lg:mb-5 lg:p-4" key={id}>
             <div>
               <Link to={`article/${slug.current}`}>
                 <h3 className="mb-2">{title}</h3>
               </Link>
 
-              {body && truncate(firstTest, 250)}
+              {body && firstTest}
             </div>
 
-            {mainImage && <Img className="img" image={mainImage.asset.gatsbyImageData} alt={mainImage.alt} />}
+            {mainImage && (
+              <Img className="max-w-sm mt-4 max-h-60" image={mainImage.asset.gatsbyImageData} alt={mainImage.alt} />
+            )}
           </Card>
         );
       })}
-    </HomeContainer>
+    </ArticleGrid>
   );
 };
+
+const ArticleGrid = styled.div`
+  --columns: 1;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(var(--columns), minmax(250px, 1fr));
+
+  @media (${devices.laptop}) {
+    --columns: 2;
+  }
+
+  @media (${devices.laptopL}) {
+    --columns: 3;
+  }
+`;
 
 LandingPage.propTypes = {
   data: PropTypes.shape({
@@ -89,25 +104,5 @@ LandingPage.propTypes = {
     }),
   }),
 };
-
-const HomeContainer = styled.div`
-  ${Card} {
-    ${tw`flex-col w-full p-4 mb-5`}
-
-    .img {
-      ${tw`max-w-sm mt-4 max-h-60`}
-    }
-  }
-
-  @media (${device.laptop}) {
-    ${Card} {
-      ${tw`flex-row`}
-
-      .img {
-        ${tw`mt-0 ml-4`}
-      }
-    }
-  }
-`;
 
 export default LandingPage;
