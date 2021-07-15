@@ -90,7 +90,7 @@ LandingPage.propTypes = {
   }),
 };
 
-const HomeContainer = styled(Page)`
+const HomeContainer = styled.div`
   ${Card} {
     ${tw`flex-col w-full p-4 mb-5`}
 

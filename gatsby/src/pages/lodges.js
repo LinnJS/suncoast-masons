@@ -114,7 +114,7 @@ LodgesPage.propTypes = {
   }),
 };
 
-const LodgesContainer = styled(Page)`
+const LodgesContainer = styled.div`
   .grid {
     ${tw`grid w-full gap-2 `}
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));

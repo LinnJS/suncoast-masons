@@ -162,7 +162,7 @@ OfficersPage.propTypes = {
   }),
 };
 
-const OfficersContainer = styled(Page)`
+const OfficersContainer = styled.div`
   section {
     > div {
       ${tw`grid gap-1 mb-12`}

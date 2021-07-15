@@ -119,7 +119,7 @@ AboutPage.propTypes = {
   }),
 };
 
-const AboutContainer = styled(Page)`
+const AboutContainer = styled.div`
   section {
     ${tw`mb-8`};
 

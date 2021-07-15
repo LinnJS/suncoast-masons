@@ -83,7 +83,7 @@ ScholarshipsPage.propTypes = {
   }),
 };
 
-const ScholarshipsContainer = styled(Page)`
+const ScholarshipsContainer = styled.div`
   ${tw`justify-center`};
 
   .img {

@@ -11,7 +11,7 @@ import SideBar from './SideBar';
 const Page = ({ children, className }) => {
   return (
     <PageContainer className={className}>
-      <div>{children}</div>
+      <div className="w-full">{children}</div>
       <SideBar />
     </PageContainer>
   );
@@ -23,12 +23,9 @@ Page.propTypes = {
 };
 
 const PageContainer = styled.main`
-  ${tw`container flex flex-col-reverse justify-end flex-1 min-h-screen p-3 mx-auto mb-8 bg-white shadow-xl`}
+  ${tw`container flex flex-col-reverse justify-end flex-1 min-h-screen p-3 mx-auto mt-8 mb-8 bg-white shadow`}
+  box-shadow: 0 0 5px 3px rgb(0 0 0 / 4%);
   width: 85%;
-
-  > div {
-    ${tw`w-full`};
-  }
 
   @media (${devices.mobileM}) {
     ${tw`p-6 `};

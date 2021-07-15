@@ -12,6 +12,7 @@ import GlobalStyle from 'global/GlobalStyle';
 import DesktopNavigation from 'global/DesktopNavigation';
 import MobileNavigation from 'global/MobileNavigation';
 import Header from 'global/Header';
+import Page from 'global/Page';
 // import TailwindHeader from 'global/header/index';
 
 const Layout = ({ children }) => {
@@ -40,12 +41,14 @@ const Layout = ({ children }) => {
       </Helmet>
 
       <GlobalStyle />
-      <DesktopNavigation />
 
       <ContentContainer>
         {/* <TailwindHeader /> */}
-        <Header />
-        {children}
+        <Page>
+          <DesktopNavigation />
+          <Header />
+          {children}
+        </Page>
       </ContentContainer>
 
       <MobileNavigation />

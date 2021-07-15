@@ -25,7 +25,7 @@ const CalendarPage = () => {
   );
 };
 
-const CalendarContainer = styled(Page)`
+const CalendarContainer = styled.div`
   section {
     ${tw`flex-1 `}
 
