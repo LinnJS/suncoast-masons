@@ -9,9 +9,10 @@ import { isMobileOnly } from 'react-device-detect';
 
 // internal imports
 import devices from 'utils/devices';
-import { Icon } from 'primitives';
+import { Link } from 'primitives';
 import masonicLinks from '../../content/masonicLinks';
 import Collapsible from '../components/shared/Collapsible';
+import { socials } from '../../content/navLinks';
 
 const SideBar = () => {
   const { pathname } = useLocation();
@@ -61,25 +62,12 @@ const SideBar = () => {
           <h3>Follow Us on our Socials</h3>
 
           <div>
-            <a
-              href="https://twitter.com/suncoastmasons"
-              aria-hidden={isHidden}
-              aria-label="Follow us on twitter"
-              target="=_blank"
-              rel="noreferrer noopener"
-            >
-              <Icon color={'#55acee'} size={35} name="twitter" />
-            </a>
-
-            <a
-              href="https://www.facebook.com/suncoastmasons/"
-              aria-hidden={isHidden}
-              aria-label="Check out our Facebook"
-              target="=_blank"
-              rel="noreferrer noopener"
-            >
-              <Icon color={'#3b5998'} size={35} name="facebook" />
-            </a>
+            {socials.map(({ name, link, Icon }) => (
+              <Link key={name} to={link} className="text-gray-400 hover:text-gray-500">
+                <span className="sr-only">{name}</span>
+                <Icon aria-hidden="true" />
+              </Link>
+            ))}
           </div>
         </section>
       </Collapsible>

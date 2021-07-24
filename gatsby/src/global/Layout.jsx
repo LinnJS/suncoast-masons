@@ -13,6 +13,7 @@ import DesktopNavigation from 'global/DesktopNavigation';
 import MobileNavigation from 'global/MobileNavigation';
 import Header from 'global/Header';
 import SideBar from './SideBar';
+import Footer from './Footer';
 
 // import TailwindHeader from 'global/header/index';
 
@@ -54,6 +55,7 @@ const Layout = ({ children }) => {
               <div className="w-full">{children}</div>
               <SideBar />
             </div>
+            <Footer />
           </div>
         </main>
       </ContentContainer>
