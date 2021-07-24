@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { graphql, Link } from 'gatsby';
 import { GatsbyImage as Img } from 'gatsby-plugin-image';
 import { styled } from 'twin.macro';
+import BlockContent from '@sanity/block-content-to-react';
 
 // internal imports
 import { Card } from 'primitives';
@@ -49,21 +50,17 @@ const LandingPage = ({ data: { articlesSortedByPublishedDate } }) => {
   return (
     <ArticleGrid>
       {articles.map(({ id, title, body, slug, mainImage }) => {
-        const firstTest = body[0].children[0].text;
-
         return (
-          <Card className="flex-col max-w-sm lg:mb-5 lg:p-4" key={id}>
-            <div>
+          <Card className="flex-col overflow-hidden truncate card h-96 lg:mb-5 lg:p-4" key={id}>
+            <div className="truncate">
               <Link to={`article/${slug.current}`}>
                 <h3 className="mb-2">{title}</h3>
               </Link>
 
-              {body && firstTest}
+              <BlockContent className="prose truncate" renderContainerOnSingleChild blocks={body} />
             </div>
 
-            {mainImage && (
-              <Img className="max-w-sm mt-4 max-h-60" image={mainImage.asset.gatsbyImageData} alt={mainImage.alt} />
-            )}
+            {mainImage && <Img className="mt-4 max-h-60" image={mainImage.asset.gatsbyImageData} alt={mainImage.alt} />}
           </Card>
         );
       })}
@@ -75,7 +72,11 @@ const ArticleGrid = styled.div`
   --columns: 1;
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(var(--columns), minmax(250px, 1fr));
+  grid-template-columns: repeat(var(--columns), minmax(300px, 1fr));
+
+  .card {
+    max-width: 300px;
+  }
 
   @media (${devices.laptop}) {
     --columns: 2;
