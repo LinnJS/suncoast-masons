@@ -50,6 +50,8 @@ const LandingPage = ({ data: { articlesSortedByPublishedDate } }) => {
 
   return (
     <HomeContainer>
+
+      
       {articles.map(({ id, title, body, slug, mainImage }) => {
         const firstTest = body[0].children[0].text;
 
