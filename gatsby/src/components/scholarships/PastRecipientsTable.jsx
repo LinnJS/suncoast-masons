@@ -2,7 +2,6 @@
 import React from 'react';
 import tw from 'twin.macro';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { useTable } from 'react-table';
 
 const PastRecipientsTable = ({ columns, data, ...rest }) => {
@@ -12,7 +11,7 @@ const PastRecipientsTable = ({ columns, data, ...rest }) => {
   });
 
   return (
-    <TableContainer>
+    <div className="w-full mb-12">
       <h2>Past Recipients</h2>
       <div className="flex flex-col" {...rest}>
         <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -69,7 +68,7 @@ const PastRecipientsTable = ({ columns, data, ...rest }) => {
           </div>
         </div>
       </div>
-    </TableContainer>
+    </div>
   );
 };
 
@@ -77,9 +76,5 @@ PastRecipientsTable.propTypes = {
   columns: PropTypes.array,
   data: PropTypes.array,
 };
-
-const TableContainer = styled.section`
-  ${tw`flex flex-col items-center justify-center w-full mb-12`};
-`;
 
 export default PastRecipientsTable;
