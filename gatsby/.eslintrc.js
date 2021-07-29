@@ -33,7 +33,17 @@ module.exports = {
         extensions: ['.js', '.jsx'],
       },
     ],
-    'prettier/prettier': 'error',
+    'prettier/prettier': [
+      'error',
+      {
+        singleQuote: true,
+        printWidth: 120,
+        tabWidth: 2,
+        tailingComma: 'all',
+        jsxBracketSameLine: false,
+        endOfLine: 'auto',
+      },
+    ],
     'import/no-unresolved': [2, { commonjs: true, amd: true }],
     'import/no-absolute-path': 0,
   },
