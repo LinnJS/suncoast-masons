@@ -1,9 +1,9 @@
 // external imports
-import React from 'react';
+import React, { useEffect } from 'react';
 import tw from 'twin.macro';
+import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { graphql } from 'gatsby';
 
 // internal imports
 import Page from 'global/Page';
@@ -39,10 +39,24 @@ export const query = graphql`
   }
 `;
 
-const AboutPage = ({ data: { byLaws, forms } }) => {
+const AboutPage = ({ data: { byLaws, forms }, location }) => {
+  const { state } = location;
+
+  // useEffect(() => {
+  //   if (!state || !document || !window) return;
+
+  //   const element = document.querySelector(state.section);
+  //   const headerOffset = 90;
+  //   if (!element) return;
+  //   const elementPosition = element.getBoundingClientRect().top;
+  //   const offsetPosition = elementPosition - headerOffset;
+
+  //   window.scrollTo({ top: offsetPosition, behavior: 'smooth', block: 'start' });
+  // }, [state]);
+
   return (
     <AboutContainer>
-      <section>
+      <section className="about-section">
         <h2>About</h2>
         <p>
           The Suncoast Master Mason Association is an organization of Master Masons who are members of regular Lodges in
@@ -63,7 +77,7 @@ const AboutPage = ({ data: { byLaws, forms } }) => {
         </p>
       </section>
 
-      <section>
+      <section className="about-section" id="forms">
         <h2>Forms</h2>
         <p>
           My Brothers, please find below our application for Membership and Two Minute Drill. They can be downloaded and
@@ -88,7 +102,7 @@ const AboutPage = ({ data: { byLaws, forms } }) => {
         </ul>
       </section>
 
-      <section>
+      <section className="about-section" id="bylaws">
         <h2>By laws</h2>
         <ul>
           {byLaws.nodes.map((byLaw) => {
@@ -103,7 +117,7 @@ const AboutPage = ({ data: { byLaws, forms } }) => {
         </ul>
       </section>
 
-      <GavelRules />
+      <GavelRules id="gavel-rules" />
     </AboutContainer>
   );
 };
@@ -117,10 +131,14 @@ AboutPage.propTypes = {
       nodes: PropTypes.array,
     }),
   }),
+  location: PropTypes.shape({
+    hash: PropTypes.string,
+    state: PropTypes.object,
+  }),
 };
 
 const AboutContainer = styled(Page)`
-  section {
+  .about-section {
     ${tw`mb-8`};
 
     &:last-child {
