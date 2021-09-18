@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "@tailwindcss/typography": "^0.4.1",
-    "styled-normalize": "^8.0.7"
-  }
-}
