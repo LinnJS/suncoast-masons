@@ -1,12 +1,6 @@
 /* eslint-disable node/no-path-concat */
 
 module.exports = {
-  flags: {
-    FAST_DEV: true,
-    PARALLEL_SOURCING: false,
-    DEV_SSR: false,
-    FUNCTIONS: false,
-  },
   siteMetadata: {
     title: 'Suncoast Masons',
   },
