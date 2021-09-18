@@ -65,6 +65,7 @@ module.exports = {
         precachePages: [`/`],
       },
     },
+    'gatsby-plugin-gatsby-cloud',
     'gatsby-plugin-postcss',
     'gatsby-plugin-image',
     'gatsby-plugin-root-import',
