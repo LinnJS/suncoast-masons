@@ -1,12 +1,6 @@
 /* eslint-disable node/no-path-concat */
 
 module.exports = {
-  flags: {
-    FAST_DEV: true,
-    PARALLEL_SOURCING: false,
-    DEV_SSR: false,
-    FUNCTIONS: false,
-  },
   siteMetadata: {
     title: 'Suncoast Masons',
   },
@@ -65,9 +59,9 @@ module.exports = {
         precachePages: [`/`],
       },
     },
+    'gatsby-plugin-gatsby-cloud',
     'gatsby-plugin-postcss',
     'gatsby-plugin-image',
-    'gatsby-plugin-gatsby-cloud',
     'gatsby-plugin-root-import',
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-sharp',
