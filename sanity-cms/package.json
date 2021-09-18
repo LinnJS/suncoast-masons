@@ -19,33 +19,34 @@
     "sanity"
   ],
   "dependencies": {
-    "@sanity/base": "^2.12.2",
-    "@sanity/components": "^2.2.6",
-    "@sanity/core": "^2.12.2",
-    "@sanity/dashboard": "^2.10.5",
-    "@sanity/default-layout": "^2.12.2",
-    "@sanity/default-login": "^2.11.1",
-    "@sanity/desk-tool": "^2.12.2",
-    "@sanity/vision": "^2.11.2",
+    "@sanity/base": "^2.19.4",
+    "@sanity/components": "^2.14.0",
+    "@sanity/core": "^2.19.2",
+    "@sanity/dashboard": "^2.19.4",
+    "@sanity/default-layout": "^2.19.4",
+    "@sanity/default-login": "^2.19.0",
+    "@sanity/desk-tool": "^2.19.4",
+    "@sanity/vision": "^2.19.0",
     "prop-types": "^15.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
-    "sanity-plugin-dashboard-widget-gatsby": "^1.0.9"
+    "sanity-plugin-dashboard-widget-gatsby": "^1.0.9",
+    "styled-components": "^5.2.0"
   },
   "devDependencies": {
-    "eslint": "^7.30.0",
+    "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-html": "^6.1.2",
-    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-import": "^2.24.2",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-promise": "^5.1.0",
-    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react": "^7.25.2",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-standard": "^5.0.0",
-    "prettier": "2.3.2"
+    "prettier": "2.4.1"
   }
 }
