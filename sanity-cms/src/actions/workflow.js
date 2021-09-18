@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useMemo, useState } from 'react';
 import { PublishAction } from 'part:@sanity/base/document-actions';
 import client from 'part:@sanity/base/client';
