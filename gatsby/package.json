@@ -52,7 +52,7 @@
     "react-table": "^7.7.0",
     "react-use-measure": "^2.0.4",
     "styled-components": "^5.3.1",
-    "twin.macro": "^2.7.0"
+    "twin.macro": "^2.8.0"
   },
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "^7.15.8",
@@ -66,7 +66,7 @@
     "babel-plugin-styled-components": "^1.13.2",
     "babel-preset-gatsby": "^1.13.0",
     "cross-env": "^7.0.3",
-    "eslint": "^7.32.0",
+    "eslint": "^8.0.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-import-resolver-webpack": "^0.13.1",
