@@ -9,24 +9,30 @@ const ScholarshipsRules = () => {
       <h2>Suncoast Master Mason Association</h2>
       <h3>William S. O’Brien Memorial Masonic Scholarship</h3>
 
-      <header>Eligibility:</header>
-      <p>
-        All Graduating High School Seniors and graduates in Pinellas County (Boca Ciega, Clearwater, Countryside, Dixie
-        Hollins, Dunedin, East Lake, Gibbs, Lakewood, Largo, Northeast, Osceola, Palm Harbor, Pinellas Park, Seminole,
-        St. Petersburg and Tarpon Springs) who will be attending a State of Florida Supported School (college,
-        university, community college or division of higher education governed by the State Board of Regents) during the
-        following term (semester or quarter). The applicant must enter the school within one semester/quarter (excluding
-        summer sessions) after having been awarded the scholarship.
-      </p>
+      <section>
+        <header>Eligibility:</header>
+        <p>
+          All Graduating High School Seniors and graduates in Pinellas County (Boca Ciega, Clearwater, Countryside,
+          Dixie Hollins, Dunedin, East Lake, Gibbs, Lakewood, Largo, Northeast, Osceola, Palm Harbor, Pinellas Park,
+          Seminole, St. Petersburg and Tarpon Springs) who will be attending a State of Florida Supported School
+          (college, university, community college or division of higher education governed by the State Board of
+          Regents) during the following term (semester or quarter). The applicant must enter the school within one
+          semester/quarter (excluding summer sessions) after having been awarded the scholarship.
+        </p>
+      </section>
 
-      <header>Requirements:</header>
-      <p>
-        A 1,000 word essay on the topic “Why Education is Important.” All work must be original and the essay becomes
-        the property of The Grand Lodge of Florida.
-      </p>
+      <section>
+        <header>Requirements:</header>
+        <p>
+          A 1,000 word essay on the topic “Why Education is Important.” All work must be original and the essay becomes
+          the property of The Grand Lodge of Florida.
+        </p>
+      </section>
 
-      <header>Deadline:</header>
-      <p>To Be Announced</p>
+      <section>
+        <header>Deadline:</header>
+        <p>To Be Announced</p>
+      </section>
 
       <h4>ESSAY CONTEST FORMAT</h4>
       <ol>
@@ -70,6 +76,14 @@ const ScholarshipsRules = () => {
 
 const RulesSection = styled.section`
   ${tw`flex flex-col justify-center`}
+  section {
+    ${tw`mb-2`}
+
+    header {
+      ${tw`mb-1 font-semibold`}
+    }
+  }
+
   ol {
     ${tw`pl-4`}
     li {

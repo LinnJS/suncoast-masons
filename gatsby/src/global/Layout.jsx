@@ -12,6 +12,9 @@ import GlobalStyle from 'global/GlobalStyle';
 import DesktopNavigation from 'global/DesktopNavigation';
 import MobileNavigation from 'global/MobileNavigation';
 import Header from 'global/Header';
+import SideBar from './SideBar';
+import Footer from './Footer';
+
 // import TailwindHeader from 'global/header/index';
 
 const Layout = ({ children }) => {
@@ -40,12 +43,21 @@ const Layout = ({ children }) => {
       </Helmet>
 
       <GlobalStyle />
-      <DesktopNavigation />
 
       <ContentContainer>
         {/* <TailwindHeader /> */}
-        <Header />
-        {children}
+        <main>
+          <div className="w-full">
+            <DesktopNavigation />
+            <Header />
+
+            <div className="flex flex-col-reverse md:flex-row">
+              <div className="w-full">{children}</div>
+              <SideBar />
+            </div>
+            <Footer />
+          </div>
+        </main>
       </ContentContainer>
 
       <MobileNavigation />
@@ -59,6 +71,20 @@ Layout.propTypes = {
 
 const ContentContainer = styled.div`
   ${tw`flex flex-col items-center justify-center mb-16`}
+
+  main {
+    ${tw`container flex flex-col-reverse justify-end flex-1 min-h-screen p-3 mx-auto mt-8 mb-8 bg-white shadow `}
+    box-shadow: 0 0 5px 3px rgb(0 0 0 / 4%);
+    width: 85%;
+
+    @media (${devices.mobileM}) {
+      ${tw`p-6 `};
+    }
+
+    @media (${devices.tablet}) {
+      ${tw`flex-row `};
+    }
+  }
 
   @media (${devices.laptop}) {
     ${tw`flex pt-20 pb-0`}

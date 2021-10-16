@@ -5,9 +5,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
 
-// internal imports
-import Page from 'global/Page';
-
 export const query = graphql`
   query LogePageQuery {
     lodges: allSanityLodge {
@@ -114,7 +111,7 @@ LodgesPage.propTypes = {
   }),
 };
 
-const LodgesContainer = styled(Page)`
+const LodgesContainer = styled.div`
   .grid {
     ${tw`grid w-full gap-2 `}
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));

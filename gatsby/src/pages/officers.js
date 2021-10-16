@@ -5,9 +5,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
 
-// internal imports
-import Page from 'global/Page';
-
 export const query = graphql`
   query OfficersPageQuery {
     districtDeputies: allSanityOfficers(sort: { fields: publishedAt, order: DESC }, limit: 1) {
@@ -162,7 +159,7 @@ OfficersPage.propTypes = {
   }),
 };
 
-const OfficersContainer = styled(Page)`
+const OfficersContainer = styled.div`
   section {
     > div {
       ${tw`grid gap-1 mb-12`}

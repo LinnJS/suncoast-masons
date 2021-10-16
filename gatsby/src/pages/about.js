@@ -6,7 +6,6 @@ import styled from 'styled-components';
 import { graphql } from 'gatsby';
 
 // internal imports
-import Page from 'global/Page';
 import GavelRules from 'components/about/GavelRules';
 
 export const query = graphql`
@@ -119,7 +118,7 @@ AboutPage.propTypes = {
   }),
 };
 
-const AboutContainer = styled(Page)`
+const AboutContainer = styled.div`
   section {
     ${tw`mb-8`};
 

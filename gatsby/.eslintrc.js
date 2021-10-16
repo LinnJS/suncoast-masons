@@ -40,7 +40,6 @@ module.exports = {
         printWidth: 120,
         tabWidth: 2,
         tailingComma: 'all',
-        jsxBracketSameLine: false,
         endOfLine: 'auto',
       },
     ],

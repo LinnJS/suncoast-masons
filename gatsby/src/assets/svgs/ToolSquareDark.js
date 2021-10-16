@@ -2,7 +2,14 @@ import React from 'react';
 
 export default function ToolSquareDark(props) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 53.18 24.37" width="53.18" height="24.37" {...props}>
+    <svg
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 53.18 24.37"
+      width="53.18"
+      height="24.37"
+      {...props}
+    >
       <defs>
         <style
           dangerouslySetInnerHTML={{

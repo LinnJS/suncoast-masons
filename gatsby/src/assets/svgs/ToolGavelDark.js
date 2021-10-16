@@ -2,7 +2,14 @@ import React from 'react';
 
 export default function ToolGavelDark(props) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 47.06 34.52" width="47.06" height="34.52" {...props}>
+    <svg
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 47.06 34.52"
+      width="47.06"
+      height="34.52"
+      {...props}
+    >
       <defs>
         <style
           dangerouslySetInnerHTML={{

@@ -12,12 +12,12 @@ const PastRecipientsTable = ({ columns, data, ...rest }) => {
 
   return (
     <div className="w-full mb-12">
-      <h2>Past Recipients</h2>
+      <h2 className="mb-4">Past Recipients</h2>
       <div className="flex flex-col" {...rest}>
         <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-            <div className="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
-              <table {...getTableProps()} className="min-w-full divide-y divide-gray-200">
+            <div className="overflow-hidden border-b border-gray-300 shadow sm:rounded-lg">
+              <table {...getTableProps()} className="min-w-full divide-y divide-gray-300">
                 <thead className="bg-gray-50">
                   {headerGroups.map((headerGroup, idx) => (
                     <tr key={`thead-row-${idx}`} {...headerGroup.getHeaderGroupProps()}>
@@ -25,7 +25,7 @@ const PastRecipientsTable = ({ columns, data, ...rest }) => {
                         <th
                           key={`thead-head-${idx}`}
                           {...column.getHeaderProps()}
-                          className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                          className="px-6 py-3 text-xs font-medium tracking-wider text-left uppercase"
                         >
                           {column.render('Header')}
                         </th>
@@ -34,7 +34,7 @@ const PastRecipientsTable = ({ columns, data, ...rest }) => {
                   ))}
                 </thead>
 
-                <tbody {...getTableBodyProps()} className="bg-white divide-y divide-gray-200">
+                <tbody {...getTableBodyProps()} className="bg-white divide-y divide-gray-300">
                   {rows.map((row, idx) => {
                     prepareRow(row);
                     return (
@@ -42,17 +42,12 @@ const PastRecipientsTable = ({ columns, data, ...rest }) => {
                         <tr key={`table-row-${row.id}`} {...row.getRowProps()}>
                           {row.cells.map((cell) => {
                             const isPrimaryCell = cell.column.Header === 'Name';
-                            const isSecondaryCell = !isPrimaryCell;
 
                             return (
                               <td
                                 key={`tbody-cell-${idx}`}
                                 {...cell.getCellProps()}
-                                css={[
-                                  tw`px-6 py-4 text-sm whitespace-nowrap`,
-                                  isPrimaryCell && tw`font-medium text-gray-900`,
-                                  isSecondaryCell && tw`text-gray-500`,
-                                ]}
+                                css={[tw`px-6 py-4 text-sm whitespace-nowrap`, isPrimaryCell && tw`font-medium`]}
                               >
                                 {cell.render('Cell')}
                               </td>

@@ -2,7 +2,14 @@ import React from 'react';
 
 export default function ToolCompassDark(props) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31.68 36.4" width="31.68" height="36.4" {...props}>
+    <svg
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 31.68 36.4"
+      width="31.68"
+      height="36.4"
+      {...props}
+    >
       <defs>
         <style
           dangerouslySetInnerHTML={{
