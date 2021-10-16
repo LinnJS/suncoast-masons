@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql, Link } from 'gatsby';
-import { GatsbyImage as Img, getImage } from 'gatsby-plugin-image';
+import { GatsbyImage as Img } from 'gatsby-plugin-image';
 import { styled } from 'twin.macro';
 import BlockContent from '@sanity/block-content-to-react';
 
@@ -24,7 +24,7 @@ export const query = graphql`
         mainImage {
           alt
           asset {
-            gatsbyImageData(layout: CONSTRAINED, width: 380, height: 240, fit: SCALE)
+            gatsbyImageData(layout: FIXED, width: 240)
           }
         }
 
@@ -50,7 +50,6 @@ const LandingPage = ({ data: { articlesSortedByPublishedDate } }) => {
   return (
     <ArticleGrid>
       {articles.map(({ id, title, body, slug, mainImage }) => {
-        const image = getImage(mainImage);
         return (
           <Card className="flex-col overflow-hidden truncate card h-96 lg:mb-5 lg:p-4" key={id}>
             <div className="truncate">
@@ -61,7 +60,7 @@ const LandingPage = ({ data: { articlesSortedByPublishedDate } }) => {
               <BlockContent className="prose truncate" renderContainerOnSingleChild blocks={body} />
             </div>
 
-            {mainImage && <Img className="mt-4 max-h-60" image={image} alt={mainImage.alt} />}
+            {mainImage && <Img className="mt-4 max-h-60" image={mainImage.asset.gatsbyImageData} alt={mainImage.alt} />}
           </Card>
         );
       })}
