@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { BlockContent as SanityBlockContent } from '@sanity/block-content-to-react';
 
 const input = [
@@ -41,6 +42,11 @@ const BlockRenderer = (props) => {
 
 const BlockContent = (props) => {
   return <BlockContent {...props} blocks={input} serializers={{ types: { block: BlockRenderer } }} />;
+};
+
+BlockRenderer.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
+  node: PropTypes.any,
 };
 
 export default BlockContent;

@@ -4,7 +4,12 @@ export default function ToolSquareDark(props) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 53.18 24.37" width="53.18" height="24.37" {...props}>
       <defs>
-        <style dangerouslySetInnerHTML={{__html: ".cls-1,.cls-2{fill:none;stroke:#231f20;stroke-miterlimit:10;}.cls-1{stroke-width:0.3px;}.cls-2{stroke-width:1.5px;}" }} />
+        <style
+          dangerouslySetInnerHTML={{
+            __html:
+              '.cls-1,.cls-2{fill:none;stroke:#231f20;stroke-miterlimit:10;}.cls-1{stroke-width:0.3px;}.cls-2{stroke-width:1.5px;}',
+          }}
+        />
       </defs>
       <g id="Layer_2" data-name="Layer 2">
         <g id="Layer_1-2" data-name="Layer 1">
@@ -40,7 +45,11 @@ export default function ToolSquareDark(props) {
             <line className="cls-1" x1="12.78" y1="5.8" x2="11.76" y2="6.97" />
             <line className="cls-1" x1="11.75" y1="4.93" x2="10.41" y2="6.5" />
           </g>
-          <path id="Square" className="cls-2" d="M1.47,1.33l25.66,22L51.6,1.13l.06-.06a5.92,5.92,0,0,0-4.27.12c-1.46.73-2.08,2.18-3.53,2.19A2.53,2.53,0,0,1,42.59,3L41.14,4.29,26.85,16.76,10.87,3.2A3.21,3.21,0,0,1,9,3.49C7.57,3.21,7.27,1.88,6,1.19,5.24.75,3.89.48,1.47,1.33Z" />
+          <path
+            id="Square"
+            className="cls-2"
+            d="M1.47,1.33l25.66,22L51.6,1.13l.06-.06a5.92,5.92,0,0,0-4.27.12c-1.46.73-2.08,2.18-3.53,2.19A2.53,2.53,0,0,1,42.59,3L41.14,4.29,26.85,16.76,10.87,3.2A3.21,3.21,0,0,1,9,3.49C7.57,3.21,7.27,1.88,6,1.19,5.24.75,3.89.48,1.47,1.33Z"
+          />
         </g>
       </g>
     </svg>
