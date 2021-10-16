@@ -2,7 +2,14 @@ import React from 'react';
 
 export default function ToolLevel(props) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 53.17 40.56" width="53.17" height="40.56" {...props}>
+    <svg
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 53.17 40.56"
+      width="53.17"
+      height="40.56"
+      {...props}
+    >
       <defs>
         <style
           dangerouslySetInnerHTML={{

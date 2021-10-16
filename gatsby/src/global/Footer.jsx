@@ -14,7 +14,7 @@ const Footer = (props) => {
         <nav className="flex flex-wrap justify-center -mx-5 -my-2" aria-label="Footer">
           {links.map(({ name, link }) => (
             <div key={name} className="px-5 py-2">
-              <Link to={link} className="text-base text-gray-500 hover:text-gray-900">
+              <Link to={link} className="text-base hover:text-gray-900">
                 {name}
               </Link>
             </div>
@@ -23,16 +23,14 @@ const Footer = (props) => {
 
         <section className="flex justify-center mt-8 space-x-6">
           {socials.map(({ name, link, Icon }) => (
-            <Link key={name} to={link} className="text-gray-400 hover:text-gray-500">
+            <Link key={name} to={link} className="hover:text-gray-900">
               <span className="sr-only">{name}</span>
               <Icon aria-hidden="true" />
             </Link>
           ))}
         </section>
 
-        <p className="mt-8 text-base text-center text-gray-400">
-          &copy; 2021 Suncoast Master Mason Association, All rights reserved
-        </p>
+        <p className="mt-8 text-base text-center">&copy; 2021 Suncoast Master Mason Association, All rights reserved</p>
       </div>
     </footer>
   );

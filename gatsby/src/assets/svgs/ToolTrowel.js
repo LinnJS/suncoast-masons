@@ -2,7 +2,14 @@ import React from 'react';
 
 export default function ToolTrowel(props) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12.24 38.09" width="12.24" height="38.09" {...props}>
+    <svg
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 12.24 38.09"
+      width="12.24"
+      height="38.09"
+      {...props}
+    >
       <defs>
         <style
           dangerouslySetInnerHTML={{

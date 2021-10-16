@@ -35,22 +35,22 @@ const ScholarshipsPage = ({ data: { scholarshipRecipient, obrienHeadShot } }) =>
 
   return (
     <ScholarshipsContainer>
-      <section className="scholarship-section">
+      <section className="flex flex-col items-center justify-center mb-12 text-center scholarship-section sm:text-base">
         <h2>SCHOLARSHIPS</h2>
         <h3>WILLIAM S. O’BRIEN MEMORIAL MASONIC SCHOLARSHIP</h3>
 
         <GatsbyImage
-          className="img"
+          className="align-center img md:max-w-xs"
           alt="William S. O’Brien and female recipient"
           image={scholarshipRecipient.childImageSharp.gatsbyImageData}
         />
 
-        <em>Sponsored by</em>
+        <em className="mt-5">Sponsored by</em>
         <h4>SUNCOAST MASTER MASON ASSOCIATION</h4>
         <p>A not-for-profit organization serving Masonic Lodges in the 18th Masonic District of Florida.</p>
       </section>
 
-      <section className="scholarship-section">
+      <section className="flex flex-col items-center justify-center mb-12 scholarship-section">
         <h2>WILLIAM S. O’BRIEN</h2>
 
         <GatsbyImage
@@ -91,24 +91,10 @@ const ScholarshipsContainer = styled.div`
     max-height: 400px;
   }
 
-  .scholarship-section {
-    ${tw`flex flex-col items-center justify-center mb-12`};
-  }
-
   h2,
   h3,
   h4 {
     ${tw`text-center`};
-  }
-
-  em {
-    ${tw`mt-5`};
-  }
-
-  @media (${devices.mobileM}) {
-    .img {
-      ${tw`max-w-xs`};
-    }
   }
 `;
 

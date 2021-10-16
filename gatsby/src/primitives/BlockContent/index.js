@@ -33,7 +33,7 @@ const BlockRenderer = (props) => {
   }
 
   if (style === 'blockquote') {
-    return <blockquote>- {children}</blockquote>;
+    return <blockquote>{children}</blockquote>;
   }
 
   // Fall back to default handling
