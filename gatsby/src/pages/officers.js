@@ -19,7 +19,7 @@ export const query = graphql`
 
           headshot {
             asset {
-              gatsbyImageData
+              gatsbyImageData(layout: FIXED, width: 150, height: 150)
             }
           }
         }
@@ -37,7 +37,7 @@ export const query = graphql`
 
           headshot {
             asset {
-              gatsbyImageData
+              gatsbyImageData(layout: FIXED, width: 150, height: 150)
             }
           }
         }
@@ -55,7 +55,7 @@ export const query = graphql`
 
           headshot {
             asset {
-              gatsbyImageData
+              gatsbyImageData(layout: FIXED, width: 150, height: 150)
             }
           }
         }
@@ -73,7 +73,7 @@ export const query = graphql`
 
         headshot {
           asset {
-            gatsbyImageData
+            gatsbyImageData(layout: FIXED, width: 150, height: 150)
           }
         }
       }
@@ -162,6 +162,7 @@ const OfficersPage = ({ data }) => {
                 title={title}
                 phone={phone}
                 email={email}
+                lectures={lectures}
                 image={headshot && headshot.asset.gatsbyImageData}
               />
             );
@@ -192,7 +193,7 @@ OfficersPage.propTypes = {
 const OfficersContainer = styled.div`
   section {
     > div {
-      ${tw`grid gap-1 mb-12`}
+      ${tw`grid gap-4 mb-12`}
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
   }

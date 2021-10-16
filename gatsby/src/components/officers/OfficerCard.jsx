@@ -2,18 +2,31 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { GatsbyImage as Img } from 'gatsby-plugin-image';
 
-const OfficerCard = ({ id, name, title, phone, email, image, ...rest }) => {
+const OfficerCard = ({ id, name, title, phone, email, image, lectures, ...rest }) => {
+  const isPlural = lectures && lectures.split(',').length > 1;
+
   return (
     <article
       {...rest}
       key={id}
-      className="max-w-sm p-4 mb-3 tracking-wide bg-white border-2 border-gray-200 rounded-md shadow-lg"
+      className="flex flex-col justify-end h-full max-w-sm p-4 mb-3 tracking-wide bg-white border-2 border-gray-200 rounded-md shadow-lg"
     >
-      {image && <Img className="object-cover object-center mb-2 rounded-full h-28 w-28" image={image} alt="TODO" />}
+      {image && (
+        <Img
+          className="self-center object-cover object-center mb-4 rounded-md h-28 w-28 lg:self-baseline"
+          image={image}
+          alt="TODO"
+        />
+      )}
 
-      <div className="flex flex-col mb-4 space-y-1 text-base justify-items-start">
-        <p className="text-xl font-normal text-gray-700 ">{name}</p>
+      <div className="flex flex-col mb-4 space-y-1 overflow-hidden text-base justify-items-end">
+        <p className="font-semibold text-gray-700 text-l">{name}</p>
         <p className="text-base font-normal ">{title}</p>
+        {lectures && (
+          <p className="text-base font-normal ">
+            {lectures} lecture{isPlural && 's'}
+          </p>
+        )}
         <a className="text-blue-600" href={`tel:${phone}`}>
           {phone}
         </a>
@@ -31,6 +44,7 @@ OfficerCard.propTypes = {
   title: PropTypes.string,
   phone: PropTypes.string,
   email: PropTypes.string,
+  lectures: PropTypes.string,
   image: PropTypes.object,
 };
 
