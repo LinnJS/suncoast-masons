@@ -9,7 +9,7 @@ const OfficerCard = ({ id, name, title, phone, email, image, lectures, ...rest }
     <article
       {...rest}
       key={id}
-      className="flex flex-col justify-end h-full max-w-sm p-4 mb-3 tracking-wide bg-white border-2 border-gray-200 rounded-md shadow-lg"
+      className="flex flex-col justify-between h-full max-w-sm p-4 mb-3 tracking-wide bg-white border-2 border-gray-200 rounded-md shadow-lg"
     >
       {image && (
         <Img
