@@ -30,8 +30,10 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.4.1",
+    "@react-google-maps/api": "^2.5.0",
     "@sanity/block-content-to-react": "^3.0.0",
     "@tailwindcss/typography": "^0.4.1",
+    "dotenv": "^10.0.0",
     "gatsby": "^3.14.3",
     "gatsby-image": "^3.11.0",
     "gatsby-plugin-gatsby-cloud": "^3.2.0",

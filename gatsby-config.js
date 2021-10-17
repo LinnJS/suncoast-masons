@@ -1,4 +1,5 @@
 /* eslint-disable node/no-path-concat */
+require('dotenv').config();
 
 module.exports = {
   siteMetadata: {
