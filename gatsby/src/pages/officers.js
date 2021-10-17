@@ -82,12 +82,10 @@ export const query = graphql`
 `;
 
 const OfficersPage = ({ data }) => {
-  console.log('data: ', data);
-  const officers = data.officers.nodes[0].officers;
   const districtDeputies = data.districtDeputies.nodes[0].districtDeputy;
-  const lecturers = data.lecturers.nodes;
   const committee = data.committee.nodes[0].committeemen;
-  console.log('officers: ', officers);
+  const officers = data.officers.nodes[0].officers;
+  const lecturers = data.lecturers.nodes;
 
   return (
     <OfficersContainer>
@@ -154,7 +152,7 @@ const OfficersPage = ({ data }) => {
         <h2>Lecturers</h2>
 
         <div>
-          {lecturers.map(({ id, name, title, phone, email, headshot, lectures }) => {
+          {lecturers.map(({ id, name, title, phone, email, lectures }) => {
             return (
               <OfficerCard
                 key={id}
@@ -163,7 +161,7 @@ const OfficersPage = ({ data }) => {
                 phone={phone}
                 email={email}
                 lectures={lectures}
-                image={headshot && headshot.asset.gatsbyImageData}
+                skipImage={true}
               />
             );
           })}
