@@ -61,59 +61,59 @@ const LodgesPage = ({ data }) => {
               key={lodge.id}
               className="flex flex-col h-full justify-between  max-w-sm p-4 mb-3 tracking-wide bg-white border-2 border-gray-200 rounded-md shadow-lg lodge"
             >
-            <div>
-              <h3>{lodge.name}</h3>
+              <div>
+                <h3>{lodge.name}</h3>
 
-              <section className="flex flex-col mb-2">
-                <h4>Lodge address</h4>
-                <span>{address.street1}</span>
-                {address.street2 && <span>{address.street2}</span>}
-
-                <div>
-                  <span>{address.city}</span>
-                  <span>{address.state}</span>
-                  <span>{address.zipCode}</span>
-                </div>
-              </section>
-
-              {postal && (
                 <section className="flex flex-col mb-2">
-                  <h4>Postal address</h4>
-                  <span>{postal.street1}</span>
-                  {postal.street2 && <span>{postal.street2}</span>}
+                  <h4>Lodge address</h4>
+                  <span>{address.street1}</span>
+                  {address.street2 && <span>{address.street2}</span>}
 
                   <div>
-                    <span>{postal.city},</span>
-                    <span>{postal.state},</span>
-                    <span>{postal.zipCode}</span>
+                    <span>{address.city}</span>
+                    <span>{address.state}</span>
+                    <span>{address.zipCode}</span>
                   </div>
                 </section>
-              )}
 
-              <section className="flex flex-col space-y-1">
-                {lodge.website && (
-                  <a href={lodge.website} target="_blank" rel="noopener noreferrer">
-                    {lodge.website}
-                  </a>
+                {postal && (
+                  <section className="flex flex-col mb-2">
+                    <h4>Postal address</h4>
+                    <span>{postal.street1}</span>
+                    {postal.street2 && <span>{postal.street2}</span>}
+
+                    <div>
+                      <span>{postal.city},</span>
+                      <span>{postal.state},</span>
+                      <span>{postal.zipCode}</span>
+                    </div>
+                  </section>
                 )}
 
-                {lodge.phone && (
-                  <a href={phoneLink} target="_blank" rel="noopener noreferrer">
-                    {lodge.phone}
-                  </a>
-                )}
-
-                {lodge.email && (
-                  <span>
-                    <a href={`mailto:${lodge.email}`} target="_blank" rel="noopener noreferrer">
-                      {lodge.email}
+                <section className="flex flex-col space-y-1">
+                  {lodge.website && (
+                    <a href={lodge.website} target="_blank" rel="noopener noreferrer">
+                      {lodge.website}
                     </a>
-                  </span>
-                )}
+                  )}
 
-                {lodge.statedCommunication && <span>{lodge.statedCommunication}</span>}
-              </section>
-            </div>  
+                  {lodge.phone && (
+                    <a href={phoneLink} target="_blank" rel="noopener noreferrer">
+                      {lodge.phone}
+                    </a>
+                  )}
+
+                  {lodge.email && (
+                    <span>
+                      <a href={`mailto:${lodge.email}`} target="_blank" rel="noopener noreferrer">
+                        {lodge.email}
+                      </a>
+                    </span>
+                  )}
+
+                  {lodge.statedCommunication && <span>{lodge.statedCommunication}</span>}
+                </section>
+              </div>
               <LodgeMap className="mt-2" geoLocation={lodge.geoLocation} />
             </article>
           );
