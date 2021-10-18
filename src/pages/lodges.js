@@ -89,7 +89,7 @@ const LodgesPage = ({ data }) => {
                     </div>
                   </section>
                 )}
-
+        
                 <section className="flex flex-col space-y-1">
                   {lodge.website && (
                     <a href={lodge.website} target="_blank" rel="noopener noreferrer">
