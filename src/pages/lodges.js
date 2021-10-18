@@ -59,8 +59,9 @@ const LodgesPage = ({ data }) => {
           return (
             <article
               key={lodge.id}
-              className="flex flex-col h-full max-w-sm p-4 mb-3 tracking-wide bg-white border-2 border-gray-200 rounded-md shadow-lg lodge"
+              className="flex flex-col h-full justify-between  max-w-sm p-4 mb-3 tracking-wide bg-white border-2 border-gray-200 rounded-md shadow-lg lodge"
             >
+            <div>
               <h3>{lodge.name}</h3>
 
               <section className="flex flex-col mb-2">
@@ -112,7 +113,7 @@ const LodgesPage = ({ data }) => {
 
                 {lodge.statedCommunication && <span>{lodge.statedCommunication}</span>}
               </section>
-
+            </div>  
               <LodgeMap className="mt-2" geoLocation={lodge.geoLocation} />
             </article>
           );
@@ -133,7 +134,7 @@ LodgesPage.propTypes = {
 const LodgesContainer = styled.div`
   .grid {
     ${tw`grid w-full gap-4 `}
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 
     .lodge {
       ${tw`flex flex-col self-start mb-4`}
