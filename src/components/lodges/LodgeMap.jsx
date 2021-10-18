@@ -8,12 +8,14 @@ const libraries = ['places'];
 const mapContainerStyles = { width: '100%', height: '500px', display: 'flex' };
 const options = { styles: mapStyles, disableDefaultUI: true, zoomControl: true };
 
-const LodgeMap = ({ geoLocation }) => {
+const LodgeMap = ({ geoLocation, ...rest }) => {
+  console.log('API Key: ', process.env.GATSBY_GOOGLE_API_KEY);
+  console.log('Process ENV: ', process.env);
   return (
-    <section>
+    <section {...rest}>
       <div className="map-wrapper">
         <LoadScript libraries={libraries} googleMapsApiKey={process.env.GATSBY_GOOGLE_API_KEY}>
-          <GoogleMap options={options} zoom={15} center={geoLocation} mapContainerStyle={mapContainerStyles}>
+          <GoogleMap options={options} zoom={14} center={geoLocation} mapContainerStyle={mapContainerStyles}>
             <Marker animation={2} position={geoLocation} />
           </GoogleMap>
         </LoadScript>

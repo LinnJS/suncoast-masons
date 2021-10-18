@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
 
+import LodgeMap from '../components/lodges/LodgeMap';
+
 export const query = graphql`
   query LogePageQuery {
     lodges: allSanityLodge {
@@ -30,6 +32,11 @@ export const query = graphql`
           city
           state
           zipCode
+        }
+
+        geoLocation {
+          lat
+          lng
         }
       }
     }
@@ -105,6 +112,8 @@ const LodgesPage = ({ data }) => {
 
                 {lodge.statedCommunication && <span>{lodge.statedCommunication}</span>}
               </section>
+
+              <LodgeMap className="mt-2" geoLocation={lodge.geoLocation} />
             </article>
           );
         })}
