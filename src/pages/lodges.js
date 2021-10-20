@@ -149,5 +149,5 @@ const LodgesContainer = styled.div`
     }
   }
 `;
-s
+
 export default LodgesPage;
