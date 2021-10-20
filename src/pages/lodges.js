@@ -89,7 +89,7 @@ const LodgesPage = ({ data }) => {
                     </div>
                   </section>
                 )}
-        
+
                 <section className="flex flex-col space-y-1">
                   {lodge.website && (
                     <a href={lodge.website} target="_blank" rel="noopener noreferrer">
@@ -114,7 +114,7 @@ const LodgesPage = ({ data }) => {
                   {lodge.statedCommunication && <span>{lodge.statedCommunication}</span>}
                 </section>
               </div>
-              <LodgeMap className="mt-2" geoLocation={lodge.geoLocation} />
+              <LodgeMap className="mt-2 map" geoLocation={lodge.geoLocation} />
             </article>
           );
         })}
@@ -136,6 +136,10 @@ const LodgesContainer = styled.div`
     ${tw`grid w-full gap-4 `}
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 
+    article {
+      min-height: 860px;
+    }
+
     .lodge {
       ${tw`flex flex-col self-start mb-4`}
     }
@@ -145,5 +149,5 @@ const LodgesContainer = styled.div`
     }
   }
 `;
-
+s
 export default LodgesPage;

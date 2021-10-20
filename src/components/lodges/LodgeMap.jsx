@@ -9,17 +9,13 @@ const mapContainerStyles = { width: '100%', height: '500px', display: 'flex' };
 const options = { styles: mapStyles, disableDefaultUI: true, zoomControl: true };
 
 const LodgeMap = ({ geoLocation, ...rest }) => {
-  console.log('API Key: ', process.env.GATSBY_GOOGLE_API_KEY);
-  console.log('Process ENV: ', process.env);
   return (
-    <section {...rest}>
-      <div className="map-wrapper">
-        <LoadScript libraries={libraries} googleMapsApiKey={process.env.GATSBY_GOOGLE_API_KEY}>
-          <GoogleMap options={options} zoom={14} center={geoLocation} mapContainerStyle={mapContainerStyles}>
-            <Marker animation={2} position={geoLocation} />
-          </GoogleMap>
-        </LoadScript>
-      </div>
+    <section styles={{ minHeight: '550px' }} {...rest}>
+      <LoadScript libraries={libraries} googleMapsApiKey={process.env.GATSBY_GOOGLE_API_KEY}>
+        <GoogleMap options={options} zoom={14} center={geoLocation} mapContainerStyle={mapContainerStyles}>
+          <Marker animation={2} position={geoLocation} />
+        </GoogleMap>
+      </LoadScript>
     </section>
   );
 };
