@@ -29,7 +29,8 @@
     "clean": "gatsby clean",
     "lint": "eslint src -c .eslintrc.js --ext js,jsx",
     "lint:fix": "eslint src -c .eslintrc.js --fix --ext js,jsx",
-    "postinstall": "rm -rf node_modules/gatsby-plugin-gatsby-cloud && echo see https://github.com/gatsbyjs/gatsby/issues/33042"
+    "postinstall": "rm -rf node_modules/gatsby-plugin-gatsby-cloud && echo see https://github.com/gatsbyjs/gatsby/issues/33042",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@headlessui/react": "^1.4.1",
