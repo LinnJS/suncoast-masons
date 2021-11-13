@@ -5,8 +5,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
 
-import LodgeMap from '../components/lodges/LodgeMap';
-
 export const query = graphql`
   query LogePageQuery {
     lodges: allSanityLodge {
@@ -33,11 +31,6 @@ export const query = graphql`
           state
           zipCode
         }
-
-        geoLocation {
-          lat
-          lng
-        }
       }
     }
   }
@@ -59,62 +52,59 @@ const LodgesPage = ({ data }) => {
           return (
             <article
               key={lodge.id}
-              className="flex flex-col justify-between h-full max-w-sm p-4 mb-3 tracking-wide bg-white border-2 border-gray-200 rounded-md shadow-lg lodge"
+              className="flex flex-col h-full max-w-sm p-4 mb-3 tracking-wide bg-white border-2 border-gray-200 rounded-md shadow-lg lodge"
             >
-              <div>
-                <h3>{lodge.name}</h3>
+              <h3>{lodge.name}</h3>
 
+              <section className="flex flex-col mb-2">
+                <h4>Lodge address</h4>
+                <span>{address.street1}</span>
+                {address.street2 && <span>{address.street2}</span>}
+
+                <div>
+                  <span>{address.city}</span>
+                  <span>{address.state}</span>
+                  <span>{address.zipCode}</span>
+                </div>
+              </section>
+
+              {postal && (
                 <section className="flex flex-col mb-2">
-                  <h4>Lodge address</h4>
-                  <span>{address.street1}</span>
-                  {address.street2 && <span>{address.street2}</span>}
+                  <h4>Postal address</h4>
+                  <span>{postal.street1}</span>
+                  {postal.street2 && <span>{postal.street2}</span>}
 
                   <div>
-                    <span>{address.city}</span>
-                    <span>{address.state}</span>
-                    <span>{address.zipCode}</span>
+                    <span>{postal.city},</span>
+                    <span>{postal.state},</span>
+                    <span>{postal.zipCode}</span>
                   </div>
                 </section>
+              )}
 
-                {postal && (
-                  <section className="flex flex-col mb-2">
-                    <h4>Postal address</h4>
-                    <span>{postal.street1}</span>
-                    {postal.street2 && <span>{postal.street2}</span>}
-
-                    <div>
-                      <span>{postal.city},</span>
-                      <span>{postal.state},</span>
-                      <span>{postal.zipCode}</span>
-                    </div>
-                  </section>
+              <section className="flex flex-col space-y-1">
+                {lodge.website && (
+                  <a href={lodge.website} target="_blank" rel="noopener noreferrer">
+                    {lodge.website}
+                  </a>
                 )}
 
-                <section className="flex flex-col space-y-1">
-                  {lodge.website && (
-                    <a href={lodge.website} target="_blank" rel="noopener noreferrer">
-                      {lodge.website}
+                {lodge.phone && (
+                  <a href={phoneLink} target="_blank" rel="noopener noreferrer">
+                    {lodge.phone}
+                  </a>
+                )}
+
+                {lodge.email && (
+                  <span>
+                    <a href={`mailto:${lodge.email}`} target="_blank" rel="noopener noreferrer">
+                      {lodge.email}
                     </a>
-                  )}
+                  </span>
+                )}
 
-                  {lodge.phone && (
-                    <a href={phoneLink} target="_blank" rel="noopener noreferrer">
-                      {lodge.phone}
-                    </a>
-                  )}
-
-                  {lodge.email && (
-                    <span>
-                      <a href={`mailto:${lodge.email}`} target="_blank" rel="noopener noreferrer">
-                        {lodge.email}
-                      </a>
-                    </span>
-                  )}
-
-                  {lodge.statedCommunication && <span>{lodge.statedCommunication}</span>}
-                </section>
-              </div>
-              <LodgeMap className="mt-2 map" geoLocation={lodge.geoLocation} />
+                {lodge.statedCommunication && <span>{lodge.statedCommunication}</span>}
+              </section>
             </article>
           );
         })}
@@ -134,11 +124,7 @@ LodgesPage.propTypes = {
 const LodgesContainer = styled.div`
   .grid {
     ${tw`grid w-full gap-4 `}
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-
-    article {
-      min-height: 860px;
-    }
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 
     .lodge {
       ${tw`flex flex-col self-start mb-4`}
