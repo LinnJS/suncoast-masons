@@ -6,7 +6,11 @@ import mapStyles from './mapStyles';
 
 const libraries = ['places'];
 const mapContainerStyles = { width: '100%', height: '500px', display: 'flex' };
-const options = { styles: mapStyles, disableDefaultUI: true, zoomControl: true };
+const options = {
+  styles: mapStyles,
+  disableDefaultUI: true,
+  zoomControl: true,
+};
 
 const LodgeMap = ({ geoLocation, ...rest }) => {
   return (
