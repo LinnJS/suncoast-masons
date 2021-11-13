@@ -28,4 +28,3 @@ LodgeMap.propTypes = {
 };
 
 export default LodgeMap;
-
