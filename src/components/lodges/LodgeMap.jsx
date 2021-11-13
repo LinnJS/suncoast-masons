@@ -1,13 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { LoadScript, GoogleMap, Marker } from '@react-google-maps/api';
 
 import mapStyles from './mapStyles';
 
 const libraries = ['places'];
 const mapContainerStyles = { width: '100%', height: '500px', display: 'flex' };
-const options = { styles: mapStyles, disableDefaultUI: true, zoomControl: true };
+const options = {
+  styles: mapStyles,
+  disableDefaultUI: true,
+  zoomControl: true,
+};
 
 const LodgeMap = ({ geoLocation }) => {
   return (
@@ -31,51 +34,3 @@ LodgeMap.propTypes = {
 };
 
 export default LodgeMap;
-
-const LocationContainer = styled.section`
-  margin-top: 15px;
-  background-color: #fff;
-  width: 100%;
-
-  h2 {
-    border-bottom: 1px dashed #e6e8ed;
-    padding: 20px 30px;
-  }
-
-  .body {
-    display: flex;
-    flex-direction: column;
-    padding: 20px 30px 20px 30px;
-
-    h3 {
-      font-size: 14px;
-      line-height: 16px;
-    }
-
-    p {
-      color: #696969;
-      font-size: 12px;
-      line-height: 16px;
-    }
-
-    img {
-      width: 100%;
-      margin-top: 20px;
-    }
-  }
-
-  .map-wrapper {
-    margin-top: 20px;
-
-    button {
-      img {
-        margin: 0;
-      }
-    }
-
-    .info-box {
-      padding: 20px;
-      width: 100%;
-    }
-  }
-`;
