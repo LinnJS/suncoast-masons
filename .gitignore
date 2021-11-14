@@ -9,3 +9,4 @@ yarn-error.log
 /storybook
 .DS_Store
 .idea
+.env*

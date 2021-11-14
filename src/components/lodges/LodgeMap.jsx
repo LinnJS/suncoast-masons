@@ -12,16 +12,14 @@ const options = {
   zoomControl: true,
 };
 
-const LodgeMap = ({ geoLocation }) => {
+const LodgeMap = ({ geoLocation, ...rest }) => {
   return (
-    <section>
-      <div className="map-wrapper">
-        <LoadScript libraries={libraries} googleMapsApiKey={process.env.GATSBY_GOOGLE_API_KEY}>
-          <GoogleMap options={options} zoom={15} center={geoLocation} mapContainerStyle={mapContainerStyles}>
-            <Marker animation={2} position={geoLocation} />
-          </GoogleMap>
-        </LoadScript>
-      </div>
+    <section styles={{ minHeight: '550px' }} {...rest}>
+      <LoadScript libraries={libraries} googleMapsApiKey={process.env.GATSBY_GOOGLE_API_KEY}>
+        <GoogleMap options={options} zoom={14} center={geoLocation} mapContainerStyle={mapContainerStyles}>
+          <Marker animation={2} position={geoLocation} />
+        </GoogleMap>
+      </LoadScript>
     </section>
   );
 };
