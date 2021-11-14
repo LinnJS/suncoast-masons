@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { graphql, useStaticQuery, Link } from 'gatsby';
 
+import { PhoneNumber } from 'primitives';
+
 import LodgeMap from './LodgeMap';
 
 const LodgesPage = () => {
@@ -49,8 +51,6 @@ const LodgesPage = () => {
       {lodges.nodes.map((lodge) => {
         const address = lodge.address;
         const postal = lodge.postalAddress;
-        const phoneString = String(lodge.phone);
-        const phoneLink = `tel:${phoneString.replace(/\D/g, '')}`;
         const id = lodge.id.replace(/[^a-zA-Z0-9]/g, '');
 
         return (
@@ -96,11 +96,7 @@ const LodgesPage = () => {
                   </a>
                 )}
 
-                {lodge.phone && (
-                  <a href={phoneLink} target="_blank" rel="noopener noreferrer">
-                    {lodge.phone}
-                  </a>
-                )}
+                {lodge.phone && <PhoneNumber phoneNumber={lodge.phone} />}
 
                 {lodge.email && (
                   <span>
