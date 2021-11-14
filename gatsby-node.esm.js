@@ -55,9 +55,10 @@ const lodgesToPages = async ({ graphql, actions }) => {
   `);
 
   data.lodges.nodes.forEach(({ id }) => {
-    console.log('id : ', id);
+    const cleanedId = id.replace(/[^a-zA-Z0-9]/g, '');
+
     actions.createPage({
-      path: `lodge/${id}`,
+      path: `lodges/${cleanedId}`,
       component: lodgeTemplate,
       context: {
         id: id,
