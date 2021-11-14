@@ -22,7 +22,6 @@ const articlesToPages = async ({ graphql, actions }) => {
     query ArticlesToPagesQuery {
       articles: allSanityArticle {
         nodes {
-          id
           slug {
             current
           }
@@ -42,7 +41,32 @@ const articlesToPages = async ({ graphql, actions }) => {
   });
 };
 
+const lodgesToPages = async ({ graphql, actions }) => {
+  const lodgeTemplate = path.resolve('src/templates/LodgePage.jsx');
+
+  const { data } = await graphql(`
+    query ArticlesToPagesQuery {
+      lodges: allSanityLodge {
+        nodes {
+          id
+        }
+      }
+    }
+  `);
+
+  data.lodges.nodes.forEach(({ id }) => {
+    console.log('id : ', id);
+    actions.createPage({
+      path: `lodge/${id}`,
+      component: lodgeTemplate,
+      context: {
+        id: id,
+      },
+    });
+  });
+};
+
 export const createPages = async (params) => {
   // Create pages dynamically
-  await Promise.all([articlesToPages(params)]);
+  await Promise.all([articlesToPages(params), lodgesToPages(params)]);
 };

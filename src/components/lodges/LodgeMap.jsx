@@ -2,12 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { LoadScript, GoogleMap, Marker } from '@react-google-maps/api';
 
-import mapStyles from './mapStyles';
-
 const libraries = ['places'];
 const mapContainerStyles = { width: '100%', height: '500px', display: 'flex' };
 const options = {
-  styles: mapStyles,
   disableDefaultUI: true,
   zoomControl: true,
 };
