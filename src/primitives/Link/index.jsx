@@ -3,8 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link as GatsbyLink } from 'gatsby';
 
-const Link = (props) => {
-  const { to, children } = props;
+const Link = ({ to, children, ...rest }) => {
   // if link is external use an anchor otherwise use GatsbyLink
   const URLPatter =
     'https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)';
@@ -14,11 +13,11 @@ const Link = (props) => {
   const isHomePath = to === '/' ? '/' : `/${to}`;
 
   return isLinkExternal ? (
-    <a {...props} target="_blank" rel="noopener noreferrer" href={to}>
+    <a {...rest} target="_blank" rel="noopener noreferrer" href={to}>
       {children}
     </a>
   ) : (
-    <GatsbyLink {...props} to={isHomePath}>
+    <GatsbyLink {...rest} to={isHomePath}>
       {children}
     </GatsbyLink>
   );

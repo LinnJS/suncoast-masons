@@ -3,9 +3,9 @@ import React from 'react';
 import tw from 'twin.macro';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { graphql, useStaticQuery, Link } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 
-import { PhoneNumber } from 'primitives';
+import { PhoneNumber, AddressBlock, Link, EmailLink } from 'primitives';
 
 import LodgeMap from './LodgeMap';
 
@@ -49,8 +49,6 @@ const LodgesPage = () => {
   return (
     <LodgesGrid>
       {lodges.nodes.map((lodge) => {
-        const address = lodge.address;
-        const postal = lodge.postalAddress;
         const id = lodge.id.replace(/[^a-zA-Z0-9]/g, '');
 
         return (
@@ -59,33 +57,19 @@ const LodgesPage = () => {
             className="flex flex-col justify-between h-full max-w-sm p-4 mb-3 tracking-wide bg-white border-2 border-gray-200 rounded-md shadow-lg lodge"
           >
             <div>
-              <Link to={`/lodges/${id}`}>
+              <Link to={`lodges/${id}`}>
                 <h3>{lodge.name}</h3>
               </Link>
 
               <section className="flex flex-col mb-2">
                 <h4>Lodge address</h4>
-                <span>{address.street1}</span>
-                {address.street2 && <span>{address.street2}</span>}
-
-                <div>
-                  <span>{address.city}</span>
-                  <span>{address.state}</span>
-                  <span>{address.zipCode}</span>
-                </div>
+                <AddressBlock address={lodge.address} />
               </section>
 
-              {postal && (
+              {lodge.postal && (
                 <section className="flex flex-col mb-2">
                   <h4>Postal address</h4>
-                  <span>{postal.street1}</span>
-                  {postal.street2 && <span>{postal.street2}</span>}
-
-                  <div>
-                    <span>{postal.city},</span>
-                    <span>{postal.state},</span>
-                    <span>{postal.zipCode}</span>
-                  </div>
+                  <AddressBlock address={lodge.postal} />
                 </section>
               )}
 
@@ -98,13 +82,7 @@ const LodgesPage = () => {
 
                 {lodge.phone && <PhoneNumber phoneNumber={lodge.phone} />}
 
-                {lodge.email && (
-                  <span>
-                    <a href={`mailto:${lodge.email}`} target="_blank" rel="noopener noreferrer">
-                      {lodge.email}
-                    </a>
-                  </span>
-                )}
+                {lodge.email && <EmailLink email={lodge.email} />}
 
                 {lodge.statedCommunication && <span>{lodge.statedCommunication}</span>}
               </section>

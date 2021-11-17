@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const PhoneNumber = ({ phoneNumber }) => {
+export const PhoneNumber = ({ phoneNumber, ...rest }) => {
   const phoneString = String(phoneNumber);
   const phoneLink = `tel:${phoneString.replace(/\D/g, '')}`;
 
   return (
-    <a href={phoneLink} target="_blank" rel="noopener noreferrer">
+    <a {...rest} href={phoneLink}>
       {phoneNumber}
     </a>
   );
