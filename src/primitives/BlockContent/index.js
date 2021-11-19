@@ -9,16 +9,23 @@ const serializers = {
         <code>{props.node.code}</code>
       </pre>
     ),
-    p: (props) => (
-      <p className="bg-red-700" data-language={props.node.language}>
-        <span>{props.node.code}</span>
+    block: (props) => (
+      <p className="prose truncate" data-language={props.node.language}>
+        <span>{props.children}</span>
       </p>
     ),
   },
 };
 
 const TWBlockContent = (props) => {
-  return <BlockContent {...props} serializers={serializers} />;
+  return (
+    <BlockContent
+      {...props}
+      dataset={process.env.GATSBY_SANITY_DATASET}
+      projectId={process.env.GATSBY_SANITY_PROJECT_ID}
+      serializers={serializers}
+    />
+  );
 };
 
 export default TWBlockContent;
