@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import { graphql, Link } from 'gatsby';
 import { GatsbyImage as Img } from 'gatsby-plugin-image';
 import { styled } from 'twin.macro';
-import BlockContent from '@sanity/block-content-to-react';
+// import BlockContent from '@sanity/block-content-to-react';
 
 // internal imports
-import { Card } from 'primitives';
+import { Card, TWBlockContent } from 'primitives';
 import devices from 'utils/devices';
 
 export const query = graphql`
@@ -57,7 +57,7 @@ const LandingPage = ({ data: { articlesSortedByPublishedDate } }) => {
                 <h3 className="mb-2">{title}</h3>
               </Link>
 
-              <BlockContent className="prose truncate" renderContainerOnSingleChild blocks={body} />
+              <TWBlockContent className="prose truncate" renderContainerOnSingleChild blocks={body} />
             </div>
 
             {mainImage && <Img className="mt-4 max-h-60" image={mainImage.asset.gatsbyImageData} alt={mainImage.alt} />}
