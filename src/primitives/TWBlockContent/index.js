@@ -19,8 +19,6 @@ const serializers = {
 };
 
 const TWBlockContent = (props) => {
-  console.log('props: ', props);
-
   return (
     <BlockContent
       {...props}

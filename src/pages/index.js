@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { graphql, Link } from 'gatsby';
 import { GatsbyImage as Img } from 'gatsby-plugin-image';
 import { styled } from 'twin.macro';
-// import BlockContent from '@sanity/block-content-to-react';
 
 // internal imports
 import { Card, TWBlockContent } from 'primitives';
