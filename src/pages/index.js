@@ -50,8 +50,8 @@ const LandingPage = ({ data: { articlesSortedByPublishedDate } }) => {
     <ArticleGrid>
       {articles.map(({ id, title, body, slug, mainImage }) => {
         return (
-          <Card className="box-border overflow-hidden h-96 card" key={id}>
-            <div className="">
+          <Card key={id} className="box-border overflow-hidden card max-h-96 ">
+            <div className="box-content overflow-hidden ">
               <Link to={`article/${slug.current}`}>
                 <h3 className="mb-2">{title}</h3>
               </Link>
@@ -60,7 +60,7 @@ const LandingPage = ({ data: { articlesSortedByPublishedDate } }) => {
             </div>
 
             {mainImage ? (
-              <Img className="mt-4 max-h-60" image={mainImage.asset.gatsbyImageData} alt={mainImage.alt} />
+              <Img className="mt-2 max-h-60 h-1/2" image={mainImage.asset.gatsbyImageData} alt={mainImage.alt} />
             ) : (
               <div className="spacer" />
             )}
