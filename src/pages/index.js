@@ -59,7 +59,11 @@ const LandingPage = ({ data: { articlesSortedByPublishedDate } }) => {
               <TWBlockContent className="box-content" blocks={body} />
             </div>
 
-            {mainImage && <Img className="mt-4 max-h-60" image={mainImage.asset.gatsbyImageData} alt={mainImage.alt} />}
+            {mainImage ? (
+              <Img className="mt-4 max-h-60" image={mainImage.asset.gatsbyImageData} alt={mainImage.alt} />
+            ) : (
+              <div className="spacer" />
+            )}
           </Card>
         );
       })}
@@ -72,9 +76,14 @@ const ArticleGrid = styled.div`
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(var(--columns), minmax(300px, 1fr));
+  justify-content: center;
 
   .card {
     max-width: 300px;
+  }
+
+  .spacer {
+    min-height: 10px;
   }
 
   @media (${devices.laptop}) {
@@ -83,6 +92,12 @@ const ArticleGrid = styled.div`
 
   @media (${devices.laptopL}) {
     --columns: 3;
+  }
+
+  @media (${devices.mobileS}) {
+    .card {
+      max-width: 270px;
+    }
   }
 `;
 
