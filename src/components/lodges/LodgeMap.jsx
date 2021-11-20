@@ -1,6 +1,8 @@
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { LoadScript, GoogleMap, Marker } from '@react-google-maps/api';
+import { GoogleMap, Marker, useLoadScript } from '@react-google-maps/api';
+
+import { Spinner } from 'primitives';
 
 const libraries = ['places'];
 const mapContainerStyles = { width: '100%', height: '500px', display: 'flex' };
@@ -11,6 +13,11 @@ const options = {
 };
 
 const LodgeMap = ({ geoLocation, ...rest }) => {
+  const { isLoaded, loadError } = useLoadScript({
+    googleMapsApiKey: process.env.GATSBY_GOOGLE_API_KEY,
+    libraries,
+  });
+
   const location = useMemo(() => {
     if (!geoLocation) return null;
     return {
@@ -19,14 +26,22 @@ const LodgeMap = ({ geoLocation, ...rest }) => {
     };
   }, [geoLocation]);
 
+  if (loadError) return 'Error loading maps 😢';
+
   return (
-    <section styles={{ minHeight: '550px' }} {...rest}>
-      <LoadScript libraries={libraries} googleMapsApiKey={process.env.GATSBY_GOOGLE_API_KEY}>
-        <GoogleMap options={options} zoom={14} center={location} mapContainerStyle={mapContainerStyles}>
-          <Marker animation={2} position={geoLocation} />
-        </GoogleMap>
-      </LoadScript>
-    </section>
+    <>
+      {isLoaded ? (
+        <section styles={{ minHeight: '550px' }} {...rest}>
+          <GoogleMap options={options} zoom={14} center={location} mapContainerStyle={mapContainerStyles}>
+            <Marker animation={2} position={geoLocation} />
+          </GoogleMap>
+        </section>
+      ) : (
+        <div styles={{ minHeight: '550px' }}>
+          <Spinner />
+        </div>
+      )}
+    </>
   );
 };
 
