@@ -5,7 +5,7 @@ module.exports = {
     './src/components/**/*.{js,jsx,ts,tsx}',
     './src/primitives /**/*.{js,jsx,ts,tsx}',
     './src/templates/**/*.{js,jsx,ts,tsx}',
-    './src/global/**/*.{js,jsx,ts,tsx}',
+    './src/global/**/*.{jsx,tsx}',
   ],
   darkMode: false, // or 'media' or 'class'
   theme: {
