@@ -1,5 +1,4 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 import BlockContent from '@sanity/block-content-to-react';
 
 const serializers = {
@@ -10,8 +9,12 @@ const serializers = {
       </pre>
     ),
     block: (props) => (
-      <p className="prose truncate" data-language={props.node.language}>
-        <span>{props.children}</span>
+      <p
+        style={{ overflowWrap: 'break-word' }}
+        className="flex flex-wrap overflow-ellipsis "
+        data-language={props.node.language}
+      >
+        {props.children}
       </p>
     ),
   },
