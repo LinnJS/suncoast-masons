@@ -3,24 +3,24 @@ import BlockContent from '@sanity/block-content-to-react';
 
 const serializers = {
   types: {
-    code: (props) => (
-      <pre data-language={props.node.language}>
-        <code>{props.node.code}</code>
+    code: ({ node }) => (
+      <pre data-language={node.language}>
+        <code>{node.code}</code>
       </pre>
     ),
-    block: (props) => (
-      <p
-        style={{ overflowWrap: 'break-word' }}
-        className="flex flex-wrap overflow-ellipsis "
-        data-language={props.node.language}
-      >
-        {props.children}
-      </p>
-    ),
+    block: ({ children, node }) => {
+      return (
+        <p className="my-1 truncate" data-language={node.language}>
+          {children}
+        </p>
+      );
+    },
   },
 };
 
 const TWBlockContent = (props) => {
+  console.log('props: ', props);
+
   return (
     <BlockContent
       {...props}

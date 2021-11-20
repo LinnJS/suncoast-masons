@@ -51,13 +51,13 @@ const LandingPage = ({ data: { articlesSortedByPublishedDate } }) => {
     <ArticleGrid>
       {articles.map(({ id, title, body, slug, mainImage }) => {
         return (
-          <Card className="flex-col overflow-hidden truncate card h-96 lg:mb-5 lg:p-4" key={id}>
-            <div className="truncate">
+          <Card className="box-border overflow-hidden h-96 card" key={id}>
+            <div className="">
               <Link to={`article/${slug.current}`}>
                 <h3 className="mb-2">{title}</h3>
               </Link>
 
-              <TWBlockContent className="" blocks={body} />
+              <TWBlockContent className="box-content" blocks={body} />
             </div>
 
             {mainImage && <Img className="mt-4 max-h-60" image={mainImage.asset.gatsbyImageData} alt={mainImage.alt} />}
