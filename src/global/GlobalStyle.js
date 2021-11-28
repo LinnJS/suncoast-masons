@@ -1,7 +1,7 @@
 // external imports
 import tw from 'twin.macro';
 import { createGlobalStyle } from 'styled-components';
-import devices from 'utils/devices';
+import devices from '../utils/devices';
 
 // internal imports
 import bg from '../assets/svgs/bg.svg';

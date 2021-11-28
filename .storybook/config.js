@@ -4,7 +4,6 @@ import { action } from '@storybook/addon-actions';
 import styled, { ThemeProvider } from 'styled-components';
 
 import GlobalStyle from '../src/global/GlobalStyle';
-import theme from '../src/global/theme';
 
 const Wrapper = styled(ThemeProvider)`
   display: flex;
@@ -12,13 +11,8 @@ const Wrapper = styled(ThemeProvider)`
   justify-content: center;
 `;
 
-const defaultTheme = {
-  name: 'DEFAULT',
-  light: theme,
-};
-
 const Decorator = (storyFn) => (
-  <Wrapper theme={theme.light}>
+  <Wrapper>
     <GlobalStyle />
     {storyFn()}
   </Wrapper>
