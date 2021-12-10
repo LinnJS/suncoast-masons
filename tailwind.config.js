@@ -1,5 +1,5 @@
 module.exports = {
-  purge: [
+  content: [
     './public/**/*.{js,jsx,ts,tsx}',
     './src/pages/**/*.{js,jsx,ts,tsx}',
     './src/components/**/*.{js,jsx,ts,tsx}',
@@ -7,7 +7,6 @@ module.exports = {
     './src/templates/**/*.{js,jsx,ts,tsx}',
     './src/global/**/*.{jsx,tsx}',
   ],
-  darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
       minHeight: {
