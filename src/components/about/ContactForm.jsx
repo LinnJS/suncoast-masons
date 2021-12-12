@@ -12,10 +12,10 @@ const ContactForm = ({ ...rest }) => {
   console.log({ errors });
 
   return (
-    <section {...rest}>
+    <section className="mt-8" {...rest}>
       {/* Contact form */}
-      <div className="px-6 py-10 sm:px-10 lg:col-span-2 xl:p-12">
-        <h3 className="text-lg font-medium text-stone-900">Send us a message</h3>
+      <div className="lg:col-span-2">
+        <h2 className="text-lg font-medium text-stone-900">Send us a message</h2>
 
         {/* form */}
         <form
@@ -174,7 +174,7 @@ const ContactForm = ({ ...rest }) => {
           <div className="sm:col-span-2 sm:flex sm:justify-end">
             <button
               type="submit"
-              className="inline-flex items-center justify-center w-full px-6 py-3 mt-2 text-base font-medium text-white bg-blue-500 border border-transparent rounded-md shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:w-auto"
+              className="inline-flex items-center justify-center w-full px-6 py-3 mt-2 text-base font-medium text-white bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:w-auto"
             >
               Submit
             </button>
