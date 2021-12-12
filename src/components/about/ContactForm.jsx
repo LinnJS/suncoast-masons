@@ -1,15 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 const ContactForm = ({ ...rest }) => {
+  const [serverResponse, setServerResponse] = useState(``);
+  console.log('serverResponse: ', serverResponse);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = async (data) => console.log('formData: ', data);
-  console.log({ errors });
+  const onSubmit = async (data) => {
+    const response = await window
+      .fetch(`/api/contact-form`, {
+        method: `POST`,
+        headers: {
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+      .then((res) => res.json());
+    setServerResponse(response);
+  };
 
   return (
     <section className="mt-8" {...rest}>
