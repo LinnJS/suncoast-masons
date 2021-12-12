@@ -7,6 +7,7 @@ import { graphql } from 'gatsby';
 
 // internal imports
 import GavelRules from 'components/about/GavelRules';
+import ContactForm from 'components/about/ContactForm';
 
 export const query = graphql`
   query AboutQuery {
@@ -103,6 +104,8 @@ const AboutPage = ({ data: { byLaws, forms } }) => {
       </section>
 
       <GavelRules />
+
+      <ContactForm />
     </AboutContainer>
   );
 };

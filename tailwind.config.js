@@ -28,5 +28,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: ['macros', require('@tailwindcss/typography')],
+  plugins: ['macros', require('@tailwindcss/typography'), require('@tailwindcss/forms')],
 };
