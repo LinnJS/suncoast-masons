@@ -6,13 +6,23 @@ export default function contactFormHandler(req, res) {
   const { firstName, lastName, email, phone, subject, message } = req.body;
 
   client
-    .sendEmail({
+    .sendEmailWithTemplate({
       From: 'hello@typeworks.io',
       To: 'justin@typeworks.io',
-      Subject: subject,
-      HtmlBody: `<strong>Hello ${firstName}</strong> dear Suncoast Masons website user. <br> ${message} <br> ${firstName} ${lastName} <br> ${email} <br> ${phone}`,
-      TextBody: message,
+      TemplateAlias: 'contact-form',
       MessageStream: 'contact-form',
+      TemplateModel: {
+        product_url: 'suncoastmasons.com',
+        product_name: 'Suncoast Masons Website',
+        subject,
+        message,
+        first_name: firstName,
+        last_name: lastName,
+        email,
+        phone,
+        company_name: 'Suncoast Masons',
+        company_address: '705 South Hercules Avenue ClearwaterFL 33764-6317',
+      },
     })
     .then(() => {
       return (
@@ -24,6 +34,7 @@ export default function contactFormHandler(req, res) {
       );
     })
     .catch((err) => {
+      console.log('err: ', err);
       return res.status(500) && res.json({ success: false, message: err });
     });
 }
