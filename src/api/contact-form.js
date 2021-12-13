@@ -26,9 +26,9 @@ export default function contactFormHandler(req, res) {
 
   try {
     return (
-      res.status(200) &&
+      res.status(500) &&
       res.json({
-        success: true,
+        success: false,
         message: 'Email sent!',
       })
     );

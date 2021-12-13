@@ -15,7 +15,7 @@ export const Spinner = ({ theme = 'dark', ...rest }) => {
           />
         </svg>
 
-        <div css={theme === 'dark' ? tw`text-black` : tw`text-white`}>Loading ...</div>
+        <div css={[theme === 'dark' ? tw`text-black` : tw`text-white`]}>Loading ...</div>
       </div>
     </div>
   );
