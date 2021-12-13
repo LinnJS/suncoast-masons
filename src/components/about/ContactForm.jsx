@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
+import { SubmitButton } from 'primitives';
+
 const ContactForm = ({ ...rest }) => {
-  const [serverResponse, setServerResponse] = useState(``);
-  console.log('serverResponse: ', serverResponse);
+  const [serverResponse, setServerResponse] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -11,16 +14,23 @@ const ContactForm = ({ ...rest }) => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    const response = await window
-      .fetch(`/api/contact-form`, {
-        method: `POST`,
-        headers: {
-          'content-type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      })
-      .then((res) => res.json());
-    setServerResponse(response);
+    setIsLoading(true);
+    const response = await fetch(`/api/contact-form`, {
+      method: `POST`,
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+
+    try {
+      const json = await response.json();
+      console.log('json: ', json);
+      setServerResponse(json);
+      setIsLoading(false);
+    } catch (error) {
+      console.log('error: ', error);
+    }
   };
 
   return (
@@ -184,12 +194,7 @@ const ContactForm = ({ ...rest }) => {
 
           {/* submit */}
           <div className="sm:col-span-2 sm:flex sm:justify-end">
-            <button
-              type="submit"
-              className="inline-flex items-center justify-center w-full px-6 py-3 mt-2 text-base font-medium text-white bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:w-auto"
-            >
-              Submit
-            </button>
+            <SubmitButton isLoading={isLoading} success={serverResponse?.success} />
           </div>
         </form>
       </div>
