@@ -11,7 +11,7 @@
   Gatsby starter that uses all the extras to get you up and running with scalable architecture, and workflow as fast as possible.
 </p>
 
-##  What's inside?
+## What's inside?
 
 - Gatsby (v2)
 - Storybook (v5)
@@ -23,6 +23,7 @@
 - React to SVG Generator
 
 ## Quick start
+
 ```bash
 $ gatsby new my-awesome-site https://github.com/LinnJS/gatsby-scalable-starter
 
@@ -42,13 +43,14 @@ You are welcome to come up with other solutions, but we typically do this:
 
 ## How to work via styles?
 
- `styled-components` (https://www.styled-components.com/).
- 
- ### How to theme with styled-components?
-  - There is a theme object located in the globals directory, this is where styled are declared
-  - ThemeProvider is located in Layout where theme is passed to all child styled-components
- 
-  `ThemeProvider` (https://www.styled-components.com/docs/api#themeprovider).
+`styled-components` (https://www.styled-components.com/).
+
+### How to theme with styled-components?
+
+- There is a theme object located in the globals directory, this is where styled are declared
+- ThemeProvider is located in Layout where theme is passed to all child styled-components
+
+`ThemeProvider` (https://www.styled-components.com/docs/api#themeprovider).
 
 ## Deploy
 
