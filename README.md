@@ -1,60 +1,77 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="./src/assets/images/gatsby-tech.png" width="400" />
-  </a>
-</p>
+# Turborepo starter
 
-<h1 align="center">
-  Gatsby Scalable Starter
-</h1>
-<p align="center">
-  Gatsby starter that uses all the extras to get you up and running with scalable architecture, and workflow as fast as possible.
-</p>
+This is an official Yarn v1 starter turborepo.
 
-##  What's inside?
+## What's inside?
 
-- Gatsby (v2)
-- Storybook (v5)
-- Styled Components with Theming (v4)
-- Styled Reset (Advanced)
-- Netlify Config
-- ESLint (Standard)
-- Prettier
-- React to SVG Generator
+This turborepo uses [Yarn](https://classic.yarnpkg.com/lang/en/) as a package manager. It includes the following packages/apps:
 
-## Quick start
-```bash
-$ gatsby new my-awesome-site https://github.com/LinnJS/gatsby-scalable-starter
+### Apps and Packages
 
-$ cd my-awesome-site
-$ yarn start || yarn develop
+- `docs`: a [Next.js](https://nextjs.org) app
+- `web`: another [Next.js](https://nextjs.org) app
+- `ui`: a stub React component library shared by both `web` and `docs` applications
+- `config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
+- `tsconfig`: `tsconfig.json`s used throughout the monorepo
+
+Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+
+### Utilities
+
+This turborepo has some additional tools already setup for you:
+
+- [TypeScript](https://www.typescriptlang.org/) for static type checking
+- [ESLint](https://eslint.org/) for code linting
+- [Prettier](https://prettier.io) for code formatting
+
+## Setup
+
+This repository is used in the `npx create-turbo` command, and selected when choosing which package manager you wish to use with your monorepo (Yarn).
+
+### Build
+
+To build all apps and packages, run the following command:
+
+```
+cd my-turborepo
+yarn run build
 ```
 
-## Details
+### Develop
 
-## How to work with `svg`s
+To develop all apps and packages, run the following command:
 
-You are welcome to come up with other solutions, but we typically do this:
+```
+cd my-turborepo
+yarn run dev
+```
 
-1. `npm install -g svg-to-react-cli` (https://www.npmjs.com/package/svg-to-react-cli)
-2. Navigate to the directory where there is your svg (e.g. `example.svg`)
-3. Run `svgtoreact example Example`, this then creates `Example.js` (the React component for the svg). You can then import this component like any other React commponent.
+### Remote Caching
 
-## How to work via styles?
+Turborepo can use a technique known as [Remote Caching (Beta)](https://turborepo.org/docs/features/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
 
- `styled-components` (https://www.styled-components.com/).
- 
- ### How to theme with styled-components?
-  - There is a theme object located in the globals directory, this is where styled are declared
-  - ThemeProvider is located in Layout where theme is passed to all child styled-components
- 
-  `ThemeProvider` (https://www.styled-components.com/docs/api#themeprovider).
+By default, Turborepo will cache locally. To enable Remote Caching (Beta) you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
 
-## Deploy
+```
+cd my-turborepo
+npx turbo login
+```
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/markoradak/gatsby-starter-storybook)
+This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
 
-## License
+Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your turborepo:
 
-Licensed under the MIT License.  
-See [license](LICENSE) for more information.
+```
+npx turbo link
+```
+
+## Useful Links
+
+Learn more about the power of Turborepo:
+
+- [Pipelines](https://turborepo.org/docs/features/pipelines)
+- [Caching](https://turborepo.org/docs/features/caching)
+- [Remote Caching (Beta)](https://turborepo.org/docs/features/remote-caching)
+- [Scoped Tasks](https://turborepo.org/docs/features/scopes)
+- [Configuration Options](https://turborepo.org/docs/reference/configuration)
+- [CLI Usage](https://turborepo.org/docs/reference/command-line-reference)
