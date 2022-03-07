@@ -1,0 +1,60 @@
+{
+  "name": "suncoast-masons-cms",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "package.json",
+  "author": "TypeWorks <hellotypeworks@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "sanity start",
+    "build": "sanity build",
+    "deploy": "sanity deploy",
+    "deploy:graphql": "sanity graphql deploy",
+    "deploy:all": "yarn deploy && yarn deploy:graphql",
+    "lint": "eslint src -c .eslintrc.js --ext js,jsx",
+    "lint:fix": "eslint src -c .eslintrc.js --fix --ext js,jsx",
+    "prepare": "husky install"
+  },
+  "keywords": [
+    "sanity"
+  ],
+  "dependencies": {
+    "@sanity/base": "^2.27.2",
+    "@sanity/components": "^2.14.0",
+    "@sanity/core": "^2.27.0",
+    "@sanity/dashboard": "^2.27.2",
+    "@sanity/default-layout": "^2.27.2",
+    "@sanity/default-login": "^2.27.0",
+    "@sanity/desk-tool": "^2.27.3",
+    "@sanity/google-maps-input": "^2.27.2",
+    "@sanity/vision": "^2.27.2",
+    "dotenv": "^16.0.0",
+    "prop-types": "^15.8.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-icons": "^4.2.0",
+    "sanity-plugin-dashboard-widget-gatsby": "^1.0.9",
+    "styled-components": "^5.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.10.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-html": "^6.1.2",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.29.3",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-standard": "^5.0.0",
+    "husky": "^7.0.0",
+    "lint-staged": ">=12.3.5",
+    "prettier": "2.5.1"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": "eslint --cache --fix"
+  }
+}
